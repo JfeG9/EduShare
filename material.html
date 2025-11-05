@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduShare – Verificación</title>
+  
+  <!-- Tu base CSS -->
+  <link rel="stylesheet" href="../css/style_base.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpk.com/lucide@latest"></script>
+
+  <!-- ESTILOS ESPECÍFICOS (100% IGUAL AL MOCKUP) -->
+  <style>
+    /* =====================================
+       HEADER – EXACTO AL MOCKUP
+       ===================================== */
+    .topbar {
+      background: #2C669A;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      height: 70px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-section i {
+      width: 28px;
+      height: 28px;
+      stroke: #77E6C8;
+      cursor: pointer;
+    }
+
+    .logo-section img {
+      height: 48px;
+    }
+
+    .logo-section span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #77E6C8;
+    }
+
+    .user-section {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-weight: 500;
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2C669A;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .user-profile span {
+      color: white;
+    }
+
+    .top-icons {
+      display: flex;
+      gap: 18px;
+    }
+
+    .top-icons i {
+      width: 26px;
+      height: 26px;
+      stroke: #77E6C8;
+      cursor: pointer;
+      transition: stroke 0.2s;
+    }
+
+    .top-icons i:hover {
+      stroke: white;
+    }
+
+    /* =====================================
+       CONTENIDO – VERIFICACIÓN
+       ===================================== */
+    .verify-container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .verify-title {
+      background: #f8f9fa;
+      padding: 1.8rem 2.5rem;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #2C669A;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .verify-content {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 2.5rem;
+      padding: 2.5rem;
+    }
+
+    /* IZQUIERDA */
+    .preview-card {
+      text-align: center;
+    }
+
+    .preview-box {
+      background: #17A2B8;
+      height: 300px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .preview-icon {
+      width: 180px;
+      height: 180px;
+      stroke: white;
+      stroke-width: 1.8;
+    }
+
+    .file-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2C669A;
+      margin-bottom: 6px;
+    }
+
+    .file-hint {
+      font-size: 0.95rem;
+      color: #6c757d;
+      margin-bottom: 1.5rem;
+    }
+
+    /* DERECHA */
+    .analysis-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .analysis-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .analysis-header h2 {
+      font-size: 1.3rem;
+      color: #2C669A;
+      font-weight: 600;
+    }
+
+    .btn-analyze {
+      background: #77BBE6;
+      color: #000;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .progress-container {
+      height: 6px;
+      background: #e9ecef;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #77BBE6;
+      width: 35%;
+      border-radius: 3px;
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .results-table th {
+      background: #f8f9fa;
+      text-align: left;
+      padding: 0.9rem 1rem;
+      color: #2C669A;
+      font-weight: 600;
+      border-bottom: 2px solid #2C669A;
+    }
+
+    .results-table td {
+      padding: 0.9rem 1rem;
+      color: #555;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .loading {
+      color: #adb5bd;
+      font-style: italic;
+    }
+
+    /* BOTONES FINALES */
+    .action-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.8rem 2.5rem;
+      background: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+    }
+
+    .btn-cancel {
+      background: transparent;
+      color: #6c757d;
+      border: 1px solid #ced4da;
+      padding: 0.75rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background: #77BBE6;
+      color: #000;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .verify-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+      .preview-box { height: 240px; }
+      .preview-icon { width: 140px; height: 140px; }
+      .action-footer { flex-direction: column; gap: 1rem; }
+      .btn-cancel, .btn-submit { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER – 100% IGUAL AL MOCKUP -->
+  <header class="topbar">
+    <div class="logo-section">
+      <i data-lucide="menu"></i>
+      <img src="../asset/Logo.png" alt="EduShare">
+      <span>EduShare</span>
+    </div>
+
+    <div class="user-section">
+      <div class="top-icons">
+        <i data-lucide="download"></i>
+        <i data-lucide="calendar-days"></i>
+        <i data-lucide="bell"></i>
+        <i data-lucide="settings"></i>
+      </div>
+      <div class="user-profile">
+        <div class="user-avatar">L</div>
+        <span>LupeCR9</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="content">
+    <div class="verify-container">
+      <!-- TÍTULO -->
+      <div class="verify-title">Verificación del archivo</div>
+
+      <!-- GRID -->
+      <div class="verify-content">
+        <!-- IZQUIERDA -->
+        <div class="preview-card">
+          <div class="preview-box">
+            <i data-lucide="image" class="preview-icon"></i>
+          </div>
+          <div class="file-name">Base de Datos_TrabajoFinal</div>
+          <div class="file-hint">Vista previa del contenido</div>
+          <button class="btn" style="width:100%; margin-top:1.2rem; background:#77BBE6; color:#000;">
+            <i data-lucide="upload"></i> Subir archivo
+          </button>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="analysis-card">
+          <div class="analysis-header">
+            <h2>Analizando archivo</h2>
+            <button class="btn-analyze">Analizar</button>
+          </div>
+
+          <div class="progress-container">
+            <div class="progress-fill"></div>
+          </div>
+
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Resultado</th>
+                <th>Estado</th>
+                <th>Recomendaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Carga del archivo</td>
+                <td class="loading">Cargando...</td>
+                <td class="loading">Cargando...</td>
+              </tr>
+              <tr>
+                <td>Verificación del formato aprobado</td>
+                <td class="loading">Cargando...</td>
+                <td class="loading">Cargando...</td>
+              </tr>
+              <tr>
+                <td>Verificación de material duplicado</td>
+                <td class="loading">Cargando...</td>
+                <td class="loading">Cargando...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- BOTONES FINALES -->
+      <div class="action-footer">
+        <button class="btn-cancel">Salir</button>
+        <button class="btn-submit">Subir archivo</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer"></footer>
+
+  <!-- Lucide -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
