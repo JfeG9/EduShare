@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #dfdadafa;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/*---Barra superior---*/
+.topbar {
+  background: #2C669A;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/*--BS-- Usuario iconos--*/
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff22;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.user-info svg {
+  width: 20px;
+  height: 20px;
+  stroke: #fff;
+}
+
+.user-info span {
+  color: #fff;
+  font-weight: 500;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icons svg {
+  width: 24px;
+  height: 24px;
+  stroke: #77E6C8;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: stroke 0.2s;
+}
+
+.icons svg:hover {
+  stroke: #fff;
+}
+
+/* ---Contenido de la pestaña---*/
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #F8FAFB;
+}
+
+/*---Título principal---*/
+.titulo {
+  text-align: center;
+  font-size: 36px; 
+  font-weight: 700;
+  margin-bottom: 40px; 
+}
+
+/*---Contenedor principal---*/
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/*---Tarjetas---*/
+.card {
+  background: #fff;
+  border-radius: 16px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  padding: 30px; 
+  width: 360px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/*---Progreso---*/
+.progress-bar {
+  background: #dcdcdc;
+  border-radius: 12px;
+  width: 100%;
+  height: 12px; 
+  overflow: hidden;
+}
+
+.progress {
+  background: #77BBE6;
+  height: 12px;
+  border-radius: 12px;
+}
+
+/*---Usuario e iconos---*/
+.user-icon {
+  width: 110px; 
+  height: 110px;
+}
+
+.achievement-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px; 
+}
+
+.achievement-icons svg {
+  stroke: #2C669A;
+  width: 36px;
+  height: 36px;
+}
+
+/*---Misiones---*/
+.mission {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  align-self: flex-start;
+}
+
+.mission svg {
+  width: 30px; 
+  height: 30px;
+}
+
+/*---Ranking---*/
+.ranking li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px; 
+  border-radius: 12px; 
+}
+
+.pos {
+  color: #2C669A;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.score {
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/*---Barra inferior---*/
+.footer {
+  background: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 30px;
+  height: 70px;
+  border-top: 1px solid #000;
+}
+
+/*---Botones---*/
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  background: #77BBE6;
+  color: #000;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #9BD3F0;
+}
