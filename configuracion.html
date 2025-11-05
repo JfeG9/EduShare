@@ -1,241 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Perfil · Apariencia (solo HTML+CSS)</title>
-<style>
-/* ========= Paleta (como la captura) ========= */
-:root{
-  --brand-600:#2b6da6;   /* barra superior */
-  --brand-400:#5aa0d7;   /* encabezados tarjeta */
-  --bg-100:#e9e2db;      /* fondo arena */
-  --surface:#ffffff;
-  --text-900:#1c252f;
-  --text-700:#435365;
-  --muted-200:#dfe6ee;
-  --muted-300:#cfd9e4;
-  --ring:#8bbbe5;
-
-  --radius:12px;
-  --shadow:0 6px 20px rgba(28,37,47,.08);
-  --container:1080px;
-
-  --pv-font:16px;     /* se actualiza visualmente con radios */
-  --pv-line:1.55;
-  --pv-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,sans-serif;
-  --pv-bg:var(--surface);
-  --pv-fg:var(--text-900);
-  --pv-border:var(--muted-300);
-}
-
-/* ========= Modo oscuro de PREVIEW (CSS-only, no JS) ========= */
-.panel:has(#theme-dark:checked) {
-  --pv-bg:#0f141a;
-  --pv-fg:#e9eef5;
-  --pv-border:#233041;
-}
-
-/* Tipografías en preview */
-.panel:has(#ff-inter:checked) { --pv-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif; }
-.panel:has(#ff-roboto:checked){ --pv-family: Roboto,system-ui,-apple-system,Segoe UI,Ubuntu,Inter,sans-serif; }
-.panel:has(#ff-sistema:checked){ --pv-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,sans-serif; }
-
-/* Tamaños en preview */
-.panel:has(#fs-s:checked){ --pv-font:14px; }
-.panel:has(#fs-m:checked){ --pv-font:16px; }
-.panel:has(#fs-l:checked){ --pv-font:18px; }
-.panel:has(#fs-xl:checked){ --pv-font:20px; }
-
-/* Ancho del contenido de preview */
-.preview-wrap{max-width:720px; margin-inline:auto}
-.panel:has(#cw-narrow:checked) .preview-wrap{max-width:780px}
-.panel:has(#cw-normal:checked) .preview-wrap{max-width:960px}
-.panel:has(#cw-wide:checked)   .preview-wrap{max-width:1160px}
-
-/* Alto contraste (sube contraste de bordes/textos en preview) */
-.panel:has(#hc-on:checked){
-  --pv-fg:black; --pv-border:#6fb0e6;
-}
-
-/* Reducir animaciones (solo afecta la preview) */
-.preview *{transition: all .16s ease}
-.panel:has(#rm-on:checked) .preview *{transition: none}
-
-/* ========= Base de la página ========= */
-html{font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,sans-serif;}
-body{
-  margin:0; color:var(--text-900); background:var(--bg-100);
-}
-
-/* Topbar */
-.topbar{background:var(--brand-600); color:#fff; position:sticky; top:0; z-index:10}
-.topbar .inner{
-  max-width:var(--container); margin:auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px;
-}
-.brand{display:flex; align-items:center; gap:10px; font-weight:700}
-.brand .dot{width:22px; height:22px; border-radius:50%; background:#fff; opacity:.9}
-.userchip{display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.12); padding:8px 12px; border-radius:999px}
-
-/* Layout */
-.wrap{max-width:var(--container); margin:28px auto; padding:0 20px}
-.title{font-size:clamp(22px,2.6vw,32px); font-weight:800; margin:10px 0 18px}
-.grid{display:grid; grid-template-columns:280px 1fr; gap:22px}
-@media (max-width:900px){ .grid{grid-template-columns:1fr} }
-
-/* Tarjetas */
-.card{
-  background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow);
-  border:1px solid var(--muted-200); overflow:hidden;
-}
-.card-head{
-  background:var(--brand-400); color:#fff; padding:12px 16px; font-weight:700;
-  border-bottom:1px solid var(--muted-300);
-}
-.card-body{padding:18px}
-.nav .item{
-  background:#fff; border:1px solid var(--muted-200); border-radius:10px; padding:12px 14px; margin:10px 16px;
-}
-
-/* Formulario visual */
-.form{display:grid; gap:18px}
-.group{display:grid; gap:10px}
-.group legend{
-  font-weight:700; color:#fff; background:var(--brand-400);
-  padding:10px 12px; border-radius:10px;
-}
-.row{display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center}
-label.opt{
-  display:inline-flex; align-items:center; gap:8px;
-  background:#fff; border:1px solid var(--muted-200); padding:10px 12px; border-radius:10px; cursor:pointer;
-}
-input[type="radio"], input[type="checkbox"]{accent-color:var(--brand-600)}
-
-/* Preview */
-.preview{
-  margin-top:6px; border:1px dashed var(--pv-border); border-radius:12px; background:var(--pv-bg); color:var(--pv-fg);
-  padding:18px;
-}
-.preview h4{margin:8px 0 6px; font-size:clamp(18px,2vw,22px)}
-.preview p{margin:8px 0}
-.preview .chip{
-  display:inline-block; padding:6px 10px; border:1px solid var(--pv-border); border-radius:999px;
-  font-size:.9rem;
-}
-.preview .card-sample{
-  border:1px solid var(--pv-border); border-radius:10px; padding:12px; margin-top:10px;
-  background:color-mix(in srgb, var(--pv-bg) 92%, #fff 8%);
-}
-
-/* Vista previa hereda tipografía/tamaño desde variables del panel */
-.preview .content{
-  font-family:var(--pv-family); font-size:var(--pv-font); line-height:var(--pv-line);
-}
-
-/* Footer visual */
-.footerbar{display:flex; gap:10px; justify-content:flex-end; padding:14px 16px; background:rgba(0,0,0,.02); border-top:1px solid var(--muted-200)}
-.btn{border:1px solid var(--muted-200); background:#fff; padding:10px 12px; border-radius:10px}
-.btn.primary{background:var(--brand-600); color:#fff; border-color:transparent}
-
-/* Nota */
-.note{font-size:.92rem; color:var(--text-700)}
-</style>
-</head>
-<body>
-  <!-- Barra superior -->
-  <header class="topbar">
-    <div class="inner">
-      <div class="brand"><span class="dot" aria-hidden="true"></span> EduShare</div>
-      <div class="userchip"><span aria-hidden="true">👤</span><strong>Juan</strong></div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <h1 class="title">Opciones de perfil · Apariencia</h1>
-
-    <div class="grid panel">
-      <!-- Navegación lateral -->
-      <aside class="card nav" aria-label="Navegación de perfil">
-        <div class="card-head">Navegación</div>
-        <div class="card-body">
-          <div class="item">Información personal</div>
-          <div class="item">Seguridad y acceso</div>
-          <div class="item">Notificaciones</div>
-          <div class="item" style="border-color:var(--brand-600)">Apariencia</div>
-        </div>
-      </aside>
-
-      <!-- Panel de apariencia (solo visual + CSS :has) -->
-      <section class="card">
-        <div class="card-head">Apariencia</div>
-        <div class="card-body form">
-          <fieldset class="group">
-            <legend>Modo</legend>
-            <div class="row">
-              <label class="opt"><input type="radio" name="theme" id="theme-light" checked> Claro</label>
-              <label class="opt"><input type="radio" name="theme" id="theme-dark"> Oscuro</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="group">
-            <legend>Tamaño de letra</legend>
-            <div class="row">
-              <label class="opt"><input type="radio" name="fs" id="fs-s"> S</label>
-              <label class="opt"><input type="radio" name="fs" id="fs-m" checked> M</label>
-              <label class="opt"><input type="radio" name="fs" id="fs-l"> L</label>
-              <label class="opt"><input type="radio" name="fs" id="fs-xl"> XL</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="group">
-            <legend>Tipografía</legend>
-            <div class="row">
-              <label class="opt"><input type="radio" name="ff" id="ff-sistema" checked> Sistema</label>
-              <label class="opt"><input type="radio" name="ff" id="ff-inter"> Inter</label>
-              <label class="opt"><input type="radio" name="ff" id="ff-roboto"> Roboto</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="group">
-            <legend>Ancho del contenido</legend>
-            <div class="row">
-              <label class="opt"><input type="radio" name="cw" id="cw-narrow"> Estrecho</label>
-              <label class="opt"><input type="radio" name="cw" id="cw-normal" checked> Normal</label>
-              <label class="opt"><input type="radio" name="cw" id="cw-wide"> Ancho</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="group">
-            <legend>Accesibilidad</legend>
-            <div class="row">
-              <label class="opt"><input type="checkbox" id="hc-on"> Alto contraste</label>
-              <label class="opt"><input type="checkbox" id="rm-on"> Reducir animaciones</label>
-            </div>
-          </fieldset>
-
-          <p class="note">Este diseño es solo visual. Las opciones afectan la vista previa mediante CSS, sin JavaScript.</p>
-
-          <!-- Vista previa (afectada por las opciones con :has) -->
-          <div class="preview">
-            <div class="preview-wrap">
-              <div class="content">
-                <h4>Vista previa</h4>
-                <p>Así se verá tu contenido con la configuración actual. Prueba el modo oscuro, cambia el tamaño de letra o la tipografía y observa el resultado aquí.</p>
-                <div class="card-sample">
-                  <strong>Título de tarjeta</strong>
-                  <p>Un párrafo de ejemplo con <span class="chip">etiquetas</span> y bordes de la interfaz.</p>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="css/configuracion.css" />
+        <title>EduShare - Perfil</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="inner">
+                <div class="brand">
+                    <span class="dot" aria-hidden="true"></span> EduShare
                 </div>
-              </div>
+                <div class="userchip">
+                    <span aria-hidden="true">👤</span><strong>Juan</strong>
+                </div>
             </div>
-          </div>
-        </div>
+        </header>
 
-        <div class="footerbar">
-          <button class="btn">Restablecer</button>
-          <button class="btn primary">Guardar</button>
+        <div class="wrap">
+            <h1 class="title">Opciones de perfil · Apariencia</h1>
+
+            <div class="grid">
+                <aside class="card nav" aria-label="Navegación de perfil">
+                    <div class="card-head">Navegación</div>
+                    <div class="card-body">
+                        <div class="item">Información personal</div>
+                        <div class="item">Seguridad y acceso</div>
+                        <div class="item">Notificaciones</div>
+                        <div
+                            class="item"
+                            style="border-color: var(--brand-600)"
+                        >
+                            Apariencia
+                        </div>
+                    </div>
+                </aside>
+
+                <section class="card">
+                    <div class="card-head">Apariencia</div>
+                    <div class="card-body form">
+                        <fieldset class="group">
+                            <legend>Modo</legend>
+                            <div class="row">
+                                <span class="opt">Claro</span>
+                                <span class="opt">Oscuro</span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="group">
+                            <legend>Tamaño de letra</legend>
+                            <div class="row">
+                                <span class="opt">S</span>
+                                <span class="opt">M</span>
+                                <span class="opt">L</span>
+                                <span class="opt">XL</span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="group">
+                            <legend>Tipografía</legend>
+                            <div class="row">
+                                <span class="opt">Sistema</span>
+                                <span class="opt">Inter</span>
+                                <span class="opt">Roboto</span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="group">
+                            <legend>Ancho del contenido</legend>
+                            <div class="row">
+                                <span class="opt">Estrecho</span>
+                                <span class="opt">Normal</span>
+                                <span class="opt">Ancho</span>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="group">
+                            <legend>Accesibilidad</legend>
+                            <div class="row">
+                                <span class="opt">Alto contraste</span>
+                                <span class="opt">Reducir animaciones</span>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="footerbar">
+                        <button class="btn">Restablecer</button>
+                        <button class="btn primary">Guardar</button>
+                    </div>
+                </section>
+            </div>
         </div>
-      </section>
-    </div>
-  </main>
-</body>
+    </body>
 </html>
