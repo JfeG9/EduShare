@@ -12,7 +12,7 @@ body {
   height: 100vh;
 }
 
-/*---Barra superior---*/
+
 .topbar {
   background: #2C669A;
   color: white;
@@ -33,7 +33,6 @@ body {
   height: 50px;
 }
 
-/*--BS-- Usuario iconos--*/
 .user-section {
   display: flex;
   align-items: center;
@@ -79,14 +78,12 @@ body {
   stroke: #fff;
 }
 
-/* ---Contenido de la pestaña---*/
 .content {
   flex: 1;
   padding: 20px;
   background: #F8FAFB;
 }
 
-/* ---Historial de Materiales--- */
 .historial-container {
   background: #fff;
   border-radius: 10px;
@@ -171,7 +168,6 @@ body {
   justify-content: center;
 }
 
-/* ---Modo móvil--- */
 @media (max-width: 768px) {
 
   .content {
@@ -203,7 +199,6 @@ body {
   }
 }
 
-/*---Barra inferior---*/
 .footer {
   background: #fff;
   display: flex;
@@ -214,7 +209,6 @@ body {
   border-top: 1px solid #000;
 }
 
-/*---Botones---*/
 .btn {
   display: flex;
   align-items: center;

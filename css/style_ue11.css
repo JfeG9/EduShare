@@ -12,7 +12,7 @@ body {
   height: 100vh;
 }
 
-/*---Barra superior---*/
+
 .topbar {
   background: #2C669A;
   color: white;
@@ -33,7 +33,7 @@ body {
   height: 50px;
 }
 
-/*--BS-- Usuario iconos--*/
+
 .user-section {
   display: flex;
   align-items: center;
@@ -79,14 +79,14 @@ body {
   stroke: #fff;
 }
 
-/* ---Contenido de la pestaña---*/
+
 .content {
   flex: 1;
   padding: 20px;
   background: #F8FAFB;
 }
 
-/*---Título principal---*/
+
 .titulo {
   text-align: center;
   font-size: 36px; 
@@ -94,7 +94,7 @@ body {
   margin-bottom: 40px; 
 }
 
-/*---Contenedor principal---*/
+
 .cards-container {
   display: flex;
   justify-content: space-around;
@@ -102,7 +102,7 @@ body {
   gap: 40px;
 }
 
-/*---Tarjetas---*/
+
 .card {
   background: #fff;
   border-radius: 16px; 
@@ -116,7 +116,7 @@ body {
   text-align: center;
 }
 
-/*---Progreso---*/
+
 .progress-bar {
   background: #dcdcdc;
   border-radius: 12px;
@@ -131,7 +131,7 @@ body {
   border-radius: 12px;
 }
 
-/*---Usuario e iconos---*/
+
 .user-icon {
   width: 110px; 
   height: 110px;
@@ -149,7 +149,7 @@ body {
   height: 36px;
 }
 
-/*---Misiones---*/
+
 .mission {
   display: flex;
   align-items: center;
@@ -162,7 +162,7 @@ body {
   height: 30px;
 }
 
-/*---Ranking---*/
+
 .ranking li {
   display: flex;
   justify-content: space-between;
@@ -183,7 +183,7 @@ body {
   font-size: 18px;
 }
 
-/*---Barra inferior---*/
+
 .footer {
   background: #fff;
   display: flex;
@@ -194,7 +194,7 @@ body {
   border-top: 1px solid #000;
 }
 
-/*---Botones---*/
+
 .btn {
   display: flex;
   align-items: center;
