@@ -1,0 +1,76 @@
+/* ===== Base ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-direction:column;}
+.topbar{background:#2C669A;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 20px;height:64px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo img{height:36px;max-width:180px;object-fit:contain;display:block;}
+.ico{width:22px;height:22px;color:#77E6C8}
+.user-section{display:flex;align-items:center;gap:18px;}
+.user-info{display:flex;align-items:center;gap:8px;background:#ffffff22;padding:6px 12px;border-radius:20px;}
+.user-info span{color:#fff;font-weight:500;}
+.icons{display:flex;align-items:center;gap:12px;}
+.content{flex:1;padding:18px 18px 90px;}
+
+/* ===== Página ===== */
+.page{
+  max-width:1100px;margin:0 auto;background:#f9fafb;border:1px solid #d9e1ea;
+  border-radius:10px;padding:18px 22px 22px;box-shadow:0 1px 0 rgba(0,0,0,.02);
+}
+.title{font-size:32px;font-weight:800;margin:6px 4px 16px;}
+
+.grid{
+  display:grid;grid-template-columns:520px 1fr;gap:24px;align-items:start;
+}
+
+/* ===== Tarjetas ===== */
+.card{background:#fff;border:1px solid #d9e1ea;border-radius:10px;}
+.card.left{padding:16px;}
+.card.right{padding:0;}
+
+/* Preview de archivo */
+.file-preview{border:1px solid #cfd7e1;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:14px;}
+.file-thumb{
+  height:220px;border:1px solid #cfd7e1;border-radius:8px;background:#2a98a9;
+  display:flex;align-items:center;justify-content:center;
+}
+.thumb-ico{width:120px;height:120px;color:#fff;opacity:.95}
+.file-meta{padding:2px 4px 2px;}
+.file-name{font-weight:700;}
+.file-sub{font-size:12px;color:#6b7b8c;margin-top:2px;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:8px;
+  border:1px solid #b8c2cc;font-size:14px;cursor:pointer;background:#e7eef6;color:#0b2239;
+}
+.btn.light{margin-top:12px;background:#c9dff3;border-color:#a8cceb;}
+.btn.outline{width:100%;justify-content:flex-start;background:#fff;}
+.btn.primary{background:#77BBE6;border-color:#5aa7db;color:#0b2239;font-weight:700;padding:10px 24px;}
+.btn.ghost{background:#a7c4df;border-color:#8fb3d3;color:#0b2239;font-weight:600;padding:10px 24px;}
+
+/* Panel derecho */
+.panel-head{
+  background:#f3f6fa;border-bottom:1px solid #d9e1ea;border-radius:10px 10px 0 0;
+  padding:10px 14px;font-weight:700;
+}
+.panel-body{padding:14px;display:flex;flex-direction:column;gap:14px;}
+.loader{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0;}
+.small{font-size:12px;color:#6b7b8c}
+
+/* Spinner */
+.spinner{
+  width:34px;height:34px;border-radius:50%;
+  border:3px solid #cfe6f7;border-top-color:#5aa7db;animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Footer fijo */
+.footer{
+  position:fixed;left:0;right:0;bottom:0;height:64px;background:#fff;border-top:1px solid #d9e1ea;
+  display:flex;align-items:center;justify-content:space-between;padding:0 22px;
+}
+
+/* Responsive */
+@media (max-width:1024px){
+  .grid{grid-template-columns:1fr;gap:18px;}
+  .file-thumb{height:200px;}
+}
