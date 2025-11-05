@@ -1,4 +1,4 @@
-/* ===== Base ===== */
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
 body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-direction:column;}
 .topbar{background:#2C669A;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 20px;height:64px;}
@@ -11,7 +11,7 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
 .icons{display:flex;align-items:center;gap:12px;}
 .content{flex:1;padding:18px 18px 90px;}
 
-/* ===== Página ===== */
+
 .page{
   max-width:1100px;margin:0 auto;background:#f9fafb;border:1px solid #d9e1ea;
   border-radius:10px;padding:18px 22px 22px;box-shadow:0 1px 0 rgba(0,0,0,.02);
@@ -22,12 +22,12 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
   display:grid;grid-template-columns:520px 1fr;gap:24px;align-items:start;
 }
 
-/* ===== Tarjetas ===== */
+
 .card{background:#fff;border:1px solid #d9e1ea;border-radius:10px;}
 .card.left{padding:16px;}
 .card.right{padding:0;}
 
-/* Preview de archivo */
+
 .file-preview{border:1px solid #cfd7e1;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:14px;}
 .file-thumb{
   height:220px;border:1px solid #cfd7e1;border-radius:8px;background:#2a98a9;
@@ -47,7 +47,7 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
 .btn.primary{background:#77BBE6;border-color:#5aa7db;color:#0b2239;font-weight:700;padding:10px 24px;}
 .btn.ghost{background:#a7c4df;border-color:#8fb3d3;color:#0b2239;font-weight:600;padding:10px 24px;}
 
-/* Panel derecho */
+
 .panel-head{
   background:#f3f6fa;border-bottom:1px solid #d9e1ea;border-radius:10px 10px 0 0;
   padding:10px 14px;font-weight:700;
@@ -56,20 +56,20 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
 .loader{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0;}
 .small{font-size:12px;color:#6b7b8c}
 
-/* Spinner */
+
 .spinner{
   width:34px;height:34px;border-radius:50%;
   border:3px solid #cfe6f7;border-top-color:#5aa7db;animation:spin 1s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* Footer fijo */
+
 .footer{
   position:fixed;left:0;right:0;bottom:0;height:64px;background:#fff;border-top:1px solid #d9e1ea;
   display:flex;align-items:center;justify-content:space-between;padding:0 22px;
 }
 
-/* Responsive */
+
 @media (max-width:1024px){
   .grid{grid-template-columns:1fr;gap:18px;}
   .file-thumb{height:200px;}

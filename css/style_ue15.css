@@ -12,7 +12,6 @@ body {
   height: 100vh;
 }
 
-/*---Barra superior---*/
 .topbar {
   background: #2C669A;
   color: white;
@@ -33,7 +32,6 @@ body {
   height: 50px;
 }
 
-/*--BS-- Usuario iconos--*/
 .user-section {
   display: flex;
   align-items: center;
@@ -79,14 +77,12 @@ body {
   stroke: #fff;
 }
 
-/* ---Contenido de la pestaña---*/
 .content {
   flex: 1;
   padding: 20px;
   background: #F8FAFB;
 }
 
-/* ---Descarga de Material--- */
 .descarga-material {
   display: grid;
   flex-direction: column;
@@ -248,7 +244,6 @@ body {
   margin-top: 25px;
 }
 
-/*---Barra inferior---*/
 .footer {
   background: #fff;
   display: flex;
@@ -279,7 +274,6 @@ body {
   }
 }
 
-/*---Botones---*/
 .btn {
   display: flex;
   align-items: center;

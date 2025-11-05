@@ -12,7 +12,6 @@ body {
   height: 100vh;
 }
 
-/*---Barra superior---*/
 .topbar {
   background: #2C669A;
   color: white;
@@ -33,7 +32,6 @@ body {
   height: 50px;
 }
 
-/*--BS-- Usuario iconos--*/
 .user-section {
   display: flex;
   align-items: center;
@@ -79,14 +77,12 @@ body {
   stroke: #fff;
 }
 
-/* ---Contenido de la pestaña---*/
 .content {
   flex: 1;
   padding: 20px;
   background: #F8FAFB;
 }
 
-/* ===== Valorar material ===== */
 .page-title{
   font-size: 44px;
   font-weight: 800;
@@ -102,7 +98,6 @@ body {
   align-items: start;
 }
 
-/*---Imagen material---*/
 .material-preview{
   background: #2c8aa0;
   border-radius: 14px;
@@ -197,7 +192,6 @@ body {
   margin: 0 auto; 
 }
 
-/* Reseñas */
 .reviews-wrap{
   background: #fff;
   margin-top: 22px;
@@ -263,7 +257,6 @@ body {
   }
 }
 
-/*---Barra inferior---*/
 .footer {
   background: #fff;
   display: flex;
@@ -274,7 +267,6 @@ body {
   border-top: 1px solid #000;
 }
 
-/*---Botones---*/
 .btn {
   display: flex;
   align-items: center;

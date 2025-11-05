@@ -1,4 +1,4 @@
-/* ===== Base ===== */
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
 body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-direction:column;}
 .topbar{background:#2C669A;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 20px;height:64px;}
@@ -11,14 +11,14 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
 .icons{display:flex;align-items:center;gap:12px;}
 .content{flex:1;padding:20px 18px 90px;}
 
-/* ===== Página ===== */
+
 .page{
   max-width:1050px;margin:0 auto;background:#f9fafb;border:1px solid #d9e1ea;
   border-radius:10px;padding:20px 26px 30px;box-shadow:0 1px 0 rgba(0,0,0,.03);
 }
 .title{text-align:center;font-size:28px;font-weight:800;margin-bottom:20px;}
 
-/* ===== Card preview ===== */
+
 .card{border:1px solid #cfd7e1;border-radius:10px;padding:20px;background:#fff;}
 .preview{display:flex;align-items:center;gap:18px;}
 .thumb{
@@ -29,7 +29,7 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
 .info h3{font-size:18px;font-weight:700;margin-bottom:8px;}
 .info p{font-size:14px;color:#2f3a47;margin-bottom:6px;line-height:1.4;}
 
-/* ===== Formulario ===== */
+
 .form{margin-top:24px;}
 .question{font-weight:700;font-size:16px;margin-bottom:12px;display:block;}
 .options{display:grid;grid-template-columns:repeat(2,1fr) 1fr;align-items:start;gap:10px 20px;}
@@ -39,7 +39,7 @@ body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-directi
   border:1px solid #cfd7e1;border-radius:8px;padding:8px;font-family:"Segoe UI";
 }
 
-/* ===== Footer ===== */
+
 .footer{
   position:fixed;bottom:0;left:0;right:0;height:64px;background:#fff;
   border-top:1px solid #d9e1ea;display:flex;justify-content:space-between;align-items:center;padding:0 22px;
