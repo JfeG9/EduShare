@@ -1,3 +1,17 @@
-.contenedor{
-    width: 100%;
+:root {
+  --bg-claro: #ffffff;
+  --bg-oscuro: #081b2b;
+  --panel: #0e283e;
+  --texto: #e6f4ff;
+  --muted: #9fb3c8;
+  --primario: #25b4c3;
+  --borde: #143148;
+  --ring: #6cdde0;
+  --input: #0f314d;
+  --sombra: rgba(0, 0, 0, 0.35);
 }
+
+.contenedor {
+  width: 100%;
+}
+

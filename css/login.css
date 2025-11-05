@@ -1,112 +1,107 @@
 :root {
-  --bg: #081b2b;
-  --panel: #0e283e;
-  --texto: #e6f4ff;
-  --secundario: #9fb3c8;
-  --primario: #0f7d86;
-  --borde: #143148;
+    --bg: #081b2b;
+    --panel: #0e283e;
+    --texto: #e6f4ff;
+    --secundario: #9fb3c8;
+    --primario: #0f7d86;
+    --borde: #143148;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Ubuntu;
-  background: var(--bg);
-  color: var(--texto);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
+    background: var(--bg);
+    color: var(--texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .card {
-  width: 100%;
-  max-width: 420px;
-  background: var(--panel);
-  border: 1px solid var(--borde);
-  border-radius: 14px;
-  padding: 32px 28px;
-  text-align: center;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    max-width: 420px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
 }
 
 .brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
 }
 
 .logo {
-  width: 75%;
+    width: 75%;
 }
 
 .titulo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #9ee7ff;
-  margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #9ee7ff;
+    margin: 0;
 }
 
 h2 {
-  font-size: 1.25rem;
-  margin-bottom: 28px;
-  line-height: 1.4;
+    font-size: 1.25rem;
+    margin-bottom: 28px;
+    line-height: 1.4;
 }
 
 button {
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  padding: 14px;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  background: var(--primario);
-  color: #ffffff;
-  transition: 0.08s;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background: var(--primario);
+    color: #ffffff;
+    transition: 0.08s;
 }
 
 button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 .secundario {
-  background: linear-gradient(180deg, #6da9b8, #3c8a95);
-  color: #08212b;
+    background: linear-gradient(180deg, #6da9b8, #3c8a95);
+    color: #08212b;
 }
 
 .link {
-  margin-top: 6px;
-  color: var(--secundario);
-  font-size: 0.9rem;
+    margin-top: 6px;
+    color: var(--secundario);
+    font-size: 0.9rem;
 }
 
 .link a {
-  color: #9ee7ff;
-  text-decoration: none;
-  font-weight: 600;
+    color: #9ee7ff;
+    text-decoration: none;
+    font-weight: 600;
 }
 .link a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .legal {
-  margin-top: 12px;
-  font-size: 0.8rem;
-  color: var(--secundario);
-  line-height: 1.35;
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: var(--secundario);
+    line-height: 1.35;
 }
