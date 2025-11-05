@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare</title>
+        <link rel="stylesheet" href="css/style_ue13.css" />
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="logo icons">
+                <i data-lucide="menu"></i>
+                <img src="../assets/img/logo.png" alt="Logo EduShare" />
+            </div>
+
+            <div class="user-section">
+                <div class="user-info">
+                    <i data-lucide="user"></i>
+                    <span>Juan</span>
+                </div>
+                <div class="icons">
+                    <i data-lucide="download"></i>
+                    <i data-lucide="calendar-days"></i>
+                    <i data-lucide="bell"></i>
+                    <i data-lucide="settings"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="materiales-fecha">
+                <div class="fecha-actual">
+                    <label for="fecha"
+                        ><i data-lucide="calendar-days"></i> Fecha:</label
+                    >
+                    <input type="text" id="fecha" value="24/10/2025" readonly />
+                </div>
+
+                <div class="contenido-principal">
+                    <div class="col-izquierda">
+                        <div class="tarjeta-material">
+                            <div class="imagen-material">
+                                <i data-lucide="image"></i>
+                            </div>
+                            <div class="info-material">
+                                <h3>Material</h3>
+                                <p>Contenido relacionado a Estadística 1</p>
+                            </div>
+                        </div>
+
+                        <textarea placeholder="Escribir nota....."></textarea>
+                    </div>
+
+                    <div class="col-derecha">
+                        <div class="cambiar-fecha">
+                            <label for="nuevaFecha">Cambiar fecha:</label>
+                            <div class="campo-fecha">
+                                <i data-lucide="calendar-days"></i>
+                                <input
+                                    type="text"
+                                    id="nuevaFecha"
+                                    placeholder="DD/MM/AAAA"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="lista-materiales">
+                            <div class="item-material">
+                                <i data-lucide="image"></i>
+                                <div class="texto">
+                                    <h4>Material 1</h4>
+                                    <p>
+                                        Material enfocado a Complejidad
+                                        Algorítmica
+                                    </p>
+                                </div>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+
+                            <div class="item-material">
+                                <i data-lucide="image"></i>
+                                <div class="texto">
+                                    <h4>Material 1</h4>
+                                    <p>
+                                        Material enfocado a Complejidad
+                                        Algorítmica
+                                    </p>
+                                </div>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+
+                            <div class="item-material">
+                                <i data-lucide="image"></i>
+                                <div class="texto">
+                                    <h4>Material 1</h4>
+                                    <p>Material enfocado a Algebra Lineal</p>
+                                </div>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+
+                            <div class="item-material">
+                                <i data-lucide="image"></i>
+                                <div class="texto">
+                                    <h4>Material 1</h4>
+                                    <p>Material enfocado a Algebra Lineal</p>
+                                </div>
+                                <i data-lucide="more-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <button class="btn">Salir</button>
+            <button class="btn">
+                <i data-lucide="calendar-days"></i> Guardar en la fecha
+            </button>
+        </footer>
+
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
+</html>
