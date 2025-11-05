@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="css/filtro.css" />
+        <title>EduShare</title>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="inner">
+                <span class="brand-dot" aria-hidden="true"></span>EduShare
+            </div>
+        </header>
+
+        <div class="wrap">
+            <h1 class="title">Buscar materiales</h1>
+
+            <section class="card filters" aria-label="Parámetros de filtro">
+                <div class="card-head">Filtros</div>
+                <div class="card-body row">
+                    <label class="input" aria-label="Buscar">
+                        🔎
+                        <input
+                            type="search"
+                            placeholder="Buscar por título, docente, asignatura…"
+                            disabled
+                            aria-disabled="true"
+                        />
+                    </label>
+
+                    <div class="two-col row">
+                        <label class="input">Universidad </label>
+                        <label class="input">Carrera </label>
+                    </div>
+
+                    <div class="three-col row">
+                        <label class="input">Tipo </label>
+                        <label class="input"
+                            >Año
+                            <select disabled aria-disabled="true">
+                                <option>Todos</option>
+                                <option>2025</option>
+                                <option>2024</option>
+                                <option>2023</option>
+                                <option>2022</option>
+                            </select>
+                        </label>
+
+                        <label class="input"
+                            >Ordenar
+                            <select disabled aria-disabled="true">
+                                <option>Más recientes</option>
+                                <option>Más antiguos</option>
+                                <option>Título (A–Z)</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div>
+                        <div class="section-label">Etiquetas</div>
+                        <div class="chips">
+                            <label class="chip"
+                                ><input
+                                    type="checkbox"
+                                    disabled
+                                    aria-disabled="true"
+                                />
+                                Álgebra</label
+                            >
+                            <label class="chip"
+                                ><input
+                                    type="checkbox"
+                                    disabled
+                                    aria-disabled="true"
+                                />
+                                Cálculo</label
+                            >
+                            <label class="chip"
+                                ><input
+                                    type="checkbox"
+                                    disabled
+                                    aria-disabled="true"
+                                />
+                                Algoritmos</label
+                            >
+                            <label class="chip"
+                                ><input
+                                    type="checkbox"
+                                    disabled
+                                    aria-disabled="true"
+                                />
+                                Cálculo 2</label
+                            >
+                            <label class="chip"
+                                ><input
+                                    type="checkbox"
+                                    disabled
+                                    aria-disabled="true"
+                                />
+                                Física</label
+                            >
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button class="btn">Limpiar filtros</button>
+                        <button class="btn primary">Buscar</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
