@@ -95,6 +95,23 @@ label {
     flex-wrap: wrap;
 }
 
+.link-olvidar-contrasena {
+  color: #9fe6ff;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.link-olvidar-contrasena:hover {
+  opacity: 0.8;
+}
+
+.link-olvidar-contrasena:visited {
+  color: #9fe6ff;
+}
+
 .btn{
     width:100%; border:0; border-radius:10px; padding:12px 14px;
     color:#062026; font-weight:800; letter-spacing:.3px;
