@@ -96,7 +96,7 @@ p {
 }
 .nav a.btn.primary {
     color: #fff;
-    background: linear-gradient(180deg, var(--brand-2), var(--brand));
+    background: var(--brand);
     border: none;
 }
 
@@ -214,7 +214,7 @@ p {
 }
 .btn.primary {
     color: #fff;
-    background: linear-gradient(180deg, var(--brand-2), var(--brand));
+    background: var(--brand-2);
     border: none;
 }
 
