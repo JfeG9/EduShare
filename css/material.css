@@ -1,204 +1,285 @@
+/* ================================
+   EduShare — material.css (ajustado al HTML dado)
+   ================================ */
+
+:root {
+    --brand: #2c669a;
+    --accent: #77e6c8;
+    --accent-2: #77bbe6;
+    --muted: #6c757d;
+    --line: #dee2e6;
+    --bg-soft: #f8f9fa;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Reset mínimo útil */
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+        "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    color: #222;
+    background: #fff;
+}
+img,
+svg {
+    display: block;
+}
+
+/* ================================
+   TOP BAR
+   ================================ */
 .topbar {
-    background: #2c669a;
+    background: var(--brand);
     padding: 12px 24px;
     height: 70px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.logo-section {
+
+/* Logo (izquierda) */
+.logo {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-.logo-section i {
+.logo .ico {
     width: 28px;
     height: 28px;
-    stroke: #77e6c8;
+    color: var(--accent);
 }
-.logo-section img {
+.logo img {
     height: 48px;
 }
-.logo-section span {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #77e6c8;
-}
+
+/* Sección usuario (derecha) */
 .user-section {
     display: flex;
     align-items: center;
     gap: 24px;
 }
-.top-icons {
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+}
+.user-info .ico {
+    width: 26px;
+    height: 26px;
+    color: var(--accent);
+}
+
+/* Iconos superiores */
+.icons {
     display: flex;
     gap: 18px;
 }
-.top-icons i {
+.icons .ico {
     width: 26px;
     height: 26px;
-    stroke: #77e6c8;
+    color: var(--accent);
     cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
 }
-.top-icons i:hover {
-    stroke: white;
-}
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-weight: 500;
-}
-.user-avatar {
-    width: 36px;
-    height: 36px;
-    background: white;
-    border-radius: 50%;
-    color: #2c669a;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
+.icons .ico:hover {
+    color: #fff;
+    transform: translateY(-1px);
 }
 
-.verify-container {
-    max-width: 1100px;
-    margin: 2rem auto;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
+/* Asegurar que los SVG hereden color correctamente */
+.ico path,
+.ico rect,
+.ico circle {
+    stroke: currentColor;
 }
-.verify-title {
-    background: #f8f9fa;
-    padding: 1.8rem 2.5rem;
-    font-size: 1.9rem;
-    font-weight: 600;
-    color: #2c669a;
-    border-bottom: 1px solid #dee2e6;
+
+/* ================================
+   CONTENIDO PRINCIPAL
+   ================================ */
+.content {
+    padding: 24px;
 }
-.verify-content {
+.page .title {
+    color: var(--brand);
+    margin: 0 0 16px;
+}
+
+/* Grid lateral: tarjeta archivo + panel análisis */
+.grid {
     display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 2.5rem;
-    padding: 2.5rem;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
 }
-.preview-box {
-    background: #17a2b8;
-    height: 300px;
-    border-radius: 16px;
+
+/* ================================
+   TARJETA DE ARCHIVO
+   ================================ */
+.card.file-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 16px;
     display: flex;
-    justify-content: center;
+    gap: 12px;
     align-items: center;
-    margin-bottom: 1.2rem;
 }
-.preview-icon {
-    width: 180px;
-    height: 180px;
-    stroke: white;
-    stroke-width: 1.8;
+.file-card .thumb {
+    background: #17a2b8;
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
 }
-.file-name {
-    font-size: 1.15rem;
+.file-card .thumb-ico {
+    width: 42px;
+    height: 42px;
+    color: #fff;
+}
+.file-card .meta .name {
     font-weight: 700;
-    color: #2c669a;
-    margin-bottom: 6px;
+    color: var(--brand);
 }
-.file-hint {
+.file-card .meta .sub {
+    color: var(--muted);
     font-size: 0.95rem;
-    color: #6c757d;
-    margin-bottom: 1.5rem;
 }
-.analysis-header h2 {
-    font-size: 1.3rem;
-    color: #2c669a;
-    font-weight: 600;
+
+/* ================================
+   PANEL DE ANÁLISIS
+   ================================ */
+.analyze {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 16px;
 }
-.btn-analyze {
-    background: #77bbe6;
+.row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.row-head h2 {
+    color: var(--brand);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Botones */
+.btn {
+    background: var(--accent-2);
     color: #000;
-    padding: 0.6rem 1.4rem;
+    padding: 8px 16px;
     border-radius: 8px;
     font-weight: 600;
     border: none;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.05s ease;
 }
-.progress-container {
+.btn:hover {
+    filter: brightness(1.05);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.btn.small {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+.btn.ghost {
+    background: transparent;
+    color: #6c757d;
+    border: 1px solid #ced4da;
+}
+.btn.primary {
+    background: var(--accent-2);
+}
+
+/* Barra de progreso */
+.progress {
     height: 6px;
     background: #e9ecef;
     border-radius: 3px;
     overflow: hidden;
-    margin: 1rem 0;
+    margin: 12px 0 16px;
 }
-.progress-fill {
+.progress .bar {
     height: 100%;
-    background: #77bbe6;
-    width: 35%;
-    border-radius: 3px;
+    background: var(--accent-2);
+    width: 35%; /* puedes animarla desde JS si quieres */
 }
-.results-table {
-    border: 1px solid #dee2e6;
+
+/* ================================
+   TABLA DE RESULTADOS
+   ================================ */
+.table {
+    border: 1px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
 }
-.results-table th {
-    background: #f8f9fa;
-    color: #2c669a;
+.table .thead,
+.table .r {
+    display: grid;
+    grid-template-columns: 1.2fr 0.6fr 1.2fr; /* Resultado | Estado | Recomendaciones */
+}
+.table .thead {
+    background: var(--bg-soft);
+    color: var(--brand);
     font-weight: 600;
-    border-bottom: 2px solid #2c669a;
+    border-bottom: 2px solid var(--brand);
 }
-.results-table td {
-    color: #555;
-    border-bottom: 1px solid #dee2e6;
+.table .thead > div,
+.table .r .c {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
 }
-.loading {
+.table .tbody .r:last-child .c {
+    border-bottom: none;
+}
+
+/* estados */
+.table .st {
+    color: #333;
+}
+.table .rec {
+    color: #444;
+}
+.loading,
+.table .st:has(.loading),
+.table .rec:has(.loading) {
     color: #adb5bd;
     font-style: italic;
 }
-.action-footer {
+
+/* ================================
+   FOOTER
+   ================================ */
+.footer {
     display: flex;
     justify-content: space-between;
-    padding: 1.8rem 2.5rem;
-    background: #f8f9fa;
-    border-top: 1px solid #dee2e6;
-}
-.btn-cancel {
-    background: transparent;
-    color: #6c757d;
-    border: 1px solid #ced4da;
-    padding: 0.75rem 2rem;
-    border-radius: 10px;
-    font-weight: 600;
-}
-.btn-submit {
-    background: #77bbe6;
-    color: #000;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
+    padding: 16px 24px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 24px;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
 }
 
-/* RESPONSIVE */
+/* ================================
+   RESPONSIVE
+   ================================ */
 @media (max-width: 992px) {
-    .verify-content {
+    .grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2rem;
-    }
-    .preview-box {
-        height: 240px;
-    }
-    .preview-icon {
-        width: 140px;
-        height: 140px;
-    }
-    .action-footer {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .btn-cancel,
-    .btn-submit {
-        width: 100%;
     }
 }
