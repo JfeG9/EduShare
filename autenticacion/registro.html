@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../css/crear-perfil.css" />
+        <title>EduShare</title>
+    </head>
+    <body>
+        <div class="card" role="main">
+            <div class="contenedor-logo">
+                <img class="logo" src="../assets/img/logo.png" />
+            </div>
+
+            <h2>Crear Perfil</h2>
+
+            <form id="loginForm" method="post">
+                <div>
+                    <label for="email">Nombre completo</label>
+                    <div class="input">
+                        <input id="nombre" name="nombre" placeholder="Nombre" />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email">Correo electrónico</label>
+                    <div class="input">
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            inputmode="email"
+                            placeholder="correo@ejemplo.com"
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password">Contraseña</label>
+                    <div class="input">
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="********"
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password">Confirmar contraseña</label>
+                    <div class="input">
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="********"
+                        />
+                    </div>
+                </div>
+
+                <button class="btn" type="submit">Crear perfil</button>
+
+                <p class="legal">
+                    Al registrarte, aceptas los Términos del Servicio y la
+                    Política de Privacidad de EduShare.
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

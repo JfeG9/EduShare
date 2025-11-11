@@ -1,24 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduShare</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <header>
-    <h1>Bienvenido a <span style="color:#25b4c3;">EduShare</span></h1>
-  </header>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>EduShare</title>
+        <link rel="stylesheet" href="css/index.css" />
+    </head>
+    <body>
+        <header class="nav">
+            <div class="wrap inner">
+                <img class="imagen" src="assets/img/logo.png" />
+                <div class="spacer"></div>
+                <nav aria-label="Cuenta">
+                    <a class="btn" href="autenticacion/login.html"
+                        >Iniciar sesión</a
+                    >
+                    <a class="btn primary" href="autenticacion/registro.html"
+                        >Crear cuenta</a
+                    >
+                </nav>
+            </div>
+        </header>
 
-  <main style="text-align:center; margin-top:50px;">
-    <p>Este es el inicio de tu proyecto.</p>
-    <p><a href="material.html" style="color:#9ee7ff;">Ir a Verificación de Materiales (US06)</a></p>
-    <p><a href="configuracion.html" style="color:#9ee7ff;">Ir a Configuracion</a></p>
-    <p><a href="login.html" style="color:#9ee7ff;">Ir a login</a></p>
-    <p><a href="filtro.html" style="color:#9ee7ff;">Ir a Filtro</a></p>
-    <p><a href="valoracion.html" style="color:#9ee7ff;">Ir a Valoracion</a></p>
-  </main>
-</body>
+        <section class="wrap hero">
+            <div>
+                <h1>Todo tu material de estudio, compartido por estudiantes</h1>
+                <p class="lead">
+                    Apuntes, exámenes, sílabos y proyectos organizados por
+                    universidad, carrera y curso. Mejora tus notas con recursos
+                    validados por la comunidad.
+                </p>
+                <p
+                    style="
+                        margin-top: 10px;
+                        color: var(--muted);
+                        font-size: 14px;
+                    "
+                >
+                    Gratis para estudiantes • Verificado por pares • +70
+                    universidades
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <h2>¿Por qué EduShare?</h2>
+                <div class="features">
+                    <article class="card feature">
+                        <div class="icon">⬆️</div>
+                        <h3>Comparte sin dificultades</h3>
+                        <p>
+                            Sube archivos en segundos y etiqueta por curso,
+                            ciclo y universidad. Tu aporte ayuda a miles.
+                        </p>
+                    </article>
+                    <article class="card feature">
+                        <div class="icon">🔎</div>
+                        <h3>Encuentra lo que necesitas</h3>
+                        <p>
+                            Explora por universidad (PUCP, UNI, UNMSM, UPC,
+                            UDEP, UNSA y más) o por carrera y curso.
+                        </p>
+                    </article>
+                    <article class="card feature">
+                        <div class="icon">✅</div>
+                        <h3>Calidad verificada</h3>
+                        <p>
+                            Reseñas y comentarios elevan lo mejor. Material
+                            destacado por la comunidad y moderación.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: #fafcfd">
+            <div class="wrap">
+                <h2>Así de simple</h2>
+                <div class="steps">
+                    <article class="card step">
+                        <h3>1. Crea tu perfil</h3>
+                        <p>
+                            Regístrate con tu correo y selecciona tus carreras y
+                            cursos favoritos.
+                        </p>
+                    </article>
+                    <article class="card step">
+                        <h3>2. Sube o descubre</h3>
+                        <p>
+                            Comparte apuntes y practica, o navega bibliotecas
+                            por universidad y ciclo.
+                        </p>
+                    </article>
+                    <article class="card step">
+                        <h3>3. Aprende mejor</h3>
+                        <p>
+                            Guarda favoritos, sigue colecciones y estudia con
+                            recursos curados por pares.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap card cta">
+                <h2>Únete hoy y potencia tu estudio</h2>
+                <p>
+                    EduShare es gratis, colaborativo y hecho por estudiantes de
+                    universidades peruanas.
+                </p>
+                <div class="actions">
+                    <a class="btn primary" href="#">Crear cuenta</a>
+                    <a class="btn" href="#">Iniciar sesión</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="wrap foot">
+                <small>© <span id="year">2025</span> EduShare</small>
+                <div class="links">
+                    <a href="#">Acerca</a>
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

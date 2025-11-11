@@ -1,70 +1,285 @@
+/* ================================
+   EduShare — material.css (ajustado al HTML dado)
+   ================================ */
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
-body{background:#eff1f3;color:#0b2239;min-height:100vh;display:flex;flex-direction:column;}
-.topbar{background:#2C669A;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 20px;height:64px;}
-.logo{display:flex;align-items:center;gap:10px;}
-.logo img{height:36px;max-width:180px;object-fit:contain;}
-.ico{width:22px;height:22px;color:#77E6C8}
-.user-section{display:flex;align-items:center;gap:18px;}
-.user-info{display:flex;align-items:center;gap:8px;background:#ffffff22;padding:6px 12px;border-radius:20px;}
-.user-info span{color:#fff;font-weight:500;}
-.icons{display:flex;align-items:center;gap:12px;}
-.content{flex:1;padding:18px 18px 90px;}
-
-
-.page{
-  max-width:1080px;margin:0 auto;background:#f9fafb;border:1px solid #d9e1ea;
-  border-radius:10px;padding:18px 22px 26px;box-shadow:0 1px 0 rgba(0,0,0,.02);
-}
-.title{font-size:28px;font-weight:800;margin-bottom:14px}
-
-
-.grid{display:grid;grid-template-columns:420px 1fr;gap:24px;align-items:start;}
-
-
-.card{background:#fff;border:1px solid #cfd7e1;border-radius:10px;}
-.file-card{padding:16px}
-.thumb{
-  height:260px;border:1px solid #cfd7e1;border-radius:8px;background:#2a98a9;
-  display:flex;align-items:center;justify-content:center;margin-bottom:10px;
-}
-.thumb-ico{width:130px;height:130px;color:#fff}
-.meta .name{font-weight:700}
-.meta .sub{font-size:12px;color:#6c7a89}
-
-
-.analyze .row-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.analyze h2{font-size:18px}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;border:1px solid #b8c2cc;
-  background:#e7eef6;color:#0b2239;font-weight:600;cursor:pointer;
-}
-.btn.small{padding:6px 14px}
-.btn.primary{background:#77BBE6;border-color:#5aa7db}
-.btn.ghost{background:#a7c4df;border-color:#8fb3d3}
-
-.progress{height:8px;background:#e1e7ee;border-radius:6px;overflow:hidden;margin:6px 0 14px;border:1px solid #d4dde6}
-.progress .bar{height:100%;width:35%;background:#5aa7db}
-
-
-.table{border:1px solid #cfd7e1;border-radius:8px;overflow:hidden;background:#fff;}
-.thead,.r{display:grid;grid-template-columns:1.2fr .6fr 1fr}
-.thead{background:#f3f6fa;border-bottom:1px solid #cfd7e1;font-weight:700}
-.thead>div{padding:10px 12px}
-.tbody .r{border-bottom:1px solid #e6ecf2}
-.tbody .r:last-child{border-bottom:none}
-.c{padding:10px 12px;font-size:14px}
-.res{border-right:1px solid #eef1f4}
-.st{border-right:1px solid #eef1f4;color:#667788}
-
-
-.footer{
-  position:fixed;left:0;right:0;bottom:0;height:64px;background:#fff;border-top:1px solid #d9e1ea;
-  display:flex;align-items:center;justify-content:space-between;padding:0 22px;
+:root {
+    --brand: #2c669a;
+    --accent: #77e6c8;
+    --accent-2: #77bbe6;
+    --muted: #6c757d;
+    --line: #dee2e6;
+    --bg-soft: #f8f9fa;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
+/* Reset mínimo útil */
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+        "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    color: #222;
+    background: #fff;
+}
+img,
+svg {
+    display: block;
+}
 
-@media (max-width:980px){
-  .grid{grid-template-columns:1fr;gap:18px}
-  .thumb{height:220px}
+/* ================================
+   TOP BAR
+   ================================ */
+.topbar {
+    background: var(--brand);
+    padding: 12px 24px;
+    height: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo (izquierda) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo .ico {
+    width: 28px;
+    height: 28px;
+    color: var(--accent);
+}
+.logo img {
+    height: 48px;
+}
+
+/* Sección usuario (derecha) */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+}
+.user-info .ico {
+    width: 26px;
+    height: 26px;
+    color: var(--accent);
+}
+
+/* Iconos superiores */
+.icons {
+    display: flex;
+    gap: 18px;
+}
+.icons .ico {
+    width: 26px;
+    height: 26px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+.icons .ico:hover {
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Asegurar que los SVG hereden color correctamente */
+.ico path,
+.ico rect,
+.ico circle {
+    stroke: currentColor;
+}
+
+/* ================================
+   CONTENIDO PRINCIPAL
+   ================================ */
+.content {
+    padding: 24px;
+}
+.page .title {
+    color: var(--brand);
+    margin: 0 0 16px;
+}
+
+/* Grid lateral: tarjeta archivo + panel análisis */
+.grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+}
+
+/* ================================
+   TARJETA DE ARCHIVO
+   ================================ */
+.card.file-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.file-card .thumb {
+    background: #17a2b8;
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
+.file-card .thumb-ico {
+    width: 42px;
+    height: 42px;
+    color: #fff;
+}
+.file-card .meta .name {
+    font-weight: 700;
+    color: var(--brand);
+}
+.file-card .meta .sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* ================================
+   PANEL DE ANÁLISIS
+   ================================ */
+.analyze {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 16px;
+}
+.row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.row-head h2 {
+    color: var(--brand);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Botones */
+.btn {
+    background: var(--accent-2);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.15s ease, transform 0.05s ease;
+}
+.btn:hover {
+    filter: brightness(1.05);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.btn.small {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+.btn.ghost {
+    background: transparent;
+    color: #6c757d;
+    border: 1px solid #ced4da;
+}
+.btn.primary {
+    background: var(--accent-2);
+}
+
+/* Barra de progreso */
+.progress {
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 12px 0 16px;
+}
+.progress .bar {
+    height: 100%;
+    background: var(--accent-2);
+    width: 35%; /* puedes animarla desde JS si quieres */
+}
+
+/* ================================
+   TABLA DE RESULTADOS
+   ================================ */
+.table {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.table .thead,
+.table .r {
+    display: grid;
+    grid-template-columns: 1.2fr 0.6fr 1.2fr; /* Resultado | Estado | Recomendaciones */
+}
+.table .thead {
+    background: var(--bg-soft);
+    color: var(--brand);
+    font-weight: 600;
+    border-bottom: 2px solid var(--brand);
+}
+.table .thead > div,
+.table .r .c {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+}
+.table .tbody .r:last-child .c {
+    border-bottom: none;
+}
+
+/* estados */
+.table .st {
+    color: #333;
+}
+.table .rec {
+    color: #444;
+}
+.loading,
+.table .st:has(.loading),
+.table .rec:has(.loading) {
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 24px;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }

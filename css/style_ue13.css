@@ -1,365 +1,363 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  background-color: #dfdadafa;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+    background-color: #dfdadafa;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .topbar {
-  background: #2C669A;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 20px;
-  height: 70px;
+    background: #2c669a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    height: 70px;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .logo img {
-  height: 50px;
+    height: 50px;
 }
 
 .user-section {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .user-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #ffffff22;
-  padding: 6px 12px;
-  border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff22;
+    padding: 6px 12px;
+    border-radius: 20px;
 }
 
 .user-info svg {
-  width: 20px;
-  height: 20px;
-  stroke: #fff;
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
 }
 
 .user-info span {
-  color: #fff;
-  font-weight: 500;
+    color: #fff;
+    font-weight: 500;
 }
 
 .icons {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .icons svg {
-  width: 24px;
-  height: 24px;
-  stroke: #77E6C8;
-  stroke-width: 2;
-  cursor: pointer;
-  transition: stroke 0.2s;
+    width: 24px;
+    height: 24px;
+    stroke: #77e6c8;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: stroke 0.2s;
 }
 
 .icons svg:hover {
-  stroke: #fff;
+    stroke: #fff;
 }
 
 .content {
-  flex: 1;
-  padding: 20px;
-  background: #F8FAFB;
+    flex: 1;
+    padding: 20px;
+    background: #f8fafb;
 }
 
 .materiales-fecha {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .fecha-actual {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  align-self: flex-start;
-  background: #CFE6F8;
-  padding: 8px 15px;
-  border-radius: 6px;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    background: #cfe6f8;
+    padding: 8px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
 }
 
 .fecha-actual label {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .fecha-actual input {
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
 
 .contenido-principal {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
 }
 
 .col-izquierda {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .tarjeta-material {
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  background: #F8FAFB;
-  padding: 15px;
-  display: flex;          
-  flex-direction: row;    
-  align-items: center;     
-  gap: 15px;        
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    background: #f8fafb;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
 }
 
 .imagen-material {
-  background: #2C88A7;
-  border-radius: 14px;
-  width: 100%;
-  max-width: 400px;
-  min-height: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
+    background: #2c88a7;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .imagen-material svg {
-  width: 160px;
-  height: 160px;
-  stroke: #d8e3e7;
-  stroke-width: 1.75;
+    width: 160px;
+    height: 160px;
+    stroke: #d8e3e7;
+    stroke-width: 1.75;
 }
 
 .info-material h3 {
-  font-weight: 700;
-  color: #000;
-
+    font-weight: 700;
+    color: #000;
 }
 
 .info-material p {
-  font-size: 14px;
-  color: #666;
+    font-size: 14px;
+    color: #666;
 }
 
 .col-izquierda textarea {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  height: 100px;
-  resize: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    height: 100px;
+    resize: none;
 }
 
 .col-derecha {
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .cambiar-fecha {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .cambiar-fecha label {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .campo-fecha {
-  display: flex;
-  align-items: center;
-  background: #CFE6F8;
-  border-radius: 6px;
-  padding: 6px 10px;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    background: #cfe6f8;
+    border-radius: 6px;
+    padding: 6px 10px;
+    gap: 8px;
 }
 
 .campo-fecha svg {
-  width: 18px;
-  height: 18px;
-  stroke: #000;
+    width: 18px;
+    height: 18px;
+    stroke: #000;
 }
 
 .campo-fecha input {
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 14px;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
 }
 
 .lista-materiales {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .item-material {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  background: #fff;
-  padding: 8px 10px;
-  transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px 10px;
+    transition: background 0.2s;
 }
 
 .item-material:hover {
-  background: #F1F7FA;
+    background: #f1f7fa;
 }
 
 .item-material svg:first-child {
-  width: 36px;
-  height: 36px;
-  background: #2C88A7;
-  stroke: #fff;
-  border-radius: 4px;
-  padding: 5px;
+    width: 36px;
+    height: 36px;
+    background: #2c88a7;
+    stroke: #fff;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 .item-material svg:last-child {
-  stroke: #555;
-  width: 20px;
-  height: 20px;
+    stroke: #555;
+    width: 20px;
+    height: 20px;
 }
 
 .texto {
-  flex: 1;
-  margin-left: 10px;
+    flex: 1;
+    margin-left: 10px;
 }
 
 .texto h4 {
-  font-size: 15px;
-  font-weight: 600;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .texto p {
-  font-size: 13px;
-  color: #666;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    font-size: 13px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .botones-inferiores {
-  margin-top: 25px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer {
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  height: 70px;
-  border-top: 1px solid #000;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    height: 70px;
+    border-top: 1px solid #000;
 }
 
 @media (max-width: 768px) {
-  .contenido-principal {
-    flex-direction: column; 
-    gap: 20px;
-  }
+    .contenido-principal {
+        flex-direction: column;
+        gap: 20px;
+    }
 
-  .col-derecha {
-    width: 100%;      
-  }
+    .col-derecha {
+        width: 100%;
+    }
 
-  .col-izquierda {
-    width: 100%;      
-  }
+    .col-izquierda {
+        width: 100%;
+    }
 
-  .tarjeta-material {
-    flex-direction: column; 
-    align-items: center;
-    text-align: center;
-  }
+    .tarjeta-material {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-  .imagen-material {
-    width: 100%;           
-    max-width: 300px;        
-    min-height: 200px;      
-    margin-bottom: 15px;    
-  }
+    .imagen-material {
+        width: 100%;
+        max-width: 300px;
+        min-height: 200px;
+        margin-bottom: 15px;
+    }
 
-  .info-material {
-    align-items: center;   
-  }
+    .info-material {
+        align-items: center;
+    }
 
-  .lista-materiales {
-    gap: 8px;               
-  }
+    .lista-materiales {
+        gap: 8px;
+    }
 
-  .item-material {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
+    .item-material {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
 
-  .item-material svg:first-child {
-    margin-bottom: 6px;
-  }
+    .item-material svg:first-child {
+        margin-bottom: 6px;
+    }
 
-  .texto {
-    margin-left: 0;   
-    width: 100%;
-  }
+    .texto {
+        margin-left: 0;
+        width: 100%;
+    }
 
-  .botones-inferiores {
-    flex-direction: column; 
-    gap: 10px;
-    align-items: stretch;
-  }
+    .botones-inferiores {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
 }
 
-
 .btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  border: 1px solid #000;
-  border-radius: 10px;
-  font-size: 15px;
-  cursor: pointer;
-  background: #77BBE6;
-  color: #000;
-  transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #77bbe6;
+    color: #000;
+    transition: background 0.2s;
 }
 
 .btn:hover {
-  background: #9BD3F0;
+    background: #9bd3f0;
 }
