@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../css/crear-perfil.css">
-  <title>EduShare</title>
-</head>
-<body>
-  <div class="card" role="main">
-    <div class="contenedor-logo">
-        <img class="logo" src="../assets/img/logo.png">
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../css/crear-perfil.css" />
+        <title>EduShare</title>
+    </head>
+    <body>
+        <div class="card" role="main">
+            <div class="contenedor-logo">
+                <img class="logo" src="../assets/img/logo.png" />
+            </div>
 
-    <h2>Iniciar Sesión</h2>
+            <h2>Iniciar Sesión</h2>
 
-      <div>
-        <label for="email">Correo electrónico</label>
-        <div class="input">
-          <input id="email" name="email" type="email" inputmode="email" placeholder="correo@ejemplo.com" />
-        </div>
-        <br>
-        <label for="email">Correo electrónico</label>
-        <div class="input">
-          <input id="contrasena" name="contrasena" type="password" placeholder="********" />
-        </div>
-        <br>
-      </div>
+            <form action="" method="post" id="formLogin">
+                <div>
+                    <label for="email">Correo electrónico</label>
+                    <div class="input">
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            inputmode="email"
+                            placeholder="correo@ejemplo.com"
+                        />
+                    </div>
+                    <br />
+                    <label for="email">Correo electrónico</label>
+                    <div class="input">
+                        <input
+                            id="contrasena"
+                            name="contrasena"
+                            type="password"
+                            placeholder="********"
+                        />
+                    </div>
+                    <br />
+                </div>
                 <a
                     href="olvidar-contrasena.html"
                     class="link-olvidar-contrasena"
                     >¿Olvidaste tu contraseña?</a
                 >
-                <br>
-                <br>
+                <br />
+                <br />
                 <a
                     href="login-universitario.html"
                     class="link-olvidar-contrasena"
-                    >Haz clic aquí para iniciar sesión con tu correo universitario</a
+                    >Haz clic aquí para iniciar sesión con tu correo
+                    universitario</a
                 >
 
-      <button class="btn" type="submit">Iniciar Sesión</button>
+                <button id="btnLogin" class="btn" type="submit">
+                    Iniciar Sesión
+                </button>
 
-      <p class="legal">
-        Al registrarte, aceptas los Términos del Servicio y la Política de Privacidad de EduShare.
-      </p>
-    </form>
-</div>
+                <p class="legal">
+                    Al registrarte, aceptas los Términos del Servicio y la
+                    Política de Privacidad de EduShare.
+                </p>
+                <p
+                    id="errorMsg"
+                    style="
+                        text-align: center;
+                        color: white;
+                        display: none;
+                        border-radius: 3px;
+                        background-color: #e74c3c;
+                        border: none;
+                        padding: 10px;
+                    "
+                ></p>
+            </form>
+        </div>
 
-</body>
+        <script src="../js/login.js"></script>
+    </body>
 </html>
