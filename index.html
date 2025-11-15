@@ -15,7 +15,16 @@
           gtag('js', new Date());
 
           // Configuración principal de GA4
-          gtag('config', 'G-HDWE2V88ST');
+          gtag('config', 'G-HDWE2V88ST', {
+  debug_mode: true,
+  send_page_view: true,
+  allow_google_signals: false,
+  cookie_flags: 'SameSite=None;Secure',
+  // PERMITE LOCALHOST Y 127.0.0.1
+  transport_url: 'https://www.google-analytics.com',
+  // ESTO ES CLAVE:
+  cookie_domain: 'none'
+});
 
           // EVENTO DE PRUEBA: fuerza datos en tiempo real cada 5 segundos
           setTimeout(function() {
