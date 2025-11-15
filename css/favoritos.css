@@ -1,0 +1,226 @@
+/* carpeta.css - EduShare */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+body {
+    background: #eff1f3;
+    color: #0b2239;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.topbar {
+    background: #2c669a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    height: 64px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img {
+    height: 36px;
+    max-width: 180px;
+    object-fit: contain;
+}
+.ico {
+    width: 22px;
+    height: 22px;
+    color: #77e6c8;
+}
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff22;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.content {
+    flex: 1;
+    padding: 20px 18px;
+}
+.page {
+    max-width: 1050px;
+    margin: 0 auto;
+    background: #f9fafb;
+    border: 1px solid #d9e1ea;
+    border-radius: 10px;
+    padding: 26px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+.folder-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #2c669a;
+}
+.folder-icon {
+    width: 28px;
+    height: 28px;
+    color: #77bbe6;
+}
+.folder-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+.featured-card {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid #cfd7e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+.thumb {
+    width: 140px;
+    height: 140px;
+    background: #2a98a9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.thumb-ico {
+    width: 80px;
+    height: 80px;
+    color: #fff;
+}
+.featured-card .info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.featured-card .info p {
+    font-size: 14px;
+    color: #2f3a47;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.fav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid #cfd7e1;
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.2s ease;
+}
+.fav-item:hover {
+    border-color: #77bbe6;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.fav-ico {
+    width: 40px;
+    height: 40px;
+    color: #77bbe6;
+    flex-shrink: 0;
+}
+.fav-text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.fav-text p {
+    font-size: 13px;
+    color: #5a6c80;
+}
+.fav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    margin-left: auto;
+    display: flex;
+}
+.fav-btn svg {
+    width: 18px;
+    height: 18px;
+    color: #77bbe6;
+}
+.fav-btn.trash svg {
+    color: #d32f2f;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #b8c2cc;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+.btn.ghost {
+    background: #a7c4df;
+    border-color: #8fb3d3;
+    color: #0b2239;
+}
+.btn.primary {
+    background: #77bbe6;
+    border-color: #5aa7db;
+    color: #0b2239;
+}
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .featured-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .thumb {
+        width: 100px;
+        height: 100px;
+    }
+    .thumb-ico {
+        width: 60px;
+        height: 60px;
+    }
+    .actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,3 +1,4 @@
+/* reporte.css - EduShare - Versión Final con Radio Buttons Blancos */
 * {
     margin: 0;
     padding: 0;
@@ -186,6 +187,50 @@ body {
     font-weight: 600;
 }
 
+/* RADIO BUTTONS PERSONALIZADOS - PUNTO BLANCO */
+/* RADIO BUTTONS PERSONALIZADOS - PUNTO BLANCO */
+.options input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cfd7e1;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+}
+
+.options input[type="radio"]:checked {
+    border-color: #77bbe6;
+    background-color: #77bbe6;
+}
+
+.options input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.options input[type="radio"]:hover {
+    border-color: #a7c4df;
+}
+
+.options input[type="radio"]:checked:hover {
+    border-color: #5aa7db;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .preview {
         flex-direction: column;
