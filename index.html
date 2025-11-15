@@ -6,13 +6,35 @@
         <title>EduShare</title>
         <link rel="stylesheet" href="css/index.css" />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDWE2V88ST"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-HDWE2V88ST');
+
+          // Configuración principal de GA4
+          gtag('config', 'G-HDWE2V88ST', {
+  debug_mode: true,
+  send_page_view: true,
+  allow_google_signals: false,
+  cookie_flags: 'SameSite=None;Secure',
+  // PERMITE LOCALHOST Y 127.0.0.1
+  transport_url: 'https://www.google-analytics.com',
+  // ESTO ES CLAVE:
+  cookie_domain: 'none'
+});
+
+          // EVENTO DE PRUEBA: fuerza datos en tiempo real cada 5 segundos
+          setTimeout(function() {
+            gtag('event', 'prueba_tiempo_real', {
+              'event_category': 'debug',
+              'event_label': 'forzar_realtime',
+              'value': 1,
+              'debug_mode': true
+            });
+          }, 5000); // Se envía a los 5 segundos de cargar la página
         </script>
     </head>
     <body>
