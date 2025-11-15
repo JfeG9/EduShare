@@ -7,31 +7,27 @@
         <link rel="stylesheet" href="css/index.css" />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDWE2V88ST"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HDWE2V88ST');
-</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDWE2V88ST"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HDWE2V88ST');
+        </script>
     </head>
     <body>
+        <!-- HEADER -->
         <header class="nav">
             <div class="wrap inner">
-                <img class="imagen" src="assets/img/logo.png" />
+                <img class="imagen" src="assets/img/logo.png" alt="Logo EduShare" />
                 <div class="spacer"></div>
                 <nav aria-label="Cuenta">
-                    <a class="btn" href="pages/autenticacion/login.html"
-                        >Iniciar sesión</a
-                    >
-                    <a class="btn primary" href="pages/autenticacion/registro.html"
-                        >Crear cuenta</a
-                    >
+                    <a class="btn primary" href="pages/autenticacion/registro.html">Únete</a>
                 </nav>
             </div>
         </header>
 
+        <!-- HERO -->
         <section class="wrap hero">
             <div>
                 <h1>Todo tu material de estudio, compartido por estudiantes</h1>
@@ -40,19 +36,13 @@
                     universidad, carrera y curso. Mejora tus notas con recursos
                     validados por la comunidad.
                 </p>
-                <p
-                    style="
-                        margin-top: 10px;
-                        color: var(--muted);
-                        font-size: 14px;
-                    "
-                >
-                    Gratis para estudiantes • Verificado por pares • +70
-                    universidades
+                <p style="margin-top: 10px; color: var(--muted); font-size: 14px;">
+                    Gratis para estudiantes • Verificado por pares • +70 universidades
                 </p>
             </div>
         </section>
 
+        <!-- ¿POR QUÉ EDUSHARE? -->
         <section class="section">
             <div class="wrap">
                 <h2>¿Por qué EduShare?</h2>
@@ -85,6 +75,7 @@
             </div>
         </section>
 
+        <!-- ASÍ DE SIMPLE -->
         <section class="section" style="background: #fafcfd">
             <div class="wrap">
                 <h2>Así de simple</h2>
@@ -114,6 +105,7 @@
             </div>
         </section>
 
+        <!-- CTA FINAL -->
         <section class="section">
             <div class="wrap card cta">
                 <h2>Únete hoy y potencia tu estudio</h2>
@@ -122,16 +114,12 @@
                     universidades peruanas.
                 </p>
                 <div class="actions">
-                    <a class="btn primary" href="pages/autenticacion/registro.html"
-                        >Crear cuenta</a
-                    >
-                    <a class="btn" href="pages/autenticacion/login.html"
-                        >Iniciar sesión</a
-                    >
+                    <a class="btn primary large" href="pages/autenticacion/registro.html">Únete</a>
                 </div>
             </div>
         </section>
 
+        <!-- FOOTER -->
         <footer>
             <div class="wrap foot">
                 <small>© <span id="year">2025</span> EduShare</small>
@@ -143,5 +131,10 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Script para actualizar el año automáticamente -->
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
     </body>
 </html>
