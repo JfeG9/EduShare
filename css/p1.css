@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background-color: #dfdadafa;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.topbar {
+    background: #2c669a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff22;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.user-info svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+}
+
+.user-info span {
+    color: #fff;
+    font-weight: 500;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icons svg {
+    width: 24px;
+    height: 24px;
+    stroke: #77e6c8;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: stroke 0.2s;
+}
+
+.icons svg:hover {
+    stroke: #fff;
+}
+
+.content {
+    flex: 1;
+    padding: 20px 40px;
+    background: #f8fafb;
+    overflow-y: auto;
+}
+
+.search-create {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search {
+    width: 60%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    background: #c3d7ea;
+    outline: none;
+}
+
+.crear-hilo {
+    background: #77bbe6;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #000;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.crear-hilo:hover {
+    background: #9bd3f0;
+}
+
+.post {
+    background: #d0e6f8;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.user {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.time {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.bubble {
+    background: #7db8e6;
+    padding: 15px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.footer {
+    background: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 30px;
+    height: 70px;
+    border-top: 1px solid #000;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #77bbe6;
+    color: #000;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #9bd3f0;
+}
