@@ -3,101 +3,92 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Configuración de notificaciones</title>
-    <link rel="stylesheet" href="../../css/notificaciones.css"/>
-    <script src="notificaciones.js" defer></script>
+    <title>Configuración de notificaciones | EduShare</title>
+    <link rel="stylesheet" href="../../css/notificaciones.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
 
-<header class="top-bar">
-    <button class="menu-btn">☰</button>
-
-    <div class="brand-box">
-        <img src="../../assets/img/logo.png" alt="EduShare Logo" class="logo" />
-       
-    </div>
-
-    <div class="spacer"></div>
-
-    <div class="top-actions">
-        <div class="user-icon">👤</div>
-        <span class="username">LupeCR9</span>
-        <button class="icon-btn"⬇️</button>
-        <button class="icon-btn">📅</button>
-        <button class="icon-btn">🔔</button>
-        <button class="icon-btn">⚙️</button>
-    </div>
-</header>
-
-<main class="page-main">
-    <h1 class="page-title">Configuración de notificaciones</h1>
-
-    <section class="config-panel">
-
-        <div class="switch-column">
-            <div class="switch-row">
-                <button class="toggle active"></button>
-                <span>Notificaciones activadas</span>
-            </div>
-            <div class="switch-row">
-                <button class="toggle active"></button>
-                <span>Notificar el material marcado como favorito</span>
-            </div>
-            <div class="switch-row">
-                <button class="toggle active"></button>
-                <span>Notificar el material subido/ descargado</span>
-            </div>
+    <header class="topbar">
+        <div class="logo">
+            <i data-lucide="menu" class="icon-menu"></i>
+            <img src="../../assets/img/logo.png" alt="EduShare" />
         </div>
 
-        <div class="status-row">
-            <div class="status-option">
-                <span class="status-circle"></span>
-                <span>Activado</span>
+        <div class="user-section">
+            <div class="user-profile">
+                <i data-lucide="user"></i>
+                <span>LupeCR9</span>
             </div>
-            <div class="status-option active">
-                <span class="status-circle"></span>
-                <span>Desactivado</span>
+
+            <!-- AQUÍ ESTÁN LOS 4 ICONOS CON MÁS ESPACIO -->
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
             </div>
         </div>
+    </header>
 
-        <div class="examples">
-            <p class="subtitle">Ejemplo:</p>
+    <main class="content">
+        <section class="page">
+            <h1 class="page-title">Configuración de notificaciones</h1>
 
-            <div class="example-row">
-                <span class="label">Activado</span>
+            <div class="config-card">
+                <div class="switch-group">
+                    <label class="switch-row">
+                        <input type="checkbox" checked class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span class="switch-label">Notificaciones activadas</span>
+                    </label>
+                    <label class="switch-row">
+                        <input type="checkbox" checked class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span class="switch-label">Notificar el material marcado como favorito</span>
+                    </label>
+                    <label class="switch-row">
+                        <input type="checkbox" checked class="toggle-input">
+                        <span class="toggle-slider"></span>
+                        <span class="switch-label">Notificar el material subido/descargado</span>
+                    </label>
+                </div>
 
-                <div class="example-content">
-                    <button class="chip chip-blue">¡Nuevo material disponible!</button>
-
-                    <div class="example-notification">
-                        <span>Nuevo material en el curso</span>
-                        <span class="example-date">Ayer</span>
+                <div class="examples">
+                    <h3 class="subtitle">Ejemplo:</h3>
+                    <div class="example">
+                        <span class="label">Activado</span>
+                        <div class="notification-preview">
+                            <div class="chip active">¡Nuevo material disponible!</div>
+                            <div class="notif-box">
+                                <span>Nuevo material en el curso</span>
+                                <small>Ayer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <span class="label">Desactivado</span>
+                        <div class="notification-preview">
+                            <div class="chip muted">Notificaciones inhabilitadas</div>
+                            <div class="notif-box muted">
+                                <span>Avisos desactivados</span>
+                                <small>—</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="example-row">
-                <span class="label">Desactivado</span>
-
-                <div class="example-content">
-                    <button class="chip chip-gray">Notificaciones inhabilitadas</button>
-
-                    <div class="example-notification muted">
-                        <span>Avisos desactivados</span>
-                        <span class="example-date">Fecha restringida</span>
-                    </div>
-                </div>
+            <div class="actions">
+                <button class="btn ghost">Salir</button>
+                <button class="btn primary">Guardar cambios</button>
             </div>
+        </section>
+    </main>
 
-        </div>
-    </section>
-</main>
-
-<footer class="bottom-bar">
-    <button class="btn-secondary" id="btn-exit">Salir</button>
-    <button class="btn-primary" id="btn-save">Guardar cambios</button>
-</footer>
-
+    <script>
+        lucide.createIcons();
+     
+    </script>
 </body>
 </html>
