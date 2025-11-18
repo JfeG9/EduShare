@@ -1,27 +1,38 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduShare - Inicio</title>
     <link rel="stylesheet" href="../../css/home.css" />
+
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <!-- HEADER FIJO -->
+   
     <header class="top-bar">
         <div class="logo-box">
+           
+            <i data-lucide="menu"></i>
+
             <img src="../../assets/img/logo.png" alt="EduShare Logo" class="logo">
         </div>
+
         <div class="top-icons">
-            <button class="icon-btn">Download</button>
-            <button class="icon-btn">Document</button>
-            <button class="icon-btn">Bell</button>
-            <button class="icon-btn">Settings</button>
+
+            <i data-lucide="download"></i>
+
+            <i data-lucide="calendar-days"></i>
+
+            <i data-lucide="bell"></i>
+
+            <i data-lucide="settings"></i>
+
         </div>
     </header>
 
-    <!-- MENÚ LATERAL IZQUIERDO FIJO -->
     <aside class="left-menu">
         <div class="side-card">
             <span>Apariencia personalizada</span>
@@ -37,10 +48,10 @@
         </div>
     </aside>
 
-    <!-- CONTENIDO PRINCIPAL (ahora permite scroll) -->
+   
     <main class="main-content">
 
-        <!-- BANNER VERDE CLARO -->
+        
         <section class="profile-banner">
             <div class="banner-inner">
                 <div class="profile-avatar"></div>
@@ -51,7 +62,7 @@
             </div>
         </section>
 
-        <!-- CONTENIDO CENTRAL -->
+        
         <section class="content-area">
             <p class="welcome-text">
                 Prepárate para ser parte de la comunidad en esta plataforma de estudio N°1 del Perú
@@ -63,19 +74,28 @@
                 <button class="action-btn">Registro de licencias</button>
             </div>
 
-            <!-- FAQ EN CAJA VERDE CLARO -->
-            <div class="faq-panel">
-                <h3>Preguntas Frecuentes:</h3>
-                <div class="faq-list">
-                    <div class="faq-item">Right Arrow ¿Puedo iniciar sesión con cualquier correo?</div>
-                    <div class="faq-item">Right Arrow ¿Qué es el registro gratuito mejorado?</div>
-                    <div class="faq-item">Right Arrow ¿La plataforma tiene una app oficial?</div>
-                </div>
-            </div>
+            
+            <h3 class="faq-title">Preguntas Frecuentes:</h3>
+            <section class="faq-panel">
+                <details>
+                    <summary>¿Puedo iniciar sesión con cualquier correo?</summary>
+                    <p>Sí, puedes usar tanto tu correo personal como institucional. Ambos te brindan acceso gratuito a la plataforma.</p>
+                </details>
+
+                <details>
+                    <summary>¿Qué es el registro gratuito mejorado?</summary>
+                    <p>No es un nuevo registro, sino una actualización de tu cuenta actual con más funciones.</p>
+                </details>
+
+                <details>
+                    <summary>¿La plataforma tiene una app oficial?</summary>
+                    <p>Sí, pronto con herramientas premium. Por ahora todo es gratis.</p>
+                </details>
+            </section>
         </section>
     </main>
 
-    <!-- FOOTER FIJO -->
+    
     <footer class="main-footer">
         <div class="footer-column">
             <h4>Contáctanos</h4>
@@ -100,6 +120,11 @@
             <a href="#">Cookies</a>
         </div>
     </footer>
+
+    
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 </html>

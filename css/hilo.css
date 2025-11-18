@@ -86,8 +86,7 @@ body {
 .icons svg:hover {
     stroke: #fff;
 }
-/*-----------MAIN-----------*/
-/* -------- FORO -------- */
+
 .content {
     flex: 1;
     background: #f8fafb;
@@ -101,7 +100,7 @@ body {
     flex-direction: column;
 }
 
-/* Fila superior: buscador + botón */
+
 .forum-top-row {
     display: flex;
     align-items: center;
@@ -135,13 +134,13 @@ body {
     color: #111827;
 }
 
-/* Ajuste del botón Crear Hilo para que parezca el mockup */
+
 .forum-new-thread {
     min-width: 160px;
     justify-content: center;
 }
 
-/* Lista de hilos */
+
 .thread-list {
     list-style: none;
     display: flex;
@@ -153,7 +152,7 @@ body {
     padding: 4px 8px;
 }
 
-/* Encabezado de cada hilo */
+
 .thread-header {
     display: flex;
     flex-direction: column;
@@ -183,13 +182,13 @@ body {
     color: var(--muted);
 }
 
-/* Burbuja del mensaje */
+
 .thread-message-box {
     background: var(--accent-2);
     border-radius: 8px;
     padding: 12px 18px;
     margin-top: 8px;
-    margin-left: 40px; /* alineado con el texto después del icono */
+    margin-left: 40px; 
 }
 
 .thread-message-box p {
@@ -198,8 +197,7 @@ body {
     color: #000;
 }
 
-/*--------------------------*/
-/*Footer*/
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -212,7 +210,7 @@ body {
     z-index: 5;
 }
 
-/*botones*/
+
 .btn {
     background: var(--accent-2);
     color: #000;
