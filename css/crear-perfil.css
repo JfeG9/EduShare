@@ -1,13 +1,13 @@
 :root {
     --bg-claro: #ffffff;
     --bg-oscuro: #081b2b;
-    --panel: #0e283e;
+    --panel: #1c4f5c;
     --texto: #e6f4ff;
     --muted: #9fb3c8;
     --primario: #25b4c3;
     --borde: #143148;
     --ring: #6cdde0;
-    --input: #0f314d;
+    --input: #ffffff;
     --sombra: rgba(0, 0, 0, 0.35);
 }
 
@@ -23,7 +23,7 @@ body {
 body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial;
-    background: var(--bg-claro);
+    background: linear-gradient(135deg, #081b2b 0%, #0e283e 50%, #143148 100%);
     color: var(--texto);
     display: grid;
     place-items: center;
