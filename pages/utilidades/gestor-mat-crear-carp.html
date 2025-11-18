@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduShare Foro</title>
+    <link rel="stylesheet" href="../../css/gestor-mat-crear.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo icons">
+            <i data-lucide="menu"></i>
+            <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+        </div>
+
+        <div class="user-section">
+            <div class="user-info">
+                <i data-lucide="user"></i>
+                <span>LupeCR9</span>
+            </div>
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="materials-page">
+            <header class="materials-header">
+                <h1>Gestión de materiales</h1>
+                <p class="materials-subtitle">Actividades recientes:</p>
+            </header>
+
+            <div class="materials-panel">
+                <div class="folder-setup">
+                    <p class="folder-text">
+                        Antes de ver tus materiales seleccionado, crea un nombre para tu carpeta
+                    </p>
+
+                    <div class="folder-input-row">
+                        <input
+                            type="text"
+                            class="folder-input"
+                            placeholder="Escribe un mensaje..."
+                        />
+                        <button class="btn primary folder-btn">
+                            Crear Carpeta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <button class="btn ghost">Salir</button>
+        <button class="btn primary">Subir archivo</button>
+    </footer>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
