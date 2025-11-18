@@ -24,39 +24,126 @@ body {
     height: 68px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
+
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
 }
+
 .logo img {
     height: 38px;
     max-width: 180px;
     object-fit: contain;
 }
+
+/* ==== ICONOS LUCIDE (GENERALES) ==== */
 .ico {
     width: 22px;
     height: 22px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    transition: all 0.2s ease;
     color: #77e6c8;
 }
+
+/* Ícono menú hamburguesa */
+.ico.menu {
+    width: 24px;
+    height: 24px;
+}
+
+/* SECCIÓN DERECHA */
 .user-section {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 26px;
 }
-.user-info {
+
+/* Perfil de usuario (icono blanco) */
+.user-profile {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: #ffffff22;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-weight: 500;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    padding: 9px 16px;
+    border-radius: 30px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    transition: all 0.25s ease;
 }
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+}
+
+/* Ícono de usuario blanco */
+.user-profile .ico {
+    width: 26px;
+    height: 26px;
+    color: white !important;
+    stroke: white !important;
+}
+
+/* ==== ICONOS DE ACCIONES (Download, Calendar, Bell, Settings) ==== */
 .icons {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+}
+
+.icons .ico {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2.2px;
+    color: #77e6c8;
+}
+
+.icons .ico:hover {
+    color: white;
+    transform: scale(1.15);
+}
+
+/* Por si HTML antiguo existiera */
+.user-info {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    padding: 9px 16px;
+    border-radius: 30px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    transition: all 0.25s ease;
+}
+
+.user-info:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+}
+
+/* Ícono blanco del usuario */
+.user-info i[data-lucide="user"] {
+    width: 26px;
+    height: 26px;
+    stroke: white !important;
+    color: white !important;
+    stroke-width: 2.4;
+}
+
+/* Asegurar que el texto del nombre sea blanco */
+.user-info span {
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 /* MAIN */
@@ -64,10 +151,12 @@ body {
     flex: 1;
     padding: 40px 20px;
 }
+
 .register-container {
     max-width: 1100px;
     margin: 0 auto;
 }
+
 .title {
     text-align: center;
     font-size: 28px;
@@ -76,6 +165,7 @@ body {
     line-height: 1.3;
     color: #0b2239;
 }
+
 .description {
     text-align: center;
     font-size: 15px;
@@ -103,15 +193,18 @@ body {
     padding: 28px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
+
 .form-card h2 {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #0b2239;
 }
+
 .input-group {
     margin-bottom: 16px;
 }
+
 .input-group label {
     display: block;
     font-size: 14px;
@@ -119,6 +212,7 @@ body {
     margin-bottom: 6px;
     color: #2f3a47;
 }
+
 .input-group input {
     width: 100%;
     padding: 12px 14px;
@@ -127,11 +221,13 @@ body {
     font-size: 15px;
     background: #fff;
 }
+
 .input-group input:focus {
     outline: none;
     border-color: #77bbe6;
     box-shadow: 0 0 0 3px rgba(119, 187, 230, 0.15);
 }
+
 .btn.primary {
     width: 100%;
     background: #77bbe6;
@@ -144,6 +240,7 @@ body {
     cursor: pointer;
     margin-top: 8px;
 }
+
 .btn.primary:hover {
     background: #5aa7db;
     transform: translateY(-1px);
@@ -157,27 +254,32 @@ body {
     padding: 28px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
+
 .versions-card h2 {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px;
     color: #0b2239;
 }
+
 .versions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     margin-bottom: 20px;
 }
+
 .version {
     text-align: center;
 }
+
 .version h3 {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 12px;
     color: #0b2239;
 }
+
 .placeholder {
     width: 100%;
     height: 90px;
@@ -189,9 +291,11 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .x-mark {
     position: relative;
 }
+
 .x-line {
     position: absolute;
     width: 50px;
@@ -199,12 +303,15 @@ body {
     background: #cfd7e1;
     border-radius: 2px;
 }
+
 .x-line:first-child {
     transform: rotate(45deg);
 }
+
 .x-line:last-child {
     transform: rotate(-45deg);
 }
+
 .lines {
     display: flex;
     flex-direction: column;
@@ -212,14 +319,17 @@ body {
     width: 80%;
     margin: 0 auto;
 }
+
 .line {
     height: 10px;
     background: #e0e6ed;
     border-radius: 5px;
 }
+
 .line.short {
     width: 70%;
 }
+
 .footer-note {
     font-size: 13px;
     color: #5a6c80;
@@ -229,25 +339,41 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+
     .register-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
+
     .title {
         font-size: 24px;
     }
 }
+
 @media (max-width: 480px) {
+
     .topbar {
         padding: 10px 16px;
     }
+
     .content {
         padding: 24px 16px;
     }
+
     .form-card, .versions-card {
         padding: 20px;
     }
+
     .versions {
         grid-template-columns: 1fr;
+    }
+
+    .user-section {
+        gap: 16px;
+    }
+
+    .user-profile {
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }
