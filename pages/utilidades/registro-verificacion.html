@@ -3,95 +3,93 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro | EduShare</title>
+    <title>Registro gratuito con funciones adicionales</title>
     <link rel="stylesheet" href="../../css/registro-verificacion.css" />
-    <!-- LUCIDE ICONS (OBLIGATORIO) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="registro-verificacion.js" defer></script>
 </head>
+
 <body>
 
-    <header class="topbar">
-        <!-- LOGO + MENÚ HAMBURGUESA -->
-        <div class="logo icons">
-            <i data-lucide="menu"></i>
-            <img src="../../assets/img/logo.png" alt="EduShare" />
+<header class="top-bar">
+    <button class="menu-btn">☰</button>
+
+    <div class="brand-box">
+        <img src="../../assets/img/logo.png" class="logo" />
+        <span class="brand-name">EduShare</span>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="top-actions">
+        <div class="user-icon">👤</div>
+        <span class="username">LupeCR9</span>
+        <button class="icon-btn">⬇️</button>
+        <button class="icon-btn">📅</button>
+        <button class="icon-btn">🔔</button>
+        <button class="icon-btn">⚙️</button>
+    </div>
+</header>
+
+<main class="page-main">
+
+    <h1 class="page-title">Registro gratuito con funciones<br>adicionales</h1>
+
+    <section class="main-layout">
+
+        <div class="card-verify">
+            <h2 class="card-title">Verificar cuenta</h2>
+
+            <label>Nombre</label>
+            <input id="nombre" class="text-input">
+
+            <label>Apellido</label>
+            <input id="apellido" class="text-input">
+
+            <label>Correo electrónico</label>
+            <input id="correo" class="text-input">
+
+            <button class="btn-register" id="btn-register">Regístrate</button>
         </div>
 
-        <!-- SECCIÓN DERECHA: USUARIO + ICONOS -->
-        <div class="user-section">
-            <!-- USUARIO CON ÍCONO BLANCO -->
-            <div class="user-info">
-                <i data-lucide="user"></i>
-                <span>LupeCR9</span>
-            </div>
-
-            <!-- ICONOS DE ACCIONES (exactamente como en tu imagen) -->
-            <div class="icons">
-                <i class="ico" data-lucide="download"></i>
-                <i class="ico" data-lucide="calendar"></i>
-                <i class="ico" data-lucide="bell"></i>
-                <i class="ico" data-lucide="settings"></i>
-            </div>
-        </div>
-    </header>
-
-    <main class="content">
-        <section class="register-container">
-            <h1 class="title">Registro gratuito con funciones adicionales</h1>
-            <p class="description">
-                En este apartado se solicitará el ingreso de su cuenta para verificar su solicitud de la habilitación de las funciones de versión mejor axial como también la versión alternativa en donde brindará opciones nuevas de prueba para futuras actualizaciones.
+        <div class="info-column">
+            <p class="description-text">
+                En este apartado se solicitará el ingreso de su cuenta para verificar su solicitud de la habilitación de las funciones de versión mejorada como también la versión alternativa en donde brindará opciones nuevas de prueba para futuras actualizaciones.
             </p>
 
-            <div class="register-grid">
-                <div class="form-card">
-                    <h2>Verificar cuenta</h2>
-                    <form>
-                        <div class="input-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" placeholder="" required />
-                        </div>
-                        <div class="input-group">
-                            <label for="apellido">Apellido</label>
-                            <input type="text" id="apellido" placeholder="" required />
-                        </div>
-                        <div class="input-group">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" placeholder="" required />
-                        </div>
-                        <button type="submit" class="btn primary">Regístrate</button>
-                    </form>
-                </div>
+            <h2 class="sub-title">Funciones disponibles</h2>
 
-                <div class="versions-card">
-                    <h2>Funciones disponibles</h2>
-                    <div class="versions">
-                        <div class="version improved">
-                            <h3>Versión mejorada</h3>
-                            <div class="placeholder x-mark">
-                                <div class="x-line"></div>
-                                <div class="x-line"></div>
-                            </div>
-                        </div>
-                        <div class="version alternative">
-                            <h3>Versión alternativa</h3>
-                            <div class="placeholder lines">
-                                <div class="line"></div>
-                                <div class="line short"></div>
-                                <div class="line"></div>
-                            </div>
-                        </div>
+            <div class="functions-box">
+
+                <div class="function-column">
+                    <h3 class="func-title">Versión mejorada</h3>
+                    <div class="thumbnail large">
+                        <div class="x-line x1"></div>
+                        <div class="x-line x2"></div>
                     </div>
-                    <p class="footer-note">
-                        Funciones como el acceso al foro y descargas de materiales siempre están disponibles en la versión básica
-                    </p>
                 </div>
-            </div>
-        </section>
-    </main>
 
-    <!-- ACTIVAR TODOS LOS ICONOS LUCIDE -->
-    <script>
-        lucide.createIcons();
-    </script>
+                <div class="function-column">
+                    <h3 class="func-title">Versión alternativa</h3>
+                    <div class="thumbnail small">
+                        <div class="alt-line"></div>
+                        <div class="alt-line"></div>
+                        <div class="alt-line"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="note-text">
+                Funciones como el acceso al foro y descargas de materiales siempre están disponibles en la versión básica
+            </p>
+        </div>
+
+    </section>
+</main>
+
+<footer class="bottom-bar">
+    <button class="btn-exit" id="btn-exit">Salir</button>
+</footer>
+
 </body>
 </html>
