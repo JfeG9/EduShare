@@ -1,8 +1,4 @@
-/* ================================
-   EduShare — material.css (ajustado al HTML dado)
-   ================================ */
-
-:root {
+  :root {
     --brand: #2c669a;
     --accent: #77e6c8;
     --accent-2: #77bbe6;
@@ -12,7 +8,7 @@
     --shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Reset mínimo útil */
+
 * {
     box-sizing: border-box;
 }
@@ -30,9 +26,7 @@ svg {
     display: block;
 }
 
-/* ================================
-   TOP BAR
-   ================================ */
+
 .topbar {
     background: var(--brand);
     padding: 12px 24px;
@@ -43,7 +37,7 @@ svg {
     justify-content: space-between;
 }
 
-/* Logo (izquierda) */
+
 .logo {
     display: flex;
     align-items: center;
@@ -58,7 +52,7 @@ svg {
     height: 48px;
 }
 
-/* Sección usuario (derecha) */
+
 .user-section {
     display: flex;
     align-items: center;
@@ -77,7 +71,7 @@ svg {
     color: var(--accent);
 }
 
-/* Iconos superiores */
+
 .icons {
     display: flex;
     gap: 18px;
@@ -94,16 +88,14 @@ svg {
     transform: translateY(-1px);
 }
 
-/* Asegurar que los SVG hereden color correctamente */
+
 .ico path,
 .ico rect,
 .ico circle {
     stroke: currentColor;
 }
 
-/* ================================
-   CONTENIDO PRINCIPAL
-   ================================ */
+
 .content {
     padding: 24px;
 }
@@ -112,16 +104,13 @@ svg {
     margin: 0 0 16px;
 }
 
-/* Grid lateral: tarjeta archivo + panel análisis */
 .grid {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 24px;
 }
 
-/* ================================
-   TARJETA DE ARCHIVO
-   ================================ */
+
 .card.file-card {
     background: #fff;
     border-radius: 12px;
@@ -153,9 +142,7 @@ svg {
     font-size: 0.95rem;
 }
 
-/* ================================
-   PANEL DE ANÁLISIS
-   ================================ */
+
 .analyze {
     background: #fff;
     border-radius: 12px;
@@ -174,7 +161,7 @@ svg {
     margin: 0;
 }
 
-/* Botones */
+
 .btn {
     background: var(--accent-2);
     color: #000;
@@ -204,7 +191,7 @@ svg {
     background: var(--accent-2);
 }
 
-/* Barra de progreso */
+
 .progress {
     height: 6px;
     background: #e9ecef;
@@ -215,12 +202,10 @@ svg {
 .progress .bar {
     height: 100%;
     background: var(--accent-2);
-    width: 35%; /* puedes animarla desde JS si quieres */
+    width: 35%; 
 }
 
-/* ================================
-   TABLA DE RESULTADOS
-   ================================ */
+
 .table {
     border: 1px solid var(--line);
     border-radius: 8px;
@@ -229,7 +214,7 @@ svg {
 .table .thead,
 .table .r {
     display: grid;
-    grid-template-columns: 1.2fr 0.6fr 1.2fr; /* Resultado | Estado | Recomendaciones */
+    grid-template-columns: 1.2fr 0.6fr 1.2fr;
 }
 .table .thead {
     background: var(--bg-soft);
@@ -246,7 +231,7 @@ svg {
     border-bottom: none;
 }
 
-/* estados */
+
 .table .st {
     color: #333;
 }
@@ -260,9 +245,7 @@ svg {
     font-style: italic;
 }
 
-/* ================================
-   FOOTER
-   ================================ */
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -275,9 +258,7 @@ svg {
     z-index: 5;
 }
 
-/* ================================
-   RESPONSIVE
-   ================================ */
+
 @media (max-width: 992px) {
     .grid {
         grid-template-columns: 1fr;

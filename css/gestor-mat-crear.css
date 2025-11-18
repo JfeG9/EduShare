@@ -86,7 +86,7 @@ body {
 .icons svg:hover {
     stroke: #fff;
 }
-/*-----------MAIN-----------*/
+
 .content {
     flex: 1;
     background: #f8fafb;
@@ -138,8 +138,7 @@ body {
     justify-content: center;
 }
 
-/*--------------------------*/
-/*Footer*/
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -152,7 +151,7 @@ body {
     z-index: 5;
 }
 
-/*botones*/
+
 .btn {
     background: var(--accent-2);
     color: #000;

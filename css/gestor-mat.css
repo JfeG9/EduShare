@@ -86,7 +86,7 @@ body {
 .icons svg:hover {
     stroke: #fff;
 }
-/*-----------MAIN-----------*/
+
 
 .content {
     flex: 1;
@@ -113,7 +113,7 @@ body {
     color: var(--muted);
 }
 
-/* Barra de búsqueda */
+
 .materials-search-row {
     margin-top: 18px;
     display: flex;
@@ -147,7 +147,7 @@ body {
     color: #111827;
 }
 
-/* Carpeta seleccionada */
+
 .folder-row {
     margin-top: 16px;
     display: flex;
@@ -193,7 +193,7 @@ body {
     stroke: #000;
 }
 
-/* Grid de materiales */
+
 .materials-grid {
     margin-top: 28px;
     display: grid;
@@ -214,11 +214,11 @@ body {
     color: #111827;
 }
 
-/* Tarjeta visual del material */
+
 .material-card {
     width: 100%;
     max-width: 320px;
-    background: #007b8a; /* teal similar al mockup */
+    background: #007b8a;
     border-radius: 18px;
     padding: 20px;
     display: flex;
@@ -233,7 +233,7 @@ body {
     stroke-width: 2.4;
 }
 
-/* Acciones */
+
 .material-actions {
     margin-top: 10px;
     display: flex;
@@ -241,7 +241,7 @@ body {
     gap: 10px;
 }
 
-/* Botones tipo “chip” */
+
 .chip-btn {
     border-radius: 20px;
     border: none;
@@ -251,7 +251,7 @@ body {
     cursor: pointer;
 }
 
-/* Botón redondo con icono de upload */
+
 .icon-circle {
     width: 32px;
     height: 32px;
@@ -270,8 +270,7 @@ body {
     stroke: #000;
 }
 
-/*--------------------------*/
-/*Footer*/
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -284,7 +283,7 @@ body {
     z-index: 5;
 }
 
-/*botones*/
+
 .btn {
     background: var(--accent-2);
     color: #000;

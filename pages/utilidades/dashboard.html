@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduShare - Inicio</title>
     <link rel="stylesheet" href="../../css/dashboard.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <!-- HEADER -->
+    
     <header class="top-bar">
         <div class="logo-box">
-            <svg style="width:28px;height:28px;color:#77e6c8;margin-right:8px;" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            </svg>
+            
+            <i data-lucide="menu" class="top-icon"></i>
+
             <img src="../../assets/img/logo.png" alt="EduShare" class="logo">
         </div>
+        
         <div class="top-icons">
-            <button class="icon-btn">Download</button>
-            <button class="icon-btn">Document</button>
-            <button class="icon-btn">Bell</button>
-            <button class="icon-btn">Settings</button>
+            <i data-lucide="download" class="top-icon"></i>
+            <i data-lucide="calendar-days" class="top-icon"></i>
+            <i data-lucide="bell" class="top-icon"></i>
+            <i data-lucide="settings" class="top-icon"></i>
         </div>
     </header>
-
-    <!-- MENÚ LATERAL DERECHO (EXACTO como en tu captura) -->
+    
     <aside class="right-menu">
         <div class="side-card">
             <span>Cerrar sección</span>
@@ -36,10 +37,9 @@
         </div>
     </aside>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <main class="main-content">
 
-        <!-- BANNER DE USUARIO -->
+        
         <section class="profile-banner">
             <div class="banner-inner">
                 <div class="profile-avatar"></div>
@@ -83,7 +83,7 @@
         </section>
     </main>
 
-    <!-- FOOTER FIJO -->
+    
     <footer class="main-footer">
         <div class="footer-column">
             <h4>Contáctanos</h4>
@@ -108,6 +108,11 @@
             <a href="#">Configuración de Cookies</a>
         </div>
     </footer>
+
+    
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 </html>
