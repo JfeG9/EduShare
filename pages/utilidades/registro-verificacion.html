@@ -5,43 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro | EduShare</title>
     <link rel="stylesheet" href="../../css/registro-verificacion.css" />
+    <!-- LUCIDE ICONS (OBLIGATORIO) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    
+
     <header class="topbar">
-        <div class="logo">
-            <svg class="ico menu" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
+        <!-- LOGO + MENÚ HAMBURGUESA -->
+        <div class="logo icons">
+            <i data-lucide="menu"></i>
             <img src="../../assets/img/logo.png" alt="EduShare" />
         </div>
+
+        <!-- SECCIÓN DERECHA: USUARIO + ICONOS -->
         <div class="user-section">
+            <!-- USUARIO CON ÍCONO BLANCO -->
             <div class="user-info">
-                <svg class="ico" viewBox="0 0 24 24">
-                    <circle cx="12" cy="7" r="5" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <path d="M12 14c-4 0-8 2-8 6h16c0-4-4-6-8-6Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                </svg>
+                <i data-lucide="user"></i>
                 <span>LupeCR9</span>
             </div>
+
+            <!-- ICONOS DE ACCIONES (exactamente como en tu imagen) -->
             <div class="icons">
-                <svg class="ico" viewBox="0 0 24 24"><path d="M19 21V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 3v12m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                <svg class="ico" viewBox="0 0 24 24"><path d="M20 21V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 3h6v4H9z" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                <svg class="ico" viewBox="0 0 24 24"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10Z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/></svg>
+                <i class="ico" data-lucide="download"></i>
+                <i class="ico" data-lucide="calendar"></i>
+                <i class="ico" data-lucide="bell"></i>
+                <i class="ico" data-lucide="settings"></i>
             </div>
         </div>
     </header>
 
-    
     <main class="content">
         <section class="register-container">
             <h1 class="title">Registro gratuito con funciones adicionales</h1>
             <p class="description">
-                En este apartado se solicitará el ingreso de su cuenta para verificar su solicitud de la habilitación de las funciones de versión mejorada como también la versión alternativa en donde brindará opciones nuevas de prueba para futuras actualizaciones.
+                En este apartado se solicitará el ingreso de su cuenta para verificar su solicitud de la habilitación de las funciones de versión mejor axial como también la versión alternativa en donde brindará opciones nuevas de prueba para futuras actualizaciones.
             </p>
 
             <div class="register-grid">
-                
                 <div class="form-card">
                     <h2>Verificar cuenta</h2>
                     <form>
@@ -61,7 +62,6 @@
                     </form>
                 </div>
 
-                
                 <div class="versions-card">
                     <h2>Funciones disponibles</h2>
                     <div class="versions">
@@ -88,5 +88,10 @@
             </div>
         </section>
     </main>
+
+    <!-- ACTIVAR TODOS LOS ICONOS LUCIDE -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
