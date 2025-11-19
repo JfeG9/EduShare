@@ -38,16 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const email = emailInput.value.trim();
-
-        if (!email) {
-            mostrarMensaje(
-                "Por favor, introduce tu correo electrónico.",
-                false
-            );
-            return;
-        }
-
         mostrarMensaje(
             "Si existe una cuenta asociada a este correo, hemos enviado instrucciones para recuperar tu contraseña.",
             true
