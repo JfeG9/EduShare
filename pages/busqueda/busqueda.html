@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduShare — Búsqueda</title>
+    <title>Buscar en documento | EduShare</title>
     <link rel="stylesheet" href="../../css/busqueda.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
+    <!-- TOPBAR MODERNO -->
     <header class="topbar">
         <div class="logo">
             <i data-lucide="menu" class="icon-menu"></i>
@@ -21,7 +22,6 @@
                 <span>LupeCR9</span>
             </div>
 
-            <!-- LOS 4 ICONOS CON EL COLOR TURQUESA #77e6c8 -->
             <div class="icons">
                 <i data-lucide="download"></i>
                 <i data-lucide="calendar-days"></i>
@@ -35,40 +35,58 @@
         <section class="page">
             <h1 class="page-title">Buscar en documento</h1>
 
-            <div class="search-row">
+            <!-- FORMULARIO CON IDs CORRECTOS PARA TU JS -->
+            <form class="search-row" id="search-form">
                 <div class="search-input">
                     <i data-lucide="search" class="search-icon"></i>
-                    <input type="text" placeholder="Buscar en este documento..." />
+                    <input type="text" id="search-input" placeholder="Buscar en este documento..." />
                     <i data-lucide="mic" class="mic-icon"></i>
                 </div>
-                <button class="btn primary">Buscar</button>
-            </div>
+                <button type="submit" class="btn primary">Buscar</button>
+            </form>
 
-            <section class="panel advanced-search">
-                <header class="panel-header">Búsqueda avanzada</header>
-                <div class="advanced-body">
-                    <div class="line"><span class="highlight"></span></div>
-                    <div class="line"></div>
-                    <div class="line"><span class="highlight"></span></div>
-                    <div class="line"><span class="highlight cluster"></span></div>
-                    <div class="line"></div>
-                    <div class="line"><span class="highlight"></span></div>
-                    <div class="line"><span class="highlight cluster"></span></div>
-                    <div class="line"></div>
-                    <div class="line"><span class="highlight"></span></div>
-                    <div class="line"><span class="highlight cluster"></span></div>
+            <div class="results-grid">
+                <!-- NAVEGACIÓN IZQUIERDA -->
+                <div class="nav-card">
+                    <h2 class="nav-title">Navegación</h2>
+                    <div class="nav-item"></div>
+                    <div class="nav-item"></div>
+                    <div class="nav-item"></div>
+                    <div class="nav-item"></div>
+                    <div class="nav-item"></div>
                 </div>
-                <footer class="advanced-footer">Analizando resultados...</footer>
-            </section>
+
+                <!-- DOCUMENTO CON RESULTADOS -->
+                <div class="doc-card">
+                    <div class="doc-header">Título del documento</div>
+                    <div class="doc-body">
+                        <div class="doc-line"></div>
+                        <div class="doc-line"><span class="pin"></span></div>
+                        <div class="doc-line"><span class="pin"></span></div>
+                        <div class="doc-line"><span class="pin"></span></div>
+                        <div class="doc-line"><span class="pin"></span></div>
+                    </div>
+                    <div class="doc-footer">
+                        <span class="results-label">4 resultados encontrados</span>
+                        <div class="pager">
+                            <span>Anterior</span> <span>Siguiente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
+    <!-- BOTÓN SALIR -->
     <footer class="footer">
         <button class="btn-exit">Salir</button>
     </footer>
 
+    <!-- PRIMERO LUCIDE, LUEGO TU JS -->
     <script>
         lucide.createIcons();
     </script>
+    <script src="busqueda.js"></script>
+
 </body>
 </html>
