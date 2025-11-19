@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = crearTarjetaReview(estrellas, texto, userName, timestamp);
         reviewsWrap.appendChild(card);
 
-        // Guardar en localStorage
         const valoraciones = JSON.parse(localStorage.getItem("valoraciones") || "[]");
         valoraciones.push({
             usuario: userName,
@@ -114,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         localStorage.setItem("valoraciones", JSON.stringify(valoraciones));
 
-        // Limpiar formulario
         resenaInput.value = "";
         puntaje.selectedIndex = 0;
 

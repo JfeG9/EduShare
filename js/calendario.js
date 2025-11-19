@@ -1,8 +1,6 @@
-/* calendario-app.js */
 document.addEventListener("DOMContentLoaded", () => {
   lucide.createIcons();
 
-  // ELEMENTOS
   const userName = document.querySelector("#userName");
   const fechaDisplay = document.querySelector("#fechaDisplay");
   const fechaPicker = document.querySelector("#fechaPicker");
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const previewTitle = document.querySelector("#materialPreviewTitle");
   const previewDesc = document.querySelector("#materialPreviewDesc");
 
-  // MODAL
   const modal = document.querySelector("#modal");
   const modalTitle = document.querySelector("#modalTitle");
   const matTitulo = document.querySelector("#matTitulo");
@@ -25,35 +22,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCancel = document.querySelector("#modalCancel");
   const toast = document.querySelector("#toast");
 
-  // Estado runtime
-  let editingIndex = -1; // -1 -> crear, >=0 editar
+  let editingIndex = -1;
   let state = { nota: "", materiales: [] };
 
-  // Helpers fecha
   const today = new Date();
   function isoFromDateObj(d){ const yyyy = d.getFullYear(); const mm = String(d.getMonth()+1).padStart(2,'0'); const dd = String(d.getDate()).padStart(2,'0'); return `${yyyy}-${mm}-${dd}`; }
   function normalFromISO(iso){ const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; }
   function isoFromNormal(norm){ const [d,m,y]=norm.split('/'); return `${y}-${m}-${d}`; }
   function getKeyForISO(iso){ return `cal_${iso}`; }
 
-  // Inicializar fecha
   function setDateByISO(iso){
     fechaDisplay.value = normalFromISO(iso);
     fechaPicker.value = iso;
   }
   setDateByISO(isoFromDateObj(today));
 
-  // Cargar nombre de usuario (si existe)
   userName.textContent = localStorage.getItem("usuario") || userName.textContent;
 
-  // Toast
   function showToast(msg, ms=1400){
     toast.textContent = msg;
     toast.classList.remove("hidden");
     setTimeout(()=> toast.classList.add("hidden"), ms);
   }
 
-  // Cargar estado para la fecha actual
   function loadForCurrentDate(){
     const iso = fechaPicker.value;
     const key = getKeyForISO(iso);
@@ -64,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     clearPreview();
   }
 
-  // Guardar estado
   function saveForCurrentDate(){
     const iso = fechaPicker.value;
     const key = getKeyForISO(iso);
@@ -73,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     showToast("Guardado ✔");
   }
 
-  // Render lista
   function renderList(){
     listaEl.innerHTML = "";
     state.materiales.forEach((m, i) => {
@@ -92,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listaEl.appendChild(item);
     });
     lucide.createIcons();
-    // attach menu listeners (delegation)
+ 
     listaEl.querySelectorAll(".menu-btn").forEach(btn=>{
       btn.addEventListener("click", (e)=>{
         const idx = Number(btn.dataset.i);
@@ -100,10 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // clicking on item shows preview
     listaEl.querySelectorAll(".item-material").forEach((el, idx)=>{
       el.addEventListener("click", (ev)=>{
-        // if clicked the menu button skip
+
         if (ev.target.closest('.menu-btn')) return;
         setPreviewFromIndex(idx);
       });
@@ -122,9 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
     previewDesc.textContent = "Vista previa del material seleccionado.";
   }
 
-  // Menu (editar / eliminar)
+
   function openMenuFor(idx, anchorBtn){
-    // simple prompt menu using confirm/option flow to avoid extra DOM
+
     const action = prompt("Acción para el material:\n1 = Editar\n2 = Eliminar\n(Escribe 1 o 2)");
     if(action === "1"){
       openModalForEdit(idx);
@@ -138,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Modal
   function openModalForCreate(){
     editingIndex = -1;
     modalTitle.textContent = "Agregar material";
@@ -161,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     editingIndex = -1;
   }
 
-  // Modal save
+
   modalSave.addEventListener("click", ()=>{
     const t = matTitulo.value.trim();
     const d = matDesc.value.trim();
@@ -179,12 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   modalCancel.addEventListener("click", closeModal);
 
-  // Escape key closes modal
+
   document.addEventListener("keydown", (e)=>{
     if(e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
   });
 
-  // Buttons
+
   btnAgregar.addEventListener("click", openModalForCreate);
   btnGuardar.addEventListener("click", saveForCurrentDate);
   btnReset.addEventListener("click", ()=>{
@@ -201,14 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if(confirm("¿Quieres salir?")) window.location.href = "../../index.html";
   });
 
-  // Fecha picker
   fechaPicker.addEventListener("change", ()=>{
     if(!fechaPicker.value) return;
     setDateByISO(fechaPicker.value);
     loadForCurrentDate();
   });
 
-  // Btn Hoy
   btnHoy.addEventListener("click", ()=>{
     const iso = isoFromDateObj(new Date());
     fechaPicker.value = iso;
@@ -216,18 +201,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadForCurrentDate();
   });
 
-  // actualización display when page loads
   function setDateByISO(iso){
     fechaPicker.value = iso;
     fechaDisplay.value = normalFromISO(iso);
   }
 
-  // helpers used in this scope
   function isoFromDateObj(d){ const yyyy = d.getFullYear(); const mm = String(d.getMonth()+1).padStart(2,'0'); const dd = String(d.getDate()).padStart(2,'0'); return `${yyyy}-${mm}-${dd}`; }
   function normalFromISO(iso){ const [y,m,d] = iso.split("-"); return `${d}/${m}/${y}`; }
   function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
-  // load initial data
   loadForCurrentDate();
 
   function loadForCurrentDate(){
