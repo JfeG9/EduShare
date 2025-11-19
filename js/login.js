@@ -23,7 +23,7 @@ btnLogin.addEventListener("click", function (event) {
     errorMsg.style.display = "none";
 
     if (login(email, contrasena)) {
-        window.location.href = "../busqueda/filtro.html";
+        window.location.href = "../utilidades/dashboard.html";
     } else {
         errorMsg.textContent = "Correo electrónico o contraseña incorrectos.";
         errorMsg.style.display = "block";
