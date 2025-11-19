@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const themeBtn = document.getElementById("btnTheme");
+    aplicarTemaGuardado();
+    if (themeBtn) {
+        actualizarIcono(themeBtn);
+
+        themeBtn.addEventListener("click", () => {
+            const dark = document.body.classList.toggle("dark-mode");
+            localStorage.setItem("theme", dark ? "dark" : "light");
+            actualizarIcono(themeBtn);
+        });
+    }
+
     const form = document.getElementById("loginForm");
     const msg = document.getElementById("errorMsg");
 
@@ -80,4 +92,18 @@ function registrarse(usuario, contrasena, confirmarContrasena, email) {
         ok: true,
         mensaje: "Registro exitoso.",
     };
+}
+
+function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+function actualizarIcono(btn) {
+    const dark = document.body.classList.contains("dark-mode");
+    btn.textContent = dark ? "☀️" : "🌙";
 }

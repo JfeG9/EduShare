@@ -7,13 +7,16 @@
     --line: #e9eef1;
     --chip: #f6fbfc;
     --radius: 16px;
+    --bg: #ffffff;
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
-    background: #fff;
+    background: var(--bg);
     color: var(--text);
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -243,7 +246,6 @@ footer {
     color: var(--ink);
 }
 
-
 @media (max-width: 980px) {
     .hero {
         grid-template-columns: 1fr;
@@ -266,4 +268,66 @@ footer {
     .logos {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+body.dark-mode {
+    --bg: #081b2b;
+    --ink: #f9fafb;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --line: #17212b;
+    --chip: #0b1620;
+    --brand: #0ea5e9;
+    --brand-2: #22d3ee;
+    background: var(--bg);
+    color: var(--text);
+}
+
+body.dark-mode .nav {
+    background: #050910;
+    border-bottom-color: #17212b;
+}
+
+body.dark-mode .card {
+    background: #0b1620;
+    border-color: #17212b;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: var(--ink);
+}
+
+body.dark-mode p {
+    color: var(--text);
+}
+
+body.dark-mode .btn {
+    border-color: #1f2933;
+    color: var(--brand-2);
+    background: transparent;
+}
+
+body.dark-mode .btn.primary {
+    background: var(--brand-2);
+    color: #021016;
+}
+
+body.dark-mode .section[style*="background: #fafcfd"] {
+    background: #030812 !important;
+}
+
+body.dark-mode footer {
+    border-top-color: #17212b;
+    background: #02060c;
+    color: var(--muted);
+}
+
+body.dark-mode .links a {
+    color: var(--muted);
+}
+
+body.dark-mode .links a:hover {
+    color: var(--ink);
 }

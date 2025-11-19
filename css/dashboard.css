@@ -251,12 +251,11 @@ body {
 }
 
 body.dark-mode {
-    background: #050910;
+    background: #081b2b;
     color: #f5f5f5;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Top bar */
 body.dark-mode .top-bar {
     background: #0b1722;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
@@ -272,7 +271,6 @@ body.dark-mode .top-icons i:hover {
     stroke: #ffffff !important;
 }
 
-/* Menú derecho */
 body.dark-mode .right-menu {
     background: #020b14;
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.6);
@@ -292,7 +290,6 @@ body.dark-mode .right-menu .side-card button {
     background: #2563eb;
 }
 
-/* Banner de perfil */
 body.dark-mode .profile-banner {
     background: #111827;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
@@ -311,7 +308,6 @@ body.dark-mode .stats {
     color: #cbd5f5;
 }
 
-/* Área de contenido */
 body.dark-mode .welcome-text {
     color: #e5e7eb;
 }
@@ -320,7 +316,6 @@ body.dark-mode .faq-title {
     color: #e5e7eb;
 }
 
-/* Botones de acción */
 body.dark-mode .action-btn {
     background: #020617;
     border-color: #1f2937;
@@ -333,7 +328,6 @@ body.dark-mode .action-btn:hover {
     box-shadow: 0 12px 28px rgba(56, 189, 248, 0.4);
 }
 
-/* FAQ */
 body.dark-mode .faq-panel {
     background: #020617;
     color: #e5e7eb;
@@ -348,7 +342,6 @@ body.dark-mode .faq-panel p {
     color: #d1d5db;
 }
 
-/* Footer */
 body.dark-mode .main-footer {
     background: #020617;
     color: #e5e7eb;

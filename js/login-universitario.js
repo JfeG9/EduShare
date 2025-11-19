@@ -3,6 +3,8 @@ const emailInput = document.getElementById("email");
 const errorMsg = document.getElementById("errorMsg");
 const successMsg = document.getElementById("successMsg");
 
+aplicarTemaGuardado();
+
 btn.addEventListener("click", () => {
     const email = emailInput.value.trim();
 
@@ -24,3 +26,29 @@ btn.addEventListener("click", () => {
         successMsg.style.display = "none";
     }, 3000);
 });
+
+function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+const themeBtn = document.getElementById("btnTheme");
+
+function actualizarIcono() {
+    const dark = document.body.classList.contains("dark-mode");
+    themeBtn.textContent = dark ? "☀️" : "🌙";
+}
+
+if (themeBtn) {
+    actualizarIcono();
+
+    themeBtn.addEventListener("click", () => {
+        const dark = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        actualizarIcono();
+    });
+}
