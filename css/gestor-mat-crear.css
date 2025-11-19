@@ -86,6 +86,9 @@ body {
 .icons svg:hover {
     stroke: #fff;
 }
+.materials-page{
+    /*color: #17a2b8;*/
+}
 /*-----------MAIN-----------*/
 .content {
     flex: 1;
