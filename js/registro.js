@@ -47,13 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function registrarse(usuario, contrasena, confirmarContrasena, email) {
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
 
-    if (!usuario || !email || !contrasena || !confirmarContrasena) {
-        return {
-            ok: false,
-            mensaje: "Por favor completa todos los campos.",
-        };
-    }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         return { ok: false, mensaje: "Correo electrónico no válido." };
