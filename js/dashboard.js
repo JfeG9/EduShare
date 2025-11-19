@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("usuarioActual");
-        window.location.href = "../autenticacion/login.html";
+        window.location.href = "../../index.html";
     });
 
     const themeBtn = document.getElementById("btnTheme");
