@@ -53,6 +53,7 @@ body {
 .logo {
     height: 32px;
     width: auto;
+    cursor: pointer;
 }
 
 .top-icons {

@@ -40,4 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("theme", isDark ? "dark" : "light");
         });
     }
+
+    const btnLogo = document.getElementById("logo");
+    btnLogo.addEventListener("click", () => {
+        window.location.href = "../../index.html";
+    });
 });
