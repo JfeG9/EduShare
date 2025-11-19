@@ -32,4 +32,42 @@ document.addEventListener("DOMContentLoaded", () => {
     nombre.addEventListener("click", () => {
         window.location.href = "../utilidades/dashboard.html";
     });
+
+    const btnUsuario = document.getElementById("user-profile");
+    btnUsuario.addEventListener("click", () => {
+        window.location.href = "../utilidades/dashboard.html";
+    });
+
+    const btnExit = document.getElementById("btn-exit");
+    btnExit.addEventListener("click", () => {
+        window.location.href = "../utilidades/dashboard.html";
+    });
 });
+
+const themeBtn = document.getElementById("btnTheme");
+
+function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+function actualizarIcono() {
+    if (!themeBtn) return;
+    const dark = document.body.classList.contains("dark-mode");
+    themeBtn.textContent = dark ? "☀️" : "🌙";
+}
+
+aplicarTemaGuardado();
+actualizarIcono();
+
+if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+        const dark = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        actualizarIcono();
+    });
+}
