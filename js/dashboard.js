@@ -41,6 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const btnSettings = document.getElementById("btnSettings");
+    btnSettings.addEventListener("click", () => {
+        window.location.href = "../usuario/configuracion.html";
+    });
+
     const btnLogo = document.getElementById("logo");
     btnLogo.addEventListener("click", () => {
         window.location.href = "../../index.html";

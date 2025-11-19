@@ -1,110 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Configuración · Apariencia | EduShare</title>
-    <link rel="stylesheet" href="../../css/configuracion.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ajustes de usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/configuracion.css" />
+    </head>
+    <body class="dark-mode">
+        <button class="toggle-theme" id="toggleTheme" aria-label="Cambiar tema">
+            🌙
+        </button>
 
-    <!-- TOPBAR EXACTO COMO EN NOTIFICACIONES -->
-    <header class="topbar">
-        <div class="logo">
-            <i data-lucide="menu" class="icon-menu"></i>
-            <img src="../../assets/img/logo.png" alt="EduShare" />
-        </div>
-
-        <div class="user-section">
-            <div class="user-profile">
-                <i data-lucide="user"></i>
-                <span>Juan</span>
+        <main class="card">
+            <div class="contenedor-logo">
+                <h2>Ajustes de cuenta</h2>
+                <p class="subtitulo">
+                    Gestiona tu contraseña y la eliminación de tu cuenta.
+                </p>
             </div>
 
-            <div class="icons">
-                <i data-lucide="download"></i>
-                <i data-lucide="calendar-days"></i>
-                <i data-lucide="bell"></i>
-                <i data-lucide="settings"></i>
-            </div>
-        </div>
-    </header>
+            <section class="seccion" id="seccion-cambiar">
+                <h3 class="seccion-titulo">Cambiar contraseña</h3>
+                <p class="seccion-descripcion">
+                    Actualiza tu contraseña para mantener tu cuenta protegida.
+                </p>
 
-    <main class="content">
-        <div class="wrap">
-            <h1 class="page-title">Opciones de perfil · Apariencia</h1>
-
-            <div class="grid">
-                <aside class="card nav">
-                    <div class="card-head">Navegación</div>
-                    <div class="card-body">
-                        <div class="item">Información personal</div>
-                        <div class="item">Seguridad y acceso</div>
-                        <div class="item">Notificaciones</div>
-                        <div class="item active">Apariencia</div>
-                    </div>
-                </aside>
-
-                <section class="card main-card">
-                    <div class="card-head">Apariencia</div>
-                    <div class="card-body form">
-                        <fieldset class="group">
-                            <legend>Modo</legend>
-                            <div class="row">
-                                <span class="opt">Claro</span>
-                                <span class="opt">Oscuro</span>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="group">
-                            <legend>Tamaño de letra</legend>
-                            <div class="row">
-                                <span class="opt">S</span>
-                                <span class="opt">M</span>
-                                <span class="opt">L</span>
-                                <span class="opt">XL</span>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="group">
-                            <legend>Tipografía</legend>
-                            <div class="row">
-                                <span class="opt">Sistema</span>
-                                <span class="opt">Inter</span>
-                                <span class="opt">Roboto</span>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="group">
-                            <legend>Ancho del contenido</legend>
-                            <div class="row">
-                                <span class="opt">Estrecho</span>
-                                <span class="opt">Normal</span>
-                                <span class="opt">Ancho</span>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="group">
-                            <legend>Accesibilidad</legend>
-                            <div class="row">
-                                <span class="opt">Alto contraste</span>
-                                <span class="opt">Reducir animaciones</span>
-                            </div>
-                        </fieldset>
+                <form id="form-cambiar">
+                    <div>
+                        <label for="actual">Contraseña actual</label>
+                        <div class="input">
+                            <input
+                                type="password"
+                                id="actual"
+                                name="actual"
+                                autocomplete="current-password"
+                                required
+                            />
+                        </div>
                     </div>
 
-                    <div class="footerbar">
-                        <button class="btn ghost">Restablecer</button>
-                        <button class="btn primary">Guardar cambios</button>
+                    <div>
+                        <label for="nueva">Nueva contraseña</label>
+                        <div class="input">
+                            <input
+                                type="password"
+                                id="nueva"
+                                name="nueva"
+                                autocomplete="new-password"
+                                required
+                            />
+                        </div>
                     </div>
-                </section>
-            </div>
-        </div>
-    </main>
 
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
+                    <div>
+                        <label for="confirmar"
+                            >Confirmar nueva contraseña</label
+                        >
+                        <div class="input">
+                            <input
+                                type="password"
+                                id="confirmar"
+                                name="confirmar"
+                                autocomplete="new-password"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Guardar contraseña
+                    </button>
+                    <p id="estado-cambiar" class="status"></p>
+                </form>
+            </section>
+
+            <section class="seccion" id="seccion-eliminar">
+                <h3 class="seccion-titulo">Eliminar cuenta</h3>
+                <p class="seccion-descripcion">
+                    Esta acción eliminará tu cuenta y todos tus datos asociados.
+                    No se puede deshacer.
+                </p>
+
+                <form id="form-eliminar">
+                    <div>
+                        <label for="confirmar-eliminar">
+                            Escribe <strong>ELIMINAR</strong> para confirmar
+                        </label>
+                        <div class="input">
+                            <input
+                                type="text"
+                                id="confirmar-eliminar"
+                                name="confirmar-eliminar"
+                                placeholder="ELIMINAR"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-peligro">
+                        Eliminar cuenta
+                    </button>
+
+                    <p class="texto-peligro">
+                        Asegúrate de haber descargado cualquier información
+                        importante antes de continuar.
+                    </p>
+
+                    <p id="estado-eliminar" class="status"></p>
+                </form>
+            </section>
+
+            <p class="legal">
+                Si tienes dudas, contacta con soporte antes de eliminar tu
+                cuenta.
+            </p>
+            <a href="../utilidades/dashboard.html">
+                <button type="submit" class="btn">Atras</button>
+            </a>
+        </main>
+
+        <script src="../../js/configuracion.js"></script>
+    </body>
 </html>
