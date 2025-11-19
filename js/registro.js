@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const themeBtn = document.getElementById("btnTheme");
+    aplicarTemaGuardado();
+    if (themeBtn) {
+        actualizarIcono(themeBtn);
+
+        themeBtn.addEventListener("click", () => {
+            const dark = document.body.classList.toggle("dark-mode");
+            localStorage.setItem("theme", dark ? "dark" : "light");
+            actualizarIcono(themeBtn);
+        });
+    }
+
     const form = document.getElementById("loginForm");
     const msg = document.getElementById("errorMsg");
 
@@ -32,15 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
 function registrarse(usuario, contrasena, confirmarContrasena, email) {
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
-
-    if (!usuario || !email || !contrasena || !confirmarContrasena) {
-        return {
-            ok: false,
-            mensaje: "Por favor completa todos los campos.",
-        };
-    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -80,4 +90,18 @@ function registrarse(usuario, contrasena, confirmarContrasena, email) {
         ok: true,
         mensaje: "Registro exitoso.",
     };
+}
+
+function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+function actualizarIcono(btn) {
+    const dark = document.body.classList.contains("dark-mode");
+    btn.textContent = dark ? "☀️" : "🌙";
 }

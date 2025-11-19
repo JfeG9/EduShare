@@ -1,3 +1,5 @@
+aplicarTemaGuardado();
+
 const btnLogin = document.getElementById("btnLogin");
 
 btnLogin.addEventListener("click", function (event) {
@@ -43,4 +45,35 @@ function login(usuario, contrasena) {
     } else {
         return false;
     }
+}
+
+function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+const logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
+const themeBtn = document.getElementById("btnTheme");
+
+function actualizarIcono() {
+    const dark = document.body.classList.contains("dark-mode");
+    themeBtn.textContent = dark ? "☀️" : "🌙";
+}
+
+if (themeBtn) {
+    actualizarIcono();
+
+    themeBtn.addEventListener("click", () => {
+        const dark = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        actualizarIcono();
+    });
 }

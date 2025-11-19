@@ -2,18 +2,52 @@ if (!localStorage.getItem("usuarioActual")) {
     window.location.href = "../autenticacion/login.html";
 }
 
-const usuario = localStorage.getItem("usuarioActual");
-const usuarios = JSON.parse(localStorage.getItem("usuarios"));
+document.addEventListener("DOMContentLoaded", () => {
+    const usuarioId = localStorage.getItem("usuarioActual");
+    const usuariosGuardados = localStorage.getItem("usuarios");
 
-const nombre = document.getElementById("username");
+    let usuarios = {};
+    try {
+        usuarios = JSON.parse(usuariosGuardados) || {};
+    } catch (e) {
+        console.error("Error parseando usuarios en localStorage", e);
+    }
 
-const username = usuarios[usuario]["usuario"];
+    const datosUsuario = usuarios[usuarioId];
+    const nombre = document.getElementById("username");
 
-nombre.textContent = username;
+    if (nombre && datosUsuario && datosUsuario.usuario) {
+        nombre.textContent = datosUsuario.usuario;
+    }
 
-const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+    const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
-btnCerrarSesion.addEventListener("click", function () {
-    localStorage.removeItem("usuarioActual");
-    window.location.href = "../autenticacion/login.html";
+    btnCerrarSesion.addEventListener("click", () => {
+        localStorage.removeItem("usuarioActual");
+        window.location.href = "../../index.html";
+    });
+
+    const themeBtn = document.getElementById("btnTheme");
+
+    if (themeBtn) {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+
+        themeBtn.addEventListener("click", () => {
+            const isDark = document.body.classList.toggle("dark-mode");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    }
+
+    const btnSettings = document.getElementById("btnSettings");
+    btnSettings.addEventListener("click", () => {
+        window.location.href = "../usuario/configuracion.html";
+    });
+
+    const btnLogo = document.getElementById("logo");
+    btnLogo.addEventListener("click", () => {
+        window.location.href = "../../index.html";
+    });
 });

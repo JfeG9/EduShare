@@ -4,12 +4,18 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../../css/crear-perfil.css" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
         <title>EduShare</title>
     </head>
     <body>
+        <button id="btnTheme" class="toggle-theme">Modo oscuro</button>
         <div class="card" role="main">
             <div class="contenedor-logo">
-                <img class="logo" src="../../assets/img/logo.png" />
+                <img id="logo" class="logo" src="../../assets/img/logo.png" />
             </div>
 
             <h2>Recuperación de contraseña</h2>
@@ -25,6 +31,7 @@
                             type="email"
                             inputmode="email"
                             placeholder="correo@ejemplo.com"
+                            required
                         />
                     </div>
                 </div>

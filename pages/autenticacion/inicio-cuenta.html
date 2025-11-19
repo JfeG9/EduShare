@@ -37,7 +37,9 @@
 
                 <p class="note">
                     ¿Tienes una cuenta institucional?<br />
-                    <a href="#">Ingresa aquí</a>
+                    <a href="../autenticacion/login-universitario.html"
+                        >Ingresa aquí</a
+                    >
                 </p>
                 <p class="note">
                     Al crear perfil o iniciar sesión, acepto los
@@ -165,5 +167,11 @@
                 </div>
             </div>
         </div>
+        <script>
+            usuarioActual = localStorage.getItem("usuarioActual");
+            if (usuarioActual !== null) {
+                window.location.href = "../utilidades/dashboard.html";
+            }
+        </script>
     </body>
 </html>

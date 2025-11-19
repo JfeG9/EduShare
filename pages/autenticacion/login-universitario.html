@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../../css/crear-perfil.css">
-  <title>EduShare</title>
-</head>
-<body>
-  <div class="card" role="main">
-    <div class="contenedor-logo">
-        <img class="logo" src="../../assets/img/logo.png">
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../../css/crear-perfil.css" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
+        <title>EduShare</title>
+    </head>
+    <body>
+        <button id="btnTheme" class="toggle-theme">Modo oscuro</button>
 
-    <h2>Inicia sesión con tu correo universitario</h2>
+        <div class="card" role="main">
+            <div class="contenedor-logo">
+                <img
+                    id="logo"
+                    class="logo"
+                    src="../../assets/img/logo.png"
+                    alt="EduShare"
+                />
+            </div>
 
-      <div>
-        <label for="email">Correo electrónico universitario</label>
-        <div class="input">
-          <input id="email" name="email" type="email" inputmode="email" placeholder="correo@ejemplo.com" />
+            <h2>Inicia sesión con tu correo universitario</h2>
+
+            <form id="formLogin">
+                <label for="email">Correo electrónico universitario</label>
+                <div class="input">
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        inputmode="email"
+                        placeholder="correo@ejemplo.com"
+                        required
+                    />
+                </div>
+
+                <button id="btnLogin" class="btn" type="submit">
+                    Iniciar sesión
+                </button>
+
+                <p class="legal">
+                    Al registrarte, aceptas los Términos del Servicio y la
+                    Política de Privacidad de EduShare.
+                </p>
+
+                <p
+                    id="errorMsg"
+                    style="
+                        text-align: center;
+                        color: white;
+                        display: none;
+                        border-radius: 3px;
+                        background-color: #e74c3c;
+                        border: none;
+                        padding: 10px;
+                        margin-top: 10px;
+                    "
+                ></p>
+
+                <p
+                    id="successMsg"
+                    style="
+                        text-align: center;
+                        color: white;
+                        display: none;
+                        border-radius: 3px;
+                        background-color: #27ae60;
+                        border: none;
+                        padding: 10px;
+                        margin-top: 10px;
+                    "
+                ></p>
+            </form>
         </div>
-      </div>
 
-      <button class="btn" type="submit">Iniciar Sesión</button>
-
-      <p class="legal">
-        Al registrarte, aceptas los Términos del Servicio y la Política de Privacidad de EduShare.
-      </p>
-    </form>
-</div>
-
-</body>
+        <script src="../../js/login-universitario.js"></script>
+    </body>
 </html>

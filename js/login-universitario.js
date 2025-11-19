@@ -35,27 +35,27 @@ logo.addEventListener("click", () => {
     window.location.href = "../../index.html";
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("formRecuperar");
-    const emailInput = document.getElementById("email");
-    const msg = document.getElementById("msgRecuperar");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    const email = emailInput.value.trim();
 
-        mostrarMensaje(
-            "Si existe una cuenta asociada a este correo, hemos enviado instrucciones para recuperar tu contraseña.",
-            true
-        );
-    });
+    errorMsg.style.display = "none";
+    successMsg.style.display = "none";
 
-    function mostrarMensaje(texto, exito) {
-        msg.textContent = texto;
-        msg.style.display = "block";
-        msg.style.backgroundColor = exito ? "#2ecc71" : "#e74c3c";
-
+    if (email === "") {
+        errorMsg.textContent = "Por favor ingresa tu correo universitario.";
+        errorMsg.style.display = "block";
         setTimeout(() => {
-            msg.style.display = "none";
+            errorMsg.style.display = "none";
         }, 3000);
+        return;
     }
+
+    successMsg.textContent = `Se ha enviado un correo a ${email} para iniciar sesión.`;
+    successMsg.style.display = "block";
+
+    setTimeout(() => {
+        successMsg.style.display = "none";
+    }, 3000);
 });

@@ -4,8 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>EduShare - Inicio</title>
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
         <link rel="stylesheet" href="../../css/dashboard.css" />
-        <script src="https://unpkg.com/lucide@latest"></script>
     </head>
     <body>
         <header class="top-bar">
@@ -16,14 +20,16 @@
                     src="../../assets/img/logo.png"
                     alt="EduShare"
                     class="logo"
+                    id="logo"
                 />
             </div>
 
             <div class="top-icons">
                 <i data-lucide="download" class="top-icon"></i>
+                <i id="btnTheme" data-lucide="sun" class="top-icon"></i>
                 <i data-lucide="calendar-days" class="top-icon"></i>
                 <i data-lucide="bell" class="top-icon"></i>
-                <i data-lucide="settings" class="top-icon"></i>
+                <i id="btnSettings" data-lucide="settings" class="top-icon"></i>
             </div>
         </header>
 
@@ -31,10 +37,6 @@
             <div class="side-card">
                 <span>Cerrar sesión</span>
                 <button id="btnCerrarSesion">Salir</button>
-            </div>
-            <div class="side-card">
-                <span>Recuperar contraseña</span>
-                <button>Entrar</button>
             </div>
         </aside>
 
@@ -137,10 +139,11 @@
                 <a href="#">Configuración de Cookies</a>
             </div>
         </footer>
-
-        <script src="../../js/dashboard.js"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
         <script>
             lucide.createIcons();
         </script>
+
+        <script src="../../js/dashboard.js"></script>
     </body>
 </html>

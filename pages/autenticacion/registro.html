@@ -4,12 +4,18 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../../css/crear-perfil.css" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
         <title>EduShare</title>
     </head>
     <body>
+        <button id="btnTheme" class="toggle-theme">Modo oscuro</button>
         <div class="card" role="main">
             <div class="contenedor-logo">
-                <img class="logo" src="../../assets/img/logo.png" />
+                <img id="logo" class="logo" src="../../assets/img/logo.png" />
             </div>
 
             <h2>Crear Perfil</h2>
@@ -18,7 +24,12 @@
                 <div>
                     <label for="email">Nombre completo</label>
                     <div class="input">
-                        <input id="nombre" name="nombre" placeholder="Nombre" />
+                        <input
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Nombre"
+                            required
+                        />
                     </div>
                 </div>
 
@@ -31,6 +42,7 @@
                             type="email"
                             inputmode="email"
                             placeholder="correo@ejemplo.com"
+                            required
                         />
                     </div>
                 </div>
@@ -43,6 +55,7 @@
                             name="password"
                             type="password"
                             placeholder="********"
+                            required
                         />
                     </div>
                 </div>
@@ -55,9 +68,13 @@
                             name="confirmPassword"
                             type="password"
                             placeholder="********"
+                            required
                         />
                     </div>
                 </div>
+                <a href="login.html" class="link-olvidar-contrasena"
+                    >¿Ya tienes una cuenta? Inicia sesión aquí</a
+                >
 
                 <button class="btn" type="submit">Crear perfil</button>
                 <p
