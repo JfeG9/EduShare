@@ -11,7 +11,7 @@ const username = usuarios[usuario]["usuario"];
 
 nombre.textContent = username;
 
-btnCerrarSesion = document.getElementById("btnCerrarSesion");
+const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
 btnCerrarSesion.addEventListener("click", function () {
     localStorage.removeItem("usuarioActual");
