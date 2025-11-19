@@ -1,10 +1,10 @@
-/* carpeta.css - EduShare */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Segoe UI", sans-serif;
 }
+
 body {
     background: #eff1f3;
     color: #0b2239;
@@ -12,53 +12,178 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* ====== TOPBAR ====== */
 .topbar {
     background: #2c669a;
-    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 20px;
-    height: 64px;
+    padding: 12px 24px;
+    height: 68px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
 }
+
 .logo img {
-    height: 36px;
-    max-width: 180px;
-    object-fit: contain;
+    height: 44px;
 }
-.ico {
-    width: 22px;
-    height: 22px;
-    color: #77e6c8;
+
+/* ====== ICONOS LUCIDE - COLOR TURQUESA #77e6c8 ====== */
+.topbar i[data-lucide] {
+    width: 26px;
+    height: 26px;
+    stroke: #77e6c8 !important;
+    stroke-width: 2.2;
+    fill: none !important;
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
-.user-section {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+
+i[data-lucide="menu"] {
+    width: 30px;
+    height: 30px;
 }
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #ffffff22;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-weight: 500;
-}
+
 .icons {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
 }
+
+.icons i[data-lucide]:hover {
+    stroke: white !important;
+    transform: scale(1.18);
+}
+
+/* Usuario siempre blanco */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.18);
+    padding: 9px 18px;
+    border-radius: 30px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.25s ease;
+}
+
+.user-profile:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateY(-1px);
+}
+
+.user-profile i[data-lucide="user"] {
+    stroke: white !important;
+    fill: none !important;
+    width: 28px;
+    height: 28px;
+}
+
+/* ====== CONTENIDO (tu diseño actual sigue perfecto) ====== */
+.content { flex: 1; padding: 20px 18px; }
+.page { max-width: 1050px; margin: 0 auto; background: #f9fafb; border: 1px solid #d9e1ea; border-radius: 10px; padding: 26px; box-shadow: 0 1px 0 rgba(0,0,0,0.03); }
+
+/* El resto de tu CSS (folder-header, featured-card, favorites-grid, etc.) 
+   → déjalo exactamente como lo tenías, está perfecto */
+
+/* Ocultar cualquier cosa vieja */
+.user-info, .ico { display: none !important; }
+
+/* ====== CONTENIDO (el resto igual) ====== */
+
+
+/* ====== RESET GENERAL ====== */
+
+/* ====== ICONOS LUCIDE ====== */
+.lucide, i[data-lucide] {
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    fill: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+/* Icono menú hamburguesa */
+.lucide[data-icon="menu"], i[data-lucide="menu"] {
+    width: 30px;
+    height: 30px;
+    color: #77e6c8;
+}
+
+/* Icono usuario */
+.user-profile .lucide,
+.user-profile i[data-lucide="user"] {
+    color: #ffffff !important;
+    width: 28px;
+    height: 28px;
+}
+
+/* Otros iconos topbar */
+.topbar .icons .lucide,
+.icons i[data-lucide] {
+    color: #77e6c8;
+}
+.topbar .icons .lucide:hover,
+.icons i[data-lucide]:hover {
+    color: #ffffff;
+    transform: scale(1.18);
+}
+
+/* Ocultar estilos conflictivos */
+.user-info, .ico { 
+    display: none !important; 
+}
+
+/* ====== SECCIÓN USUARIO ====== */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.18);
+    padding: 9px 18px;
+    border-radius: 30px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.25s ease;
+}
+.user-profile:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateY(-1px);
+}
+
+/* ====== CONTENIDO ====== */
 .content {
     flex: 1;
     padding: 20px 18px;
 }
+
 .page {
     max-width: 1050px;
     margin: 0 auto;
@@ -68,6 +193,8 @@ body {
     padding: 26px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
 }
+
+/* Carpeta */
 .folder-header {
     display: flex;
     align-items: center;
@@ -84,6 +211,8 @@ body {
     font-size: 20px;
     font-weight: 700;
 }
+
+/* Tarjeta destacada */
 .featured-card {
     display: flex;
     gap: 20px;
@@ -119,6 +248,8 @@ body {
     line-height: 1.5;
     margin-bottom: 8px;
 }
+
+/* Favoritos */
 .favorites-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -171,6 +302,8 @@ body {
 .fav-btn.trash svg {
     color: #d32f2f;
 }
+
+/* Acciones */
 .actions {
     display: flex;
     justify-content: space-between;
@@ -202,7 +335,7 @@ body {
     transform: translateY(-1px);
 }
 
-/* Responsive */
+/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
     .featured-card {
         flex-direction: column;

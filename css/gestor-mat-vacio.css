@@ -86,7 +86,7 @@ body {
 .icons svg:hover {
     stroke: #fff;
 }
-/*-----------MAIN-----------*/
+
 .content {
     flex: 1;
     background: #f8fafb;
@@ -112,7 +112,7 @@ body {
     color: var(--muted);
 }
 
-/* “Tarjeta” central */
+
 .materials-panel {
     margin-top: 24px;
     flex: 1;
@@ -124,7 +124,7 @@ body {
     justify-content: center;
 }
 
-/* Estado vacío */
+
 .empty-state {
     text-align: center;
     display: flex;
@@ -140,7 +140,7 @@ body {
     color: #343a40;
 }
 
-/* Botón circular con el icono + */
+
 .empty-add-btn {
     width: 58px;
     height: 58px;
@@ -172,8 +172,6 @@ body {
     transform: translateY(1px) scale(0.98);
 }
 
-/*--------------------------*/
-/*Footer*/
 .footer {
     display: flex;
     justify-content: space-between;
@@ -186,7 +184,7 @@ body {
     z-index: 5;
 }
 
-/*botones*/
+
 .btn {
     background: var(--accent-2);
     color: #000;

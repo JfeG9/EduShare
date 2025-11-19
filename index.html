@@ -7,26 +7,22 @@
         <link rel="stylesheet" href="css/index.css" />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         
-        <!-- Google tag (gtag.js) -->
+      
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDWE2V88ST"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          // Configuración principal de GA4
           gtag('config', 'G-HDWE2V88ST', {
-  debug_mode: true,
-  send_page_view: true,
-  allow_google_signals: false,
-  cookie_flags: 'SameSite=None;Secure',
-  // PERMITE LOCALHOST Y 127.0.0.1
-  transport_url: 'https://www.google-analytics.com',
-  // ESTO ES CLAVE:
-  cookie_domain: 'none'
-});
+              debug_mode: true,
+              send_page_view: true,
+              allow_google_signals: false,
+              cookie_flags: 'SameSite=None;Secure',
+              transport_url: 'https://www.google-analytics.com',
+              cookie_domain: 'none'
+          });
 
-          // EVENTO DE PRUEBA: fuerza datos en tiempo real cada 5 segundos
           setTimeout(function() {
             gtag('event', 'prueba_tiempo_real', {
               'event_category': 'debug',
@@ -34,11 +30,11 @@
               'value': 1,
               'debug_mode': true
             });
-          }, 5000); // Se envía a los 5 segundos de cargar la página
+          }, 5000);
         </script>
     </head>
     <body>
-        <!-- HEADER -->
+       
         <header class="nav">
             <div class="wrap inner">
                 <img class="imagen" src="assets/img/logo.png" alt="Logo EduShare" />
@@ -49,7 +45,7 @@
             </div>
         </header>
 
-        <!-- HERO -->
+        
         <section class="wrap hero">
             <div>
                 <h1>Todo tu material de estudio, compartido por estudiantes</h1>
@@ -61,10 +57,13 @@
                 <p style="margin-top: 10px; color: var(--muted); font-size: 14px;">
                     Gratis para estudiantes • Verificado por pares • +70 universidades
                 </p>
+
+                
+                <img src="assets/img/images.jpg" alt="Imagen EduShare" class="hero-img">
             </div>
         </section>
 
-        <!-- ¿POR QUÉ EDUSHARE? -->
+       
         <section class="section">
             <div class="wrap">
                 <h2>¿Por qué EduShare?</h2>
@@ -97,7 +96,7 @@
             </div>
         </section>
 
-        <!-- ASÍ DE SIMPLE -->
+       
         <section class="section" style="background: #fafcfd">
             <div class="wrap">
                 <h2>Así de simple</h2>
@@ -127,7 +126,7 @@
             </div>
         </section>
 
-        <!-- CTA FINAL -->
+        
         <section class="section">
             <div class="wrap card cta">
                 <h2>Únete hoy y potencia tu estudio</h2>
@@ -154,7 +153,6 @@
             </div>
         </footer>
 
-        <!-- Script para actualizar el año automáticamente -->
         <script>
             document.getElementById("year").textContent = new Date().getFullYear();
         </script>

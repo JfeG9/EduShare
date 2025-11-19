@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="stylesheet" href="../../css/configuracion.css" />
-        <title>EduShare - Perfil</title>
-    </head>
-    <body>
-        <header class="topbar">
-            <div class="inner">
-                <div class="brand">
-                    <span class="dot" aria-hidden="true"></span> EduShare
-                </div>
-                <div class="userchip">
-                    <span aria-hidden="true">👤</span><strong>Juan</strong>
-                </div>
-            </div>
-        </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuración · Apariencia | EduShare</title>
+    <link rel="stylesheet" href="../../css/configuracion.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
 
+    <!-- TOPBAR EXACTO COMO EN NOTIFICACIONES -->
+    <header class="topbar">
+        <div class="logo">
+            <i data-lucide="menu" class="icon-menu"></i>
+            <img src="../../assets/img/logo.png" alt="EduShare" />
+        </div>
+
+        <div class="user-section">
+            <div class="user-profile">
+                <i data-lucide="user"></i>
+                <span>Juan</span>
+            </div>
+
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
         <div class="wrap">
-            <h1 class="title">Opciones de perfil · Apariencia</h1>
+            <h1 class="page-title">Opciones de perfil · Apariencia</h1>
 
             <div class="grid">
-                <aside class="card nav" aria-label="Navegación de perfil">
+                <aside class="card nav">
                     <div class="card-head">Navegación</div>
                     <div class="card-body">
                         <div class="item">Información personal</div>
                         <div class="item">Seguridad y acceso</div>
                         <div class="item">Notificaciones</div>
-                        <div
-                            class="item"
-                            style="border-color: var(--brand-600)"
-                        >
-                            Apariencia
-                        </div>
+                        <div class="item active">Apariencia</div>
                     </div>
                 </aside>
 
-                <section class="card">
+                <section class="card main-card">
                     <div class="card-head">Apariencia</div>
                     <div class="card-body form">
                         <fieldset class="group">
@@ -86,11 +95,16 @@
                     </div>
 
                     <div class="footerbar">
-                        <button class="btn">Restablecer</button>
-                        <button class="btn primary">Guardar</button>
+                        <button class="btn ghost">Restablecer</button>
+                        <button class="btn primary">Guardar cambios</button>
                     </div>
                 </section>
             </div>
         </div>
-    </body>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>

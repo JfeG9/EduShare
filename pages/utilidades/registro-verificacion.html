@@ -3,36 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro | EduShare</title>
+    <title>Registro gratuito con funciones adicionales | EduShare</title>
     <link rel="stylesheet" href="../../css/registro-verificacion.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <!-- HEADER -->
+
     <header class="topbar">
         <div class="logo">
-            <svg class="ico menu" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
+            <i data-lucide="menu" class="icon-menu"></i>
             <img src="../../assets/img/logo.png" alt="EduShare" />
         </div>
+
         <div class="user-section">
-            <div class="user-info">
-                <svg class="ico" viewBox="0 0 24 24">
-                    <circle cx="12" cy="7" r="5" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <path d="M12 14c-4 0-8 2-8 6h16c0-4-4-6-8-6Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                </svg>
+            <div class="user-profile">
+                <i data-lucide="user"></i>
                 <span>LupeCR9</span>
             </div>
             <div class="icons">
-                <svg class="ico" viewBox="0 0 24 24"><path d="M19 21V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 3v12m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                <svg class="ico" viewBox="0 0 24 24"><path d="M20 21V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 3h6v4H9z" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                <svg class="ico" viewBox="0 0 24 24"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10Z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-                <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/></svg>
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="content">
         <section class="register-container">
             <h1 class="title">Registro gratuito con funciones adicionales</h1>
@@ -47,15 +43,15 @@
                     <form>
                         <div class="input-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" placeholder="" required />
+                            <input type="text" id="nombre" required />
                         </div>
                         <div class="input-group">
                             <label for="apellido">Apellido</label>
-                            <input type="text" id="apellido" placeholder="" required />
+                            <input type="text" id="apellido" required />
                         </div>
                         <div class="input-group">
                             <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" placeholder="" required />
+                            <input type="email" id="email" required />
                         </div>
                         <button type="submit" class="btn primary">Regístrate</button>
                     </form>
@@ -64,21 +60,14 @@
                 <!-- VERSIONES DISPONIBLES -->
                 <div class="versions-card">
                     <h2>Funciones disponibles</h2>
-                    <div class="versions">
-                        <div class="version improved">
+                    <div class="versions-row">
+                        <div class="version-box">
                             <h3>Versión mejorada</h3>
-                            <div class="placeholder x-mark">
-                                <div class="x-line"></div>
-                                <div class="x-line"></div>
-                            </div>
+                            <div class="placeholder improved"></div>
                         </div>
-                        <div class="version alternative">
+                        <div class="version-box">
                             <h3>Versión alternativa</h3>
-                            <div class="placeholder lines">
-                                <div class="line"></div>
-                                <div class="line short"></div>
-                                <div class="line"></div>
-                            </div>
+                            <div class="placeholder alternative"></div>
                         </div>
                     </div>
                     <p class="footer-note">
@@ -88,5 +77,9 @@
             </div>
         </section>
     </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>

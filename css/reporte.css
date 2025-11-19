@@ -1,4 +1,4 @@
-/* reporte.css - EduShare - Versión Final con Radio Buttons Blancos */
+
 * {
     margin: 0;
     padding: 0;
@@ -187,8 +187,7 @@ body {
     font-weight: 600;
 }
 
-/* RADIO BUTTONS PERSONALIZADOS - PUNTO BLANCO */
-/* RADIO BUTTONS PERSONALIZADOS - PUNTO BLANCO */
+
 .options input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
