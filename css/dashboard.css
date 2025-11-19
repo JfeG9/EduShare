@@ -253,7 +253,6 @@ body {
 body.dark-mode {
     background: #081b2b;
     color: #f5f5f5;
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .top-bar {
