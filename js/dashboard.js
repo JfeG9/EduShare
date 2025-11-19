@@ -22,12 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
-    if (btnCerrarSesion) {
-        btnCerrarSesion.addEventListener("click", () => {
-            localStorage.removeItem("usuarioActual");
-            window.location.href = "../autenticacion/login.html";
-        });
-    }
+    btnCerrarSesion.addEventListener("click", () => {
+        localStorage.removeItem("usuarioActual");
+        window.location.href = "../autenticacion/login.html";
+    });
 
     const themeBtn = document.getElementById("btnTheme");
 
