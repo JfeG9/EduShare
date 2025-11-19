@@ -1,118 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduShare - Inicio</title>
-    <link rel="stylesheet" href="../../css/dashboard.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare - Inicio</title>
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+        <header class="top-bar">
+            <div class="logo-box">
+                <i data-lucide="menu" class="top-icon"></i>
 
-    
-    <header class="top-bar">
-        <div class="logo-box">
-            
-            <i data-lucide="menu" class="top-icon"></i>
+                <img
+                    src="../../assets/img/logo.png"
+                    alt="EduShare"
+                    class="logo"
+                />
+            </div>
 
-            <img src="../../assets/img/logo.png" alt="EduShare" class="logo">
-        </div>
-        
-        <div class="top-icons">
-            <i data-lucide="download" class="top-icon"></i>
-            <i data-lucide="calendar-days" class="top-icon"></i>
-            <i data-lucide="bell" class="top-icon"></i>
-            <i data-lucide="settings" class="top-icon"></i>
-        </div>
-    </header>
-    
-    <aside class="right-menu">
-        <div class="side-card">
-            <span>Cerrar sección</span>
-            <button>Salir</button>
-        </div>
-        <div class="side-card">
-            <span>Recuperar contraseña</span>
-            <button>Entrar</button>
-        </div>
-    </aside>
+            <div class="top-icons">
+                <i data-lucide="download" class="top-icon"></i>
+                <i data-lucide="calendar-days" class="top-icon"></i>
+                <i data-lucide="bell" class="top-icon"></i>
+                <i data-lucide="settings" class="top-icon"></i>
+            </div>
+        </header>
 
-    <main class="main-content">
+        <aside class="right-menu">
+            <div class="side-card">
+                <span>Cerrar sesión</span>
+                <button id="btnCerrarSesion">Salir</button>
+            </div>
+            <div class="side-card">
+                <span>Recuperar contraseña</span>
+                <button>Entrar</button>
+            </div>
+        </aside>
 
-        
-        <section class="profile-banner">
-            <div class="banner-inner">
-                <div class="profile-avatar"></div>
-                <div>
-                    <h2 class="username">LupeCR9</h2>
-                    <p class="stats">0 publicaciones · 0 seguidores · 0 seguidos</p>
+        <main class="main-content">
+            <section class="profile-banner">
+                <div class="banner-inner">
+                    <div class="profile-avatar"></div>
+                    <div>
+                        <h2 id="username" class="username"></h2>
+                        <p class="stats">
+                            0 publicaciones · 0 seguidores · 0 seguidos
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="content-area">
-
-            <p class="welcome-text">
-                Prepárate para ser parte de la comunidad en esta plataforma de estudio N°1 del Perú
-            </p>
-
-            <div class="action-buttons">
-                <button class="action-btn">Buscar material</button>
-                <button class="action-btn">Gestión de materiales</button>
-                <button class="action-btn">Registro de licencias</button>
-            </div>
-
-            <h3 class="faq-title">Preguntas Frecuentes:</h3>
-
-            <section class="faq-panel">
-                <details>
-                    <summary>¿Puedo iniciar sesión con cualquier correo?</summary>
-                    <p>Sí, puedes usar tanto tu correo personal como institucional. Ambos te brindan acceso gratuito a la plataforma y a todas las funciones básicas disponibles.</p>
-                </details>
-
-                <details>
-                    <summary>¿Qué es el registro gratuito mejorado?</summary>
-                    <p>No es un nuevo registro, sino una actualización de tu cuenta actual. Te permite acceder a funciones adicionales y probar herramientas nuevas que están en desarrollo.</p>
-                </details>
-
-                <details>
-                    <summary>¿La plataforma tiene una app oficial?</summary>
-                    <p>Sí, en el futuro se planean versiones con herramientas premium y academias avanzadas. Por ahora, todas las funciones mejoradas están disponibles de forma gratuita.</p>
-                </details>
             </section>
-        </section>
-    </main>
 
-    
-    <footer class="main-footer">
-        <div class="footer-column">
-            <h4>Contáctanos</h4>
-            <p>Teléfono: 01 211111</p>
-            <p>Whatsapp: +51 999 888 777</p>
-            <p>Whatsapp: +51 999 777 665</p>
-        </div>
-        <div class="footer-column">
-            <h4>Nuestras redes sociales</h4>
-            <p>Instagram · Facebook · Twitter</p>
-        </div>
-        <div class="footer-column">
-            <h4>Empresa</h4>
-            <a href="#">Sobre Nosotros</a>
-            <a href="#">FAQ</a>
-            <a href="#">Novedades</a>
-        </div>
-        <div class="footer-column">
-            <h4>Políticas</h4>
-            <a href="#">Condiciones</a>
-            <a href="#">Privacidad</a>
-            <a href="#">Configuración de Cookies</a>
-        </div>
-    </footer>
+            <section class="content-area">
+                <p class="welcome-text">
+                    Prepárate para ser parte de la comunidad en esta plataforma
+                    de estudio N°1 del Perú
+                </p>
 
-    
-    <script>
-        lucide.createIcons();
-    </script>
+                <div class="action-buttons">
+                    <a href="../busqueda/busqueda.html">
+                        <button class="action-btn">Buscar material</button>
+                    </a>
+                    <a href="#">
+                        <button class="action-btn">
+                            Gestión de materiales
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button class="action-btn">
+                            Registro de licencias
+                        </button>
+                    </a>
+                </div>
 
-</body>
+                <h3 class="faq-title">Preguntas Frecuentes:</h3>
+
+                <section class="faq-panel">
+                    <details>
+                        <summary>
+                            ¿Puedo iniciar sesión con cualquier correo?
+                        </summary>
+                        <p>
+                            Sí, puedes usar tanto tu correo personal como
+                            institucional. Ambos te brindan acceso gratuito a la
+                            plataforma y a todas las funciones básicas
+                            disponibles.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            ¿Qué es el registro gratuito mejorado?
+                        </summary>
+                        <p>
+                            No es un nuevo registro, sino una actualización de
+                            tu cuenta actual. Te permite acceder a funciones
+                            adicionales y probar herramientas nuevas que están
+                            en desarrollo.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>¿La plataforma tiene una app oficial?</summary>
+                        <p>
+                            Sí, en el futuro se planean versiones con
+                            herramientas premium y academias avanzadas. Por
+                            ahora, todas las funciones mejoradas están
+                            disponibles de forma gratuita.
+                        </p>
+                    </details>
+                </section>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-column">
+                <h4>Contáctanos</h4>
+                <p>Teléfono: 01 211111</p>
+                <p>Whatsapp: +51 999 888 777</p>
+                <p>Whatsapp: +51 999 777 665</p>
+            </div>
+            <div class="footer-column">
+                <h4>Nuestras redes sociales</h4>
+                <p>Instagram · Facebook · Twitter</p>
+            </div>
+            <div class="footer-column">
+                <h4>Empresa</h4>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">FAQ</a>
+                <a href="#">Novedades</a>
+            </div>
+            <div class="footer-column">
+                <h4>Políticas</h4>
+                <a href="#">Condiciones</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Configuración de Cookies</a>
+            </div>
+        </footer>
+
+        <script src="../../js/dashboard.js"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
 </html>

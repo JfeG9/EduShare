@@ -83,7 +83,7 @@ label {
     border: 1px solid var(--borde);
     border-radius: 10px;
     padding: 12px 14px;
-    margin-bottom: 8;
+    margin-bottom: 4px;
 }
 
 .input:focus-within {
@@ -95,7 +95,7 @@ label {
     border: 0;
     outline: 0;
     background: transparent;
-    color: var(--texto);
+    color: #000000;
     font-size: 1rem;
 }
 
@@ -156,6 +156,7 @@ label {
 
 .helper input {
     accent-color: var(--primario);
+    color: #062026;
 }
 
 .legal {
