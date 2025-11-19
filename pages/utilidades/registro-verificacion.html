@@ -9,21 +9,17 @@
 </head>
 <body>
 
-    <!-- HEADER MODERNO IGUAL QUE EN FAVORITOS -->
     <header class="topbar">
         <div class="logo">
-            <i data-lucide="menu"></i>
+            <i data-lucide="menu" class="icon-menu"></i>
             <img src="../../assets/img/logo.png" alt="EduShare" />
         </div>
 
         <div class="user-section">
-            <!-- USUARIO CON ÍCONO BLANCO BLANCO -->
             <div class="user-profile">
                 <i data-lucide="user"></i>
                 <span>LupeCR9</span>
             </div>
-
-            <!-- ÍCONOS EN TURQUESA -->
             <div class="icons">
                 <i data-lucide="download"></i>
                 <i data-lucide="calendar-days"></i>
@@ -61,24 +57,17 @@
                     </form>
                 </div>
 
-                <!-- VERSIONES -->
+                <!-- VERSIONES DISPONIBLES -->
                 <div class="versions-card">
                     <h2>Funciones disponibles</h2>
-                    <div class="versions">
-                        <div class="version improved">
+                    <div class="versions-row">
+                        <div class="version-box">
                             <h3>Versión mejorada</h3>
-                            <div class="placeholder x-mark">
-                                <div class="x-line"></div>
-                                <div class="x-line"></div>
-                            </div>
+                            <div class="placeholder improved"></div>
                         </div>
-                        <div class="version alternative">
+                        <div class="version-box">
                             <h3>Versión alternativa</h3>
-                            <div class="placeholder lines">
-                                <div class="line"></div>
-                                <div class="line short"></div>
-                                <div class="line"></div>
-                            </div>
+                            <div class="placeholder alternative"></div>
                         </div>
                     </div>
                     <p class="footer-note">
@@ -88,11 +77,9 @@
             </div>
         </section>
     </main>
-    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
-     
         lucide.createIcons();
- 
     </script>
 </body>
 </html>
