@@ -51,6 +51,7 @@ body {
 .logo {
     width: 75%;
     object-position: 40%;
+    cursor: pointer;
 }
 
 .contenedor-logo {

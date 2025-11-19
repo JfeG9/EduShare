@@ -30,6 +30,11 @@ if (themeBtn) {
     });
 }
 
+const logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 

@@ -56,6 +56,11 @@ function aplicarTemaGuardado() {
     }
 }
 
+const logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
 const themeBtn = document.getElementById("btnTheme");
 
 function actualizarIcono() {

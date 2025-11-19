@@ -44,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
 function registrarse(usuario, contrasena, confirmarContrasena, email) {
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
 

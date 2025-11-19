@@ -30,6 +30,11 @@ if (themeBtn) {
     });
 }
 
+const logo = document.getElementById("logo");
+logo.addEventListener("click", () => {
+    window.location.href = "../../index.html";
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formRecuperar");
     const emailInput = document.getElementById("email");
