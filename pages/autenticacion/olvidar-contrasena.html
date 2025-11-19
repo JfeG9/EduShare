@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../../css/crear-perfil.css">
-  <title>EduShare</title>
-</head>
-<body>
-  <div class="card" role="main">
-    <div class="contenedor-logo">
-        <img class="logo" src="../../assets/img/logo.png">
-    </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../../css/crear-perfil.css" />
+        <title>EduShare</title>
+    </head>
+    <body>
+        <div class="card" role="main">
+            <div class="contenedor-logo">
+                <img class="logo" src="../../assets/img/logo.png" />
+            </div>
 
-    <h2>Recuperación de contraseña</h2>
+            <h2>Recuperación de contraseña</h2>
+            <form id="formRecuperar">
+                <div>
+                    <label for="email"
+                        >Introduce el correo con el que te has registrado</label
+                    >
+                    <div class="input">
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            inputmode="email"
+                            placeholder="correo@ejemplo.com"
+                        />
+                    </div>
+                </div>
 
-      <div>
-        <label for="email">Introduce el correo con el que te has registrado</label>
-        <div class="input">
-          <input id="email" name="email" type="email" inputmode="email" placeholder="correo@ejemplo.com" />
+                <button class="btn" type="submit">Recuperar contraseña</button>
+
+                <p
+                    id="msgRecuperar"
+                    style="
+                        text-align: center;
+                        color: white;
+                        display: none;
+                        border-radius: 3px;
+                        background-color: #e74c3c;
+                        border: none;
+                        padding: 10px;
+                        margin-top: 10px;
+                    "
+                ></p>
+            </form>
         </div>
-      </div>
-
-      <button class="btn" type="submit">Recuperar contraseña</button>
-    </form>
-</div>
-
-</body>
+        <script src="../../js/olvidar-contrasena.js"></script>
+    </body>
 </html>

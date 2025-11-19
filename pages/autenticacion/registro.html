@@ -51,8 +51,8 @@
                     <label for="password">Confirmar contraseña</label>
                     <div class="input">
                         <input
-                            id="password"
-                            name="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
                             type="password"
                             placeholder="********"
                         />
@@ -60,6 +60,18 @@
                 </div>
 
                 <button class="btn" type="submit">Crear perfil</button>
+                <p
+                    id="errorMsg"
+                    style="
+                        text-align: center;
+                        color: white;
+                        display: none;
+                        border-radius: 3px;
+                        background-color: #e74c3c;
+                        border: none;
+                        padding: 10px;
+                    "
+                ></p>
 
                 <p class="legal">
                     Al registrarte, aceptas los Términos del Servicio y la
@@ -67,5 +79,6 @@
                 </p>
             </form>
         </div>
+        <script src="../../js/registro.js"></script>
     </body>
 </html>

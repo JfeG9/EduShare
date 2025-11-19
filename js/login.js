@@ -2,6 +2,7 @@ const btnLogin = document.getElementById("btnLogin");
 
 btnLogin.addEventListener("click", function (event) {
     event.preventDefault();
+
     const form = document.getElementById("formLogin");
     const formData = new FormData(form);
     const email = formData.get("email").trim();
@@ -21,8 +22,8 @@ btnLogin.addEventListener("click", function (event) {
 
     errorMsg.style.display = "none";
 
-    if (email === "juan" && contrasena === "1234") {
-        window.location.href = "../busqueda/filtro.html";
+    if (login(email, contrasena)) {
+        window.location.href = "../utilidades/dashboard.html";
     } else {
         errorMsg.textContent = "Correo electrónico o contraseña incorrectos.";
         errorMsg.style.display = "block";
@@ -32,3 +33,14 @@ btnLogin.addEventListener("click", function (event) {
         }, 3000);
     }
 });
+
+function login(usuario, contrasena) {
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
+
+    if (usuarios[usuario] && usuarios[usuario].contrasena === contrasena) {
+        localStorage.setItem("usuarioActual", usuario);
+        return true;
+    } else {
+        return false;
+    }
+}
