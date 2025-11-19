@@ -1,3 +1,7 @@
+if (!localStorage.getItem("usuarioActual")) {
+    window.location.href = "../autenticacion/login.html";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("search-form");
     const input = document.getElementById("search-input");
