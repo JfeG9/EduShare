@@ -1,3 +1,35 @@
+const form = document.getElementById("formLogin");
+const emailInput = document.getElementById("email");
+const errorMsg = document.getElementById("errorMsg");
+const successMsg = document.getElementById("successMsg");
+
+aplicarTemaGuardado();
+
+function aplicarTemaGuardado() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+const themeBtn = document.getElementById("btnTheme");
+
+function actualizarIcono() {
+    const dark = document.body.classList.contains("dark-mode");
+    if (themeBtn) themeBtn.textContent = dark ? "☀️" : "🌙";
+}
+
+if (themeBtn) {
+    actualizarIcono();
+    themeBtn.addEventListener("click", () => {
+        const dark = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        actualizarIcono();
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formRecuperar");
     const emailInput = document.getElementById("email");
@@ -7,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         const email = emailInput.value.trim();
-        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || {};
 
         if (!email) {
             mostrarMensaje(
