@@ -10,3 +10,10 @@ const nombre = document.getElementById("username");
 const username = usuarios[usuario]["usuario"];
 
 nombre.textContent = username;
+
+btnCerrarSesion = document.getElementById("btnCerrarSesion");
+
+btnCerrarSesion.addEventListener("click", function () {
+    localStorage.removeItem("usuarioActual");
+    window.location.href = "../autenticacion/login.html";
+});
