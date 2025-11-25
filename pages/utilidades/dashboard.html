@@ -4,24 +4,14 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>EduShare - Inicio</title>
-        <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="../../favicon.ico"
-        />
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
         <link rel="stylesheet" href="../../css/dashboard.css" />
     </head>
     <body>
         <header class="top-bar">
             <div class="logo-box">
                 <i data-lucide="menu" class="top-icon"></i>
-
-                <img
-                    src="../../assets/img/logo.png"
-                    alt="EduShare"
-                    class="logo"
-                    id="logo"
-                />
+                <img src="../../assets/img/logo.png" alt="EduShare" class="logo" id="logo"/>
             </div>
 
             <div class="top-icons">
@@ -64,14 +54,10 @@
                         <button class="action-btn">Buscar material</button>
                     </a>
                     <a href="#">
-                        <button class="action-btn">
-                            Gestión de materiales
-                        </button>
+                        <button class="action-btn">Gestión de materiales</button>
                     </a>
                     <a href="#">
-                        <button class="action-btn">
-                            Registro de licencias
-                        </button>
+                        <button class="action-btn">Registro de licencias</button>
                     </a>
                 </div>
 
@@ -79,38 +65,39 @@
 
                 <section class="faq-panel">
                     <details>
-                        <summary>
-                            ¿Puedo iniciar sesión con cualquier correo?
-                        </summary>
+                        <summary>¿Puedo iniciar sesión con cualquier correo?</summary>
                         <p>
-                            Sí, puedes usar tanto tu correo personal como
-                            institucional. Ambos te brindan acceso gratuito a la
-                            plataforma y a todas las funciones básicas
-                            disponibles.
+                            Sí, puedes usar tanto tu correo personal como institucional.
+                            Ambos te brindan acceso gratuito a la plataforma.
                         </p>
                     </details>
 
                     <details>
-                        <summary>
-                            ¿Qué es el registro gratuito mejorado?
-                        </summary>
+                        <summary>¿Qué es el registro gratuito mejorado?</summary>
                         <p>
-                            No es un nuevo registro, sino una actualización de
-                            tu cuenta actual. Te permite acceder a funciones
-                            adicionales y probar herramientas nuevas que están
-                            en desarrollo.
+                            Es una actualización de tu cuenta actual con funciones adicionales.
                         </p>
                     </details>
 
                     <details>
                         <summary>¿La plataforma tiene una app oficial?</summary>
                         <p>
-                            Sí, en el futuro se planean versiones con
-                            herramientas premium y academias avanzadas. Por
-                            ahora, todas las funciones mejoradas están
-                            disponibles de forma gratuita.
+                            Próximamente se lanzarán versiones móviles con herramientas premium.
                         </p>
                     </details>
+                </section>
+
+                <!-- ==========================
+                     SECCIÓN PARA SUBIR Y VER PDF
+                =========================== -->
+                <section class="pdf-section" style="margin-top: 40px; padding: 20px; background:#f6f6f6; border-radius:12px;">
+                    <h3>Visor de PDF</h3>
+
+                    <input type="file" id="pdfUploader" accept="application/pdf" style="margin-bottom: 15px;" />
+
+                    <iframe id="pdfViewer"
+                        style="width: 100%; height: 500px; border: 1px solid #ccc; border-radius: 10px;">
+                    </iframe>
                 </section>
             </section>
         </main>
@@ -139,11 +126,66 @@
                 <a href="#">Configuración de Cookies</a>
             </div>
         </footer>
+
         <script src="https://unpkg.com/lucide@latest"></script>
-        <script>
-            lucide.createIcons();
-        </script>
+        <script>lucide.createIcons();</script>
 
         <script src="../../js/dashboard.js"></script>
+
+        <!-- ==========================
+             JS DEL VISOR DE PDF
+        =========================== -->
+        <script>
+            const pdfUploader = document.getElementById("pdfUploader");
+            const pdfViewer   = document.getElementById("pdfViewer");
+
+            // ============================
+            // 1. Si NO existe un PDF guardado, cargar Informe_DD1.pdf automáticamente
+            // ============================
+            if (!localStorage.getItem("pdfGuardado")) {
+                fetch("../../assets/pdf/Informe_DD1.pdf")
+                    .then(res => res.blob())
+                    .then(blob => {
+                        const reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            const base64PDF = e.target.result;
+                            localStorage.setItem("pdfGuardado", base64PDF); 
+                            pdfViewer.src = base64PDF;
+                        };
+
+                        reader.readAsDataURL(blob);
+                    })
+                    .catch(err =>
+                        console.error("No se pudo cargar Informe_DD1.pdf:", err)
+                    );
+            }
+
+            // ============================
+            // 2. Mostrar PDF guardado (si existe)
+            // ============================
+            const savedPDF = localStorage.getItem("pdfGuardado");
+            if (savedPDF) {
+                pdfViewer.src = savedPDF;
+            }
+
+            // ============================
+            // 3. Subir y reemplazar PDF manualmente
+            // ============================
+            pdfUploader.addEventListener("change", () => {
+                const file = pdfUploader.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    const base64PDF = e.target.result;
+                    localStorage.setItem("pdfGuardado", base64PDF);
+                    pdfViewer.src = base64PDF;
+                };
+
+                reader.readAsDataURL(file);
+            });
+        </script>
     </body>
 </html>
