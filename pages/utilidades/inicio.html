@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduShare - Inicio</title>
+
+    <!-- CSS correcto según tu estructura -->
     <link rel="stylesheet" href="../../css/inicio.css">
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    
     <header class="top-bar">
         <div class="logo-box">
             <i data-lucide="menu"></i>
@@ -18,14 +19,30 @@
         </div>
 
         <div class="top-icons">
-            <i data-lucide="download"></i>
+            <i data-lucide="download" id="openPdfBtn"></i>
             <i data-lucide="calendar-days"></i>
             <i data-lucide="bell"></i>
             <i data-lucide="settings"></i>
         </div>
     </header>
 
-    
+    <!-- VISOR PDF -->
+    <section class="pdf-viewer-section" style="padding: 20px; margin-top: 80px;">
+        <h3>Informe DD1</h3>
+
+        <!-- Carga automática del PDF -->
+        <iframe 
+            id="pdfViewer" 
+            width="100%" 
+            height="600px" 
+            style="border: none; margin-top: 15px;"
+            src="../../assets/pdf/Informe_DD1.pdf">
+        </iframe>
+    </section>
+
+    <!-- IMPORTANTE: ruta correcta -->
+    <script src="../../js/inicio.js"></script>
+
     <main class="main-content">
         <section class="profile-banner">
             <div class="profile-avatar"></div>
@@ -44,7 +61,6 @@
             </div>
         </section>
 
-        
         <section class="faq-section">
             <h3>Preguntas Frecuentes:</h3>
             <details>
@@ -57,12 +73,11 @@
             </details>
             <details>
                 <summary>¿La plataforma tiene una app oficial?</summary>
-                <p>Sí, pronto con herramientas premium. Por ahora todo es gratis.</p>
+                <p>Sí, pronto con herramientas premium. Por ahora todo es gratis。</p>
             </details>
         </section>
     </main>
 
-    
     <footer class="main-footer">
         <div class="footer-col">
             <strong>Contactos</strong><br>
@@ -84,9 +99,9 @@
         </div>
     </footer>
 
-    
     <script>
         lucide.createIcons();
     </script>
+
 </body>
 </html>
