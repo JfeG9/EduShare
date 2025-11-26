@@ -1,3 +1,7 @@
+if (!localStorage.getItem("usuarioActual")) {
+    window.location.href = "../autenticacion/login.html";
+}
+
 const toggleThemeBtn = document.getElementById("toggleTheme");
 
 function aplicarTemaGuardado() {
