@@ -1,0 +1,266 @@
+/* =================================== */
+/* filtro.css - Versión Final EduShare */
+/* =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f8fbfd;
+    color: #2d3748;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================== TOPBAR ================== */
+.topbar {
+    background: #2c669a;
+    padding: 12px 40px;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo img {
+    height: 44px;
+}
+
+.icon-menu {
+    width: 28px;
+    height: 28px;
+    stroke: white !important;
+    fill: none;
+    cursor: pointer;
+}
+
+.user-profile i[data-lucide],
+.user-profile svg {
+    stroke: white !important;
+    fill: none;
+}
+
+.icons i[data-lucide],
+.icons svg {
+    width: 26px;
+    height: 26px;
+    stroke: #77e6c8 !important;
+    fill: none !important;
+    cursor: pointer;
+    transition: stroke 0.25s ease, transform 0.25s ease;
+}
+
+.icons i[data-lucide]:hover,
+.icons svg:hover {
+    stroke: white !important;
+    transform: scale(1.15);
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.user-profile {
+    background: rgba(255,255,255,0.18);
+    padding: 9px 20px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* ================== CONTENIDO ================== */
+.content {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c669a;
+    margin-bottom: 32px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.card-head {
+    background: #2c669a;
+    color: white;
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 32px 28px;
+}
+
+/* Inputs con iconos */
+.input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fbfd;
+    border: 2px solid #cbd5e0;
+    border-radius: 14px;
+    padding: 14px 16px;
+    transition: all 0.2s;
+}
+
+.input i {
+    width: 20px;
+    height: 20px;
+    stroke: #77bbe6;
+}
+
+.input input,
+.input select {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    width: 100%;
+    color: #2d3748;
+}
+
+.input:focus-within {
+    border-color: #77bbe6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(119,187,230,0.15);
+}
+
+.search-input {
+    margin-bottom: 24px;
+}
+
+/* Grids */
+.two-col, .three-col {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+    .two-col   { grid-template-columns: 1fr 1fr; }
+    .three-col { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Etiquetas */
+.section-label {
+    font-weight: 600;
+    color: #2c669a;
+    margin: 20px 0 12px;
+    font-size: 16px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 2px solid #cbd5e0;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chip input[type="checkbox"] {
+    accent-color: #77bbe6;
+}
+
+.chip:hover {
+    border-color: #77bbe6;
+    background: #f0faff;
+}
+
+/* Botones */
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.btn.ghost {
+    background: #a0aec0;
+    color: white;
+}
+
+.btn.primary {
+    background: #77bbe6;
+    color: #0b2239;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .topbar { padding: 12px 20px; }
+    .user-section { gap: 16px; }
+    .icons { gap: 16px; }
+    .card-body { padding: 24px 20px; }
+    .controls { justify-content: center; }
+}

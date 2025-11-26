@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Buscar Materiales | EduShare</title>
+        <link rel="stylesheet" href="../../css/filtro.css" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="logo">
+                <i data-lucide="menu" class="icon-menu"></i>
+                <img src="../../assets/img/logo.png" alt="EduShare" />
+            </div>
+
+            <div class="user-section">
+                <div class="user-profile">
+                    <i data-lucide="user"></i>
+                    <span>LupeCR9</span>
+                </div>
+
+                <div class="icons">
+                    <i data-lucide="download"></i>
+                    <i data-lucide="calendar-days"></i>
+                    <i data-lucide="bell"></i>
+                    <i data-lucide="settings"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="wrap">
+                <h1 class="page-title">Buscar materiales</h1>
+
+                <section class="card filters">
+                    <div class="card-head">Filtros</div>
+                    <div class="card-body">
+
+                        <div class="input search-input">
+                            <i data-lucide="search"></i>
+                            <input
+                                type="search"
+                                placeholder="Buscar por título, docente, asignatura…"
+                            />
+                        </div>
+
+                        <div class="two-col">
+                            <div class="input">
+                                <i data-lucide="university"></i>
+                                <input type="text" placeholder="Universidad" />
+                            </div>
+                            <div class="input">
+                                <i data-lucide="graduation-cap"></i>
+                                <input type="text" placeholder="Carrera" />
+                            </div>
+                        </div>
+
+                        <div class="three-col">
+                            <div class="input">
+                                <i data-lucide="folder-open"></i>
+                                <select>
+                                    <option>Tipo de material</option>
+                                    <option>Apuntes</option>
+                                    <option>Exámenes</option>
+                                    <option>Resúmenes</option>
+                                    <option>Guías</option>
+                                </select>
+                            </div>
+
+                            <div class="input">
+                                <i data-lucide="calendar"></i>
+                                <select>
+                                    <option>Año</option>
+                                    <option>2025</option>
+                                    <option>2024</option>
+                                    <option>2023</option>
+                                    <option>2022</option>
+                                </select>
+                            </div>
+
+                            <div class="input">
+                                <i data-lucide="arrow-down-up"></i>
+                                <select>
+                                    <option>Ordenar por</option>
+                                    <option>Más recientes</option>
+                                    <option>Más antiguos</option>
+                                    <option>Título (A-Z)</option>
+                                    <option>Más descargados</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="tags-section">
+                            <div class="section-label">Etiquetas populares</div>
+                            <div class="chips">
+                                <label class="chip"
+                                    ><input type="checkbox" /> Álgebra</label
+                                >
+                                <label class="chip"
+                                    ><input type="checkbox" /> Cálculo</label
+                                >
+                                <label class="chip"
+                                    ><input type="checkbox" /> Algoritmos</label
+                                >
+                                <label class="chip"
+                                    ><input type="checkbox" /> Cálculo 2</label
+                                >
+                                <label class="chip"
+                                    ><input type="checkbox" /> Física</label
+                                >
+                                <label class="chip"
+                                    ><input type="checkbox" />
+                                    Programación</label
+                                >
+                                <label class="chip"
+                                    ><input type="checkbox" />
+                                    Estadística</label
+                                >
+                            </div>
+                        </div>
+
+                        <div class="controls">
+                            <button class="btn ghost">Limpiar filtros</button>
+                            <button class="btn primary">
+                                Buscar materiales
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
+</html>

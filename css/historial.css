@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background-color: #dfdadafa;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.topbar {
+    background: #2c669a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff22;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.user-info svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+}
+
+.user-info span {
+    color: #fff;
+    font-weight: 500;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons svg {
+    width: 24px;
+    height: 24px;
+    stroke: #77e6c8;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: stroke 0.2s;
+}
+
+.icons svg:hover {
+    stroke: #fff;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background: #f8fafb;
+}
+
+.historial-container {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.historial-container h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.filtro-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.filtro-section svg {
+    stroke: #2c669a;
+    width: 22px;
+    height: 22px;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filtros select {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.tabla-actividades {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actividad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.actividad strong {
+    font-size: 15px;
+    color: #000;
+}
+
+.actividad p {
+    font-size: 13px;
+    color: #777;
+}
+
+.actividad span {
+    font-size: 13px;
+    color: #333;
+}
+
+.boton-salir {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 15px;
+    }
+
+    .filtro-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .filtros {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .filtros select {
+        width: 100%;
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .boton-salir {
+        margin-top: 20px;
+    }
+}
+
+.footer {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    height: 70px;
+    border-top: 1px solid #000;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #77bbe6;
+    color: #000;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #9bd3f0;
+}

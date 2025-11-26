@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro gratuito con funciones adicionales | EduShare</title>
+    <link rel="stylesheet" href="../../css/registro-verificacion.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo">
+            <i data-lucide="menu" class="icon-menu"></i>
+            <img src="../../assets/img/logo.png" alt="EduShare" />
+        </div>
+
+        <div class="user-section">
+            <div class="user-profile">
+                <i data-lucide="user"></i>
+                <span>LupeCR9</span>
+            </div>
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="register-container">
+            <h1 class="title">Registro gratuito con funciones adicionales</h1>
+            <p class="description">
+                En este apartado se solicitará el ingreso de su cuenta para verificar su solicitud de la habilitación de las funciones de versión mejorada como también la versión alternativa en donde brindará opciones nuevas de prueba para futuras actualizaciones.
+            </p>
+
+            <div class="register-grid">
+                
+                <div class="form-card">
+                    <h2>Verificar cuenta</h2>
+                    <form>
+                        <div class="input-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" required />
+                        </div>
+                        <button type="submit" class="btn primary">Regístrate</button>
+                    </form>
+                </div>
+
+                
+                <div class="versions-card">
+                    <h2>Funciones disponibles</h2>
+                    <div class="versions-row">
+                        <div class="version-box">
+                            <h3>Versión mejorada</h3>
+                            <div class="placeholder improved"></div>
+                        </div>
+                        <div class="version-box">
+                            <h3>Versión alternativa</h3>
+                            <div class="placeholder alternative"></div>
+                        </div>
+                    </div>
+                    <p class="footer-note">
+                        Funciones como el acceso al foro y descargas de materiales siempre están disponibles en la versión básica
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpeta ciencias | EduShare</title>
+    <link rel="stylesheet" href="../../css/favoritos.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo">
+            <i data-lucide="menu"></i>
+            <img src="../../assets/img/logo.png" alt="EduShare">
+        </div>
+        <div class="user-section">
+            <div class="user-profile">
+                <i data-lucide="user"></i>
+                <span>LupeCR9</span>
+            </div>
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="page">
+            <div class="folder-header">
+                <i data-lucide="folder-open" class="folder-icon"></i>
+                <h1>Carpeta ciencias</h1>
+            </div>
+
+            <div class="featured-card">
+                <div class="thumb">
+                    <i data-lucide="image" class="thumb-ico"></i>
+                </div>
+                <div class="info">
+                    <h3>Material favorito 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+
+            <div class="favorites-grid">
+                <div class="fav-item">
+                    <i data-lucide="image" class="fav-ico"></i>
+                    <div class="fav-text">
+                        <h4>Material favorito 1</h4>
+                        <p>Supporting line text lorem ipsum dolor sit...</p>
+                    </div>
+                    <div class="fav-actions">
+                        <i data-lucide="heart" class="heart"></i>
+                        <i data-lucide="trash-2" class="trash"></i>
+                    </div>
+                </div>
+                <div class="fav-item">
+                    <i data-lucide="image" class="fav-ico"></i>
+                    <div class="fav-text">
+                        <h4>Material favorito 2</h4>
+                        <p>Supporting line text lorem ipsum dolor sit...</p>
+                    </div>
+                    <div class="fav-actions">
+                        <i data-lucide="heart" class="heart"></i>
+                        <i data-lucide="trash-2" class="trash"></i>
+                    </div>
+                </div>
+
+                <div class="fav-item">
+                    <i data-lucide="image" class="fav-ico"></i>
+                    <div class="fav-text">
+                        <h4>Material favorito 3</h4>
+                        <p>Supporting line text lorem ipsum dolor sit...</p>
+                    </div>
+                    <div class="fav-actions">
+                        <i data-lucide="heart" class="heart"></i>
+                        <i data-lucide="trash-2" class="trash"></i>
+                    </div>
+                </div>
+                <div class="fav-item">
+                    <i data-lucide="image" class="fav-ico"></i>
+                    <div class="fav-text">
+                        <h4>Material favorito 4</h4>
+                        <p>Supporting line text lorem ipsum dolor sit...</p>
+                    </div>
+                    <div class="fav-actions">
+                        <i data-lucide="heart" class="heart"></i>
+                        <i data-lucide="trash-2" class="trash"></i>
+                    </div>
+                </div>
+                <div class="fav-item">
+                    <i data-lucide="image" class="fav-ico"></i>
+                    <div class="fav-text">
+                        <h4>Material favorito 5</h4>
+                        <p>Supporting line text lorem ipsum dolor sit...</p>
+                    </div>
+                    <div class="fav-actions">
+                        <i data-lucide="heart" class="heart"></i>
+                        <i data-lucide="trash-2" class="trash"></i>
+                    </div>
+                </div>
+                <div class="fav-item">
+                    <i data-lucide="image" class="fav-ico"></i>
+                    <div class="fav-text">
+                        <h4>Material favorito 6</h4>
+                        <p>Supporting line text lorem ipsum dolor sit...</p>
+                    </div>
+                    <div class="fav-actions">
+                        <i data-lucide="heart" class="heart"></i>
+                        <i data-lucide="trash-2" class="trash"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn ghost">Salir</button>
+                <button class="btn primary">Eliminar de favoritos</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        setTimeout(() => {
+            document.querySelectorAll('.topbar i[data-lucide]').forEach(i => {
+                if (!i.closest('.user-profile')) i.style.stroke = '#77e6c8';
+            });
+        }, 100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduShare Foro</title>
+    <link rel="stylesheet" href="../../css/gestor-mat.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo icons">
+            <i data-lucide="menu"></i>
+            <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+        </div>
+
+        <div class="user-section">
+            <div class="user-info">
+                <i data-lucide="user"></i>
+                <span>LupeCR9</span>
+            </div>
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="materials-page">
+            <header class="materials-header">
+                <h1>Gestión de materiales</h1>
+                <p class="materials-subtitle">Actividades recientes:</p>
+            </header>
+
+           
+            <div class="materials-search-row">
+                <div class="search-wrapper search-full">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Buscar" />
+                </div>
+            </div>
+
+           
+            <div class="folder-row">
+                <button class="folder-pill">
+                    <i data-lucide="menu"></i>
+                    <span>Carpeta ciencias</span>
+                </button>
+                <button class="folder-add-btn" aria-label="Agregar carpeta">
+                    <i data-lucide="plus"></i>
+                </button>
+            </div>
+
+           
+            <section class="materials-grid">
+                
+                <article class="material-item">
+                    <h3 class="material-title">Apuntes de examen de Base de datos</h3>
+                    <div class="material-card">
+                        <div class="material-thumb">
+                            <i data-lucide="image"></i>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="chip-btn">Validar</button>
+                        <button class="icon-circle" aria-label="Subir versión">
+                            <i data-lucide="upload"></i>
+                        </button>
+                        <button class="chip-btn">Reportar</button>
+                    </div>
+                </article>
+
+               
+                <article class="material-item">
+                    <h3 class="material-title">Examen de Matematica Basica_TF</h3>
+                    <div class="material-card">
+                        <div class="material-thumb">
+                            <i data-lucide="image"></i>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="chip-btn">Validar</button>
+                        <button class="icon-circle" aria-label="Subir versión">
+                            <i data-lucide="upload"></i>
+                        </button>
+                        <button class="chip-btn">Reportar</button>
+                    </div>
+                </article>
+
+                
+                <article class="material-item">
+                    <h3 class="material-title">Apuntes de examen de Física</h3>
+                    <div class="material-card">
+                        <div class="material-thumb">
+                            <i data-lucide="image"></i>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="chip-btn">Validar</button>
+                        <button class="icon-circle" aria-label="Subir versión">
+                            <i data-lucide="upload"></i>
+                        </button>
+                        <button class="chip-btn">Reportar</button>
+                    </div>
+                </article>
+
+                
+                <article class="material-item">
+                    <h3 class="material-title">Apuntes de examen de Química</h3>
+                    <div class="material-card">
+                        <div class="material-thumb">
+                            <i data-lucide="image"></i>
+                        </div>
+                    </div>
+                    <div class="material-actions">
+                        <button class="chip-btn">Validar</button>
+                        <button class="icon-circle" aria-label="Subir versión">
+                            <i data-lucide="upload"></i>
+                        </button>
+                        <button class="chip-btn">Reportar</button>
+                    </div>
+                </article>
+            </section>
+        </section>
+    </main>
+    <footer class="footer">
+        <button class="btn ghost">Salir</button>
+        <button class="btn primary">Subir archivo</button>
+    </footer>
+    <script>
+        lucide.createIcons();
+    </script>
+     <script src="../../js/gestor-materiales.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* ===============================
+   VISOR DE PDF + INPUT
+   =============================== */
+
+   .pdf-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.pdf-container h2 {
+    margin-bottom: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0b2239;
+}
+
+#pdfUploader {
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px dashed #77bbe6;
+    background: #f1f8ff;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 22px;
+    transition: .2s ease;
+}
+
+#pdfUploader:hover {
+    background: #e5f3ff;
+    border-color: #1d7ecf;
+}
+
+#pdfViewer {
+    width: 100%;
+    height: 600px;
+    border-radius: 14px;
+    border: 2px solid #d0d7df;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* ===============================
+   DARK MODE – VISOR PDF
+   =============================== */
+body.dark-mode .pdf-container {
+    background: #0b1722;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .pdf-container h2 {
+    color: #e5e7eb;
+}
+
+body.dark-mode #pdfUploader {
+    background: #111827;
+    border-color: #2563eb;
+    color: #e5e7eb;
+}
+
+body.dark-mode #pdfUploader:hover {
+    background: #1e293b;
+    border-color: #3b82f6;
+}
+
+body.dark-mode #pdfViewer {
+    border-color: #1e293b;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+}

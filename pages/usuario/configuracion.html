@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Ajustes de usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../css/configuracion.css" />
+    </head>
+    <body class="dark-mode">
+        <button class="toggle-theme" id="toggleTheme" aria-label="Cambiar tema">
+            
+        </button>
+
+        <main class="card">
+            <div class="contenedor-logo">
+                <h2>Ajustes de cuenta</h2>
+                <p class="subtitulo">
+                    Gestiona tu contraseña y la eliminación de tu cuenta.
+                </p>
+            </div>
+
+            <section class="seccion" id="seccion-cambiar">
+                <h3 class="seccion-titulo">Cambiar contraseña</h3>
+                <p class="seccion-descripcion">
+                    Actualiza tu contraseña para mantener tu cuenta protegida.
+                </p>
+
+                <form id="form-cambiar">
+                    <div>
+                        <label for="actual">Contraseña actual</label>
+                        <div class="input">
+                            <input
+                                type="password"
+                                id="actual"
+                                name="actual"
+                                autocomplete="current-password"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="nueva">Nueva contraseña</label>
+                        <div class="input">
+                            <input
+                                type="password"
+                                id="nueva"
+                                name="nueva"
+                                autocomplete="new-password"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="confirmar"
+                            >Confirmar nueva contraseña</label
+                        >
+                        <div class="input">
+                            <input
+                                type="password"
+                                id="confirmar"
+                                name="confirmar"
+                                autocomplete="new-password"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Guardar contraseña
+                    </button>
+                    <p id="estado-cambiar" class="status"></p>
+                </form>
+            </section>
+
+            <section class="seccion" id="seccion-eliminar">
+                <h3 class="seccion-titulo">Eliminar cuenta</h3>
+                <p class="seccion-descripcion">
+                    Esta acción eliminará tu cuenta y todos tus datos asociados.
+                    No se puede deshacer.
+                </p>
+
+                <form id="form-eliminar">
+                    <div>
+                        <label for="confirmar-eliminar">
+                            Escribe <strong>ELIMINAR</strong> para confirmar
+                        </label>
+                        <div class="input">
+                            <input
+                                type="text"
+                                id="confirmar-eliminar"
+                                name="confirmar-eliminar"
+                                placeholder="ELIMINAR"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-peligro">
+                        Eliminar cuenta
+                    </button>
+
+                    <p class="texto-peligro">
+                        Asegúrate de haber descargado cualquier información
+                        importante antes de continuar.
+                    </p>
+
+                    <p id="estado-eliminar" class="status"></p>
+                </form>
+            </section>
+
+            <p class="legal">
+                Si tienes dudas, contacta con soporte antes de eliminar tu
+                cuenta.
+            </p>
+            <a href="../utilidades/dashboard.html">
+                <button type="submit" class="btn">Atras</button>
+            </a>
+        </main>
+
+        <script src="../../js/configuracion.js"></script>
+    </body>
+</html>

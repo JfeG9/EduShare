@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduShare Foro</title>
+    <link rel="stylesheet" href="../../css/hilo.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo icons">
+            <i data-lucide="menu"></i>
+            <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+        </div>
+
+        <div class="user-section">
+            <div class="user-info">
+                <i data-lucide="user"></i>
+                <span>LupeCR9</span>
+            </div>
+            <div class="icons">
+                <i data-lucide="download"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="bell"></i>
+                <i data-lucide="settings"></i>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="forum-page">
+           
+            <div class="forum-top-row">
+                <div class="search-wrapper">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Buscar" />
+                </div>
+
+                <button class="btn primary forum-new-thread">
+                    Crear Hilo
+                </button>
+            </div>
+
+           
+            <ul class="thread-list">
+              
+                <li class="thread-card">
+                    <header class="thread-header">
+                        <div class="thread-user">
+                            <i data-lucide="user"></i>
+                            <span class="thread-username">DavidFC</span>
+                        </div>
+                        <span class="thread-time">Hace 18 minutos</span>
+                    </header>
+
+                    <div class="thread-message-box">
+                        <p>
+                            ¡Hola gente! 😩 El profe dijo que el parcial viene fuerte en
+                            integrales por partes y sustitución. ¿Alguien tiene un resumen
+                            claro o un PDF con ejemplos resueltos? Subí el mío pero está
+                            medio desastroso jaja. ¡Gracias de antemano!🙏
+                        </p>
+                    </div>
+                </li>
+
+                
+                <li class="thread-card">
+                    <header class="thread-header">
+                        <div class="thread-user">
+                            <i data-lucide="user"></i>
+                            <span class="thread-username">RosioG</span>
+                        </div>
+                        <span class="thread-time">Ahora mismo</span>
+                    </header>
+
+                    <div class="thread-message-box">
+                        <p>
+                            Alguien que me explique el ejercicio 12 del libro de Serway?
+                            El de la cuerda con dos frecuencias. No entiendo cómo sumar
+                            las ondas ni por qué sale un nodo en x=0.8m
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="thread-card">
+                    <header class="thread-header">
+                        <div class="thread-user">
+                            <i data-lucide="user"></i>
+                            <span class="thread-username">Rodrigo7</span>
+                        </div>
+                        <span class="thread-time">Hace 1 hora</span>
+                    </header>
+
+                    <div class="thread-message-box">
+                        <p>
+                            "Chicos, ayuda 😭 Estoy haciendo un programa con estructuras
+                            para registrar estudiantes y me sale error en esta línea:"
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <button class="btn ghost">Salir</button>
+        <button class="btn primary">Subir archivo</button>
+    </footer>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Buscar en documento | EduShare</title>
+        <link rel="stylesheet" href="../../css/busqueda.css" />
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="logo">
+                <i data-lucide="menu" class="icon-menu"></i>
+                <img src="../../assets/img/logo.png" alt="EduShare" />
+            </div>
+
+            <div class="user-section">
+                <div id="user-profile" class="user-profile">
+                    <i data-lucide="user"></i>
+                    <span id="username"></span>
+                </div>
+
+                <div class="icons">
+                    <i data-lucide="download"></i>
+                    <i data-lucide="calendar-days"></i>
+                    <i data-lucide="bell"></i>
+                    <i data-lucide="settings"></i>
+                </div>
+                <button id="btnTheme" class="toggle-theme" type="button">
+                    
+                </button>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="page">
+                <h1 class="page-title">Buscar en documento</h1>
+
+                <form class="search-row" id="search-form">
+                    <div class="search-input">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Buscar en este documento..."
+                        />
+                        <i data-lucide="mic" class="mic-icon"></i>
+                    </div>
+                    <button type="submit" class="btn primary">Buscar</button>
+                </form>
+
+                <div class="results-grid">
+                    <div class="nav-card">
+                        <h2 class="nav-title">Navegación</h2>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-header">Título del documento</div>
+                        <div class="doc-body">
+                            <div class="doc-line"></div>
+                            <div class="doc-line">
+                                <span class="pin"></span>
+                            </div>
+                            <div class="doc-line">
+                                <span class="pin"></span>
+                            </div>
+                            <div class="doc-line">
+                                <span class="pin"></span>
+                            </div>
+                            <div class="doc-line">
+                                <span class="pin"></span>
+                            </div>
+                        </div>
+                        <div class="doc-footer">
+                            <span class="results-label"
+                                >4 resultados encontrados</span
+                            >
+                            <div class="pager">
+                                <span>Anterior</span> <span>Siguiente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <button id="btn-exit" class="btn-exit">Salir</button>
+        </footer>
+
+        <script>
+            lucide.createIcons();
+        </script>
+        <script src="../../js/busqueda.js"></script>
+    </body>
+</html>

@@ -1,0 +1,258 @@
+/* =================================== */
+/* foro.css - Versión Final EduShare   */
+/* =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f8fbfd;
+    color: #2d3748;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================== TOPBAR ================== */
+.topbar {
+    background: #2c669a;
+    padding: 12px 40px;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo img {
+    height: 44px;
+}
+
+/* Icono menú → blanco */
+.icon-menu {
+    width: 28px;
+    height: 28px;
+    stroke: white !important;
+    fill: none;
+    cursor: pointer;
+}
+
+/* Icono usuario → blanco */
+.user-profile i[data-lucide],
+.user-profile svg {
+    stroke: white !important;
+    fill: none;
+}
+
+/* 4 ICONOS DERECHA → TURQUESA #77e6c8 */
+.icons i[data-lucide],
+.icons svg {
+    width: 26px;
+    height: 26px;
+    stroke: #77e6c8 !important;
+    fill: none !important;
+    cursor: pointer;
+    transition: stroke 0.25s ease, transform 0.25s ease;
+}
+
+.icons i[data-lucide]:hover,
+.icons svg:hover {
+    stroke: white !important;
+    transform: scale(1.15);
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.user-profile {
+    background: rgba(255,255,255,0.18);
+    padding: 9px 20px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* ================== CONTENIDO ================== */
+.content {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.forum-card {
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+    border: 1px solid #e2e8f0;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c669a;
+    margin-bottom: 32px;
+}
+
+.field-group {
+    margin-bottom: 28px;
+}
+
+.field-label {
+    display: block;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.field-input {
+    width: 100%;
+    border: 2px solid #cbd5e0;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 15px;
+    background: #f8fbfd;
+    resize: vertical;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.field-input:focus {
+    outline: none;
+    border-color: #77bbe6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(119,187,230,0.15);
+}
+
+.topic-input {
+    height: 90px;
+}
+
+.thread-input {
+    height: 180px;
+    min-height: 140px;
+}
+
+.actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 16px;
+}
+
+.attach-btn {
+    padding: 14px 28px;
+    background: white;
+    color: #2c669a;
+    border: 2px solid #77bbe6;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.attach-btn:hover {
+    background: #77bbe6;
+    color: white;
+}
+
+.publish-btn {
+    padding: 14px 36px;
+    background: #77bbe6;
+    color: #0b2239;
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.publish-btn:hover {
+    background: #5aa0d7;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.bottom-bar {
+    height: 70px;
+    background: #2c669a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.exit-btn {
+    padding: 12px 32px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+}
+
+.exit-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .topbar {
+        padding: 12px 20px;
+    }
+    .user-section {
+        gap: 16px;
+    }
+    .icons {
+        gap: 16px;
+    }
+    .forum-card {
+        padding: 24px;
+    }
+    .actions-row {
+        flex-direction: column;
+    }
+    .attach-btn,
+    .publish-btn {
+        width: 100%;
+    }
+}
