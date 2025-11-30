@@ -6,7 +6,6 @@ if (!localStorage.getItem("usuarioActual")) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
     // =======================================
     // 2. Cargar datos del usuario
     // =======================================
@@ -77,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const pdfViewer = document.getElementById("pdfViewer");
 
     if (pdfUploader && pdfViewer) {
-
         // Si hay un PDF guardado → mostrarlo al cargar
         const savedPDF = localStorage.getItem("pdfGuardado");
         if (savedPDF) {

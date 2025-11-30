@@ -4,14 +4,25 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>EduShare - Inicio</title>
-        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
+
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
         <link rel="stylesheet" href="../../css/dashboard.css" />
     </head>
-    <body>
+    <body class="dashboard-body">
+        <!-- Barra superior -->
         <header class="top-bar">
             <div class="logo-box">
                 <i data-lucide="menu" class="top-icon"></i>
-                <img src="../../assets/img/logo.png" alt="EduShare" class="logo" id="logo"/>
+                <img
+                    src="../../assets/img/logo.png"
+                    alt="EduShare"
+                    class="logo"
+                    id="logo"
+                />
             </div>
 
             <div class="top-icons">
@@ -23,19 +34,25 @@
             </div>
         </header>
 
+        <!-- Menú lateral derecho -->
         <aside class="right-menu">
             <div class="side-card">
                 <span>Cerrar sesión</span>
-                <button id="btnCerrarSesion">Salir</button>
+                <button id="btnCerrarSesion" class="btn-secondary">
+                    Salir
+                </button>
             </div>
         </aside>
 
+        <!-- Contenido principal -->
         <main class="main-content">
             <section class="profile-banner">
                 <div class="banner-inner">
                     <div class="profile-avatar"></div>
                     <div>
-                        <h2 id="username" class="username"></h2>
+                        <h2 id="username" class="username">
+                            Nombre de usuario
+                        </h2>
                         <p class="stats">
                             0 publicaciones · 0 seguidores · 0 seguidos
                         </p>
@@ -51,57 +68,89 @@
 
                 <div class="action-buttons">
                     <a href="../busqueda/busqueda.html">
-                        <button class="action-btn">Buscar material</button>
+                        <button class="btn-primary action-btn">
+                            Buscar material
+                        </button>
                     </a>
                     <a href="#">
-                        <button class="action-btn">Gestión de materiales</button>
+                        <button class="btn-outline action-btn">
+                            Gestión de materiales
+                        </button>
                     </a>
                     <a href="#">
-                        <button class="action-btn">Registro de licencias</button>
+                        <button class="btn-outline action-btn">
+                            Registro de licencias
+                        </button>
                     </a>
                 </div>
 
-                <h3 class="faq-title">Preguntas Frecuentes:</h3>
+                <h3 class="faq-title">Preguntas Frecuentes</h3>
 
                 <section class="faq-panel">
                     <details>
-                        <summary>¿Puedo iniciar sesión con cualquier correo?</summary>
+                        <summary>
+                            ¿Puedo iniciar sesión con cualquier correo?
+                        </summary>
                         <p>
-                            Sí, puedes usar tanto tu correo personal como institucional.
-                            Ambos te brindan acceso gratuito a la plataforma.
+                            Sí, puedes usar tanto tu correo personal como
+                            institucional. Ambos te brindan acceso gratuito a la
+                            plataforma.
                         </p>
                     </details>
 
                     <details>
-                        <summary>¿Qué es el registro gratuito mejorado?</summary>
+                        <summary>
+                            ¿Qué es el registro gratuito mejorado?
+                        </summary>
                         <p>
-                            Es una actualización de tu cuenta actual con funciones adicionales.
+                            Es una actualización de tu cuenta actual con
+                            funciones adicionales.
                         </p>
                     </details>
 
                     <details>
                         <summary>¿La plataforma tiene una app oficial?</summary>
                         <p>
-                            Próximamente se lanzarán versiones móviles con herramientas premium.
+                            Próximamente se lanzarán versiones móviles con
+                            herramientas premium.
                         </p>
                     </details>
                 </section>
 
                 <!-- ==========================
-                     SECCIÓN PARA SUBIR Y VER PDF
+                     SECCIÓN PARA SUBIR Y VER PDF (MINIATURA + MODAL)
                 =========================== -->
-                <section class="pdf-section" style="margin-top: 40px; padding: 20px; background:#f6f6f6; border-radius:12px;">
-                    <h3>Visor de PDF</h3>
+                <section class="pdf-section">
+                    <div class="pdf-header">
+                        <h3>Visor de PDF</h3>
+                        <p class="pdf-subtitle">
+                            Sube un archivo y haz clic en la miniatura para
+                            verlo en grande.
+                        </p>
+                    </div>
 
-                    <input type="file" id="pdfUploader" accept="application/pdf" style="margin-bottom: 15px;" />
+                    <input
+                        type="file"
+                        id="pdfUploader"
+                        accept="application/pdf"
+                        class="pdf-input"
+                    />
 
-                    <iframe id="pdfViewer"
-                        style="width: 100%; height: 500px; border: 1px solid #ccc; border-radius: 10px;">
-                    </iframe>
+                    <!-- Contenedor de miniatura -->
+                    <div
+                        id="pdfThumbnailContainer"
+                        class="pdf-thumbnail-container"
+                    >
+                        <canvas id="pdfThumbnailCanvas"></canvas>
+                        <div class="pdf-thumbnail-overlay">
+                            Click para ver PDF
+                        </div>
+                    </div>
                 </section>
             </section>
         </main>
 
+        <!-- Pie de página -->
         <footer class="main-footer">
             <div class="footer-column">
                 <h4>Contáctanos</h4>
@@ -127,64 +176,152 @@
             </div>
         </footer>
 
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script>lucide.createIcons();</script>
+        <!-- MODAL PARA VER EL PDF COMPLETO -->
+        <div id="pdfModal" class="pdf-modal">
+            <div class="pdf-modal-content">
+                <div class="pdf-modal-header">
+                    <span class="pdf-modal-title">Vista completa del PDF</span>
+                    <button id="closePdfModal" class="pdf-modal-close">
+                        &times;
+                    </button>
+                </div>
+                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+            </div>
+        </div>
 
+        <!-- Iconos Lucide -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+
+        <!-- PDF.js desde CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+        <script>
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        </script>
+
+        <!-- Tu JS general del dashboard -->
         <script src="../../js/dashboard.js"></script>
 
         <!-- ==========================
-             JS DEL VISOR DE PDF
+             JS DEL VISOR DE PDF (miniatura + modal)
         =========================== -->
         <script>
             const pdfUploader = document.getElementById("pdfUploader");
-            const pdfViewer   = document.getElementById("pdfViewer");
+            const pdfViewer = document.getElementById("pdfViewer");
+            const pdfThumbnailCanvas =
+                document.getElementById("pdfThumbnailCanvas");
+            const pdfThumbnailContainer = document.getElementById(
+                "pdfThumbnailContainer"
+            );
+            const pdfModal = document.getElementById("pdfModal");
+            const closePdfModalBtn = document.getElementById("closePdfModal");
 
-            // ============================
-            // 1. Si NO existe un PDF guardado, cargar Informe_DD1.pdf automáticamente
-            // ============================
-            if (!localStorage.getItem("pdfGuardado")) {
-                fetch("../../assets/pdf/Informe_DD1.pdf")
-                    .then(res => res.blob())
-                    .then(blob => {
-                        const reader = new FileReader();
+            let currentPDFDataUrl = null;
 
-                        reader.onload = function (e) {
-                            const base64PDF = e.target.result;
-                            localStorage.setItem("pdfGuardado", base64PDF); 
-                            pdfViewer.src = base64PDF;
-                        };
+            // Renderizar miniatura con PDF.js
+            async function renderPdfThumbnail(pdfDataUrl) {
+                currentPDFDataUrl = pdfDataUrl;
+                pdfViewer.src = pdfDataUrl;
 
-                        reader.readAsDataURL(blob);
-                    })
-                    .catch(err =>
-                        console.error("No se pudo cargar Informe_DD1.pdf:", err)
-                    );
+                try {
+                    const loadingTask = pdfjsLib.getDocument(pdfDataUrl);
+                    const pdf = await loadingTask.promise;
+                    const page = await pdf.getPage(1);
+
+                    const canvas = pdfThumbnailCanvas;
+                    const context = canvas.getContext("2d");
+
+                    const viewport = page.getViewport({ scale: 1 });
+
+                    const maxWidth = 210;
+                    const maxHeight = 300;
+
+                    const widthRatio = maxWidth / viewport.width;
+                    const heightRatio = maxHeight / viewport.height;
+                    const scale = Math.min(widthRatio, heightRatio);
+
+                    const scaledViewport = page.getViewport({ scale });
+
+                    canvas.width = scaledViewport.width;
+                    canvas.height = scaledViewport.height;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: scaledViewport,
+                    };
+
+                    await page.render(renderContext).promise;
+                } catch (err) {
+                    console.error("Error al generar miniatura del PDF:", err);
+                }
             }
 
-            // ============================
-            // 2. Mostrar PDF guardado (si existe)
-            // ============================
-            const savedPDF = localStorage.getItem("pdfGuardado");
-            if (savedPDF) {
-                pdfViewer.src = savedPDF;
+            // Cargar Informe_DD1.pdf por defecto si no hay nada guardado
+            async function initPdfFromDefault() {
+                try {
+                    const res = await fetch("../../assets/pdf/Informe_DD1.pdf");
+                    const blob = await res.blob();
+
+                    const reader = new FileReader();
+                    reader.onload = async function (e) {
+                        const base64PDF = e.target.result;
+                        localStorage.setItem("pdfGuardado", base64PDF);
+                        await renderPdfThumbnail(base64PDF);
+                    };
+                    reader.readAsDataURL(blob);
+                } catch (err) {
+                    console.error("No se pudo cargar Informe_DD1.pdf:", err);
+                }
             }
 
-            // ============================
-            // 3. Subir y reemplazar PDF manualmente
-            // ============================
+            // Mostrar PDF guardado (si existe) o cargar el de defecto
+            (async function () {
+                const savedPDF = localStorage.getItem("pdfGuardado");
+                if (!savedPDF) {
+                    await initPdfFromDefault();
+                } else {
+                    await renderPdfThumbnail(savedPDF);
+                }
+            })();
+
+            // Subir y reemplazar PDF manualmente
             pdfUploader.addEventListener("change", () => {
                 const file = pdfUploader.files[0];
                 if (!file) return;
 
                 const reader = new FileReader();
 
-                reader.onload = (e) => {
+                reader.onload = async (e) => {
                     const base64PDF = e.target.result;
                     localStorage.setItem("pdfGuardado", base64PDF);
-                    pdfViewer.src = base64PDF;
+                    await renderPdfThumbnail(base64PDF);
                 };
 
                 reader.readAsDataURL(file);
+            });
+
+            // Abrir modal al hacer clic en la miniatura
+            pdfThumbnailContainer.addEventListener("click", () => {
+                if (!currentPDFDataUrl) return;
+                pdfModal.style.display = "flex";
+                document.body.classList.add("modal-open");
+            });
+
+            // Cerrar modal
+            closePdfModalBtn.addEventListener("click", () => {
+                pdfModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            });
+
+            // Cerrar modal al hacer clic fuera del contenido
+            pdfModal.addEventListener("click", (e) => {
+                if (e.target === pdfModal) {
+                    pdfModal.style.display = "none";
+                    document.body.classList.remove("modal-open");
+                }
             });
         </script>
     </body>
