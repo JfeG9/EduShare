@@ -20,7 +20,7 @@ aplicarTemaGuardado();
 toggleThemeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     const esOscuro = document.body.classList.contains("dark-mode");
-    localStorage.setItem("tema", esOscuro ? "oscuro" : "claro");
+    localStorage.setItem("theme", esOscuro ? "oscuro" : "claro");
     toggleThemeBtn.textContent = esOscuro ? "🌙" : "☀️";
 });
 
