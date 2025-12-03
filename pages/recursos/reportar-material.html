@@ -3,21 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduShare - Explorar materiales</title>
+        <title>EduShare - Reportar Material</title>
 
-        <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="../../favicon.ico"
-        />
-        <!-- Estilos base del dashboard -->
         <link rel="stylesheet" href="../../css/dashboard.css" />
-        <!-- Estilos específicos de explorar -->
-        <link rel="stylesheet" href="../../css/explorar-materiales.css" />
+        <link rel="stylesheet" href="../../css/reportar-material.css" />
+
+        <script src="https://unpkg.com/lucide@latest"></script>
     </head>
 
     <body class="dashboard-body">
-        <!-- BARRA SUPERIOR -->
+        <!-- TOPBAR -->
         <header class="topbar">
             <div class="logo" id="btnLogo">
                 <button
@@ -28,9 +23,9 @@
                     <i data-lucide="menu"></i>
                 </button>
                 <img
+                    id="logoImage"
                     src="../../assets/img/logo.png"
                     alt="Logo EduShare"
-                    id="logoImage"
                 />
             </div>
 
@@ -66,7 +61,7 @@
             </div>
         </header>
 
-        <!-- MENÚ LATERAL -->
+        <!-- SIDEBAR -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <span>Menú</span>
@@ -82,47 +77,45 @@
             <ul class="sidebar-list">
                 <li>
                     <button class="sidebar-item" id="navInicio">
-                        <i data-lucide="home"></i>
-                        <span>Inicio</span>
+                        <i data-lucide="home"></i><span>Inicio</span>
                     </button>
                 </li>
                 <li>
                     <button class="sidebar-item" id="navSubirMaterial">
-                        <i data-lucide="upload-cloud"></i>
-                        <span>Subir materiales</span>
+                        <i data-lucide="upload-cloud"></i
+                        ><span>Subir materiales</span>
                     </button>
                 </li>
                 <li>
                     <button class="sidebar-item" id="navMisArchivos">
-                        <i data-lucide="file-text"></i>
-                        <span>Mis archivos</span>
+                        <i data-lucide="file-text"></i><span>Mis archivos</span>
                     </button>
                 </li>
                 <li>
-                    <button
-                        class="sidebar-item sidebar-item-active"
-                        id="navExplorarMaterial"
-                    >
-                        <i data-lucide="search"></i>
-                        <span>Explorar materiales</span>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i
+                        ><span>Explorar materiales</span>
                     </button>
                 </li>
                 <li>
                     <button class="sidebar-item" id="navForo">
-                        <i data-lucide="messages-square"></i>
-                        <span>Foro</span>
+                        <i data-lucide="messages-square"></i><span>Foro</span>
                     </button>
                 </li>
+
                 <li>
-                    <button class="sidebar-item" id="navReportes">
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navReportes"
+                    >
                         <i data-lucide="flag"></i>
                         <span>Reportar material</span>
                     </button>
                 </li>
+
                 <li>
                     <button class="sidebar-item" id="navConfiguracion">
-                        <i data-lucide="settings"></i>
-                        <span>Configuración</span>
+                        <i data-lucide="settings"></i><span>Configuración</span>
                     </button>
                 </li>
             </ul>
@@ -139,104 +132,95 @@
 
         <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-        <!-- CONTENIDO PRINCIPAL -->
+        <!-- CONTENIDO -->
         <main class="main-content">
-            <section class="explore-header">
-                <div>
-                    <h2>Explorar materiales</h2>
-                    <p>
-                        Busca y visualiza los PDFs que han sido subidos a la
-                        plataforma.
-                    </p>
-                </div>
-                <div class="explore-stats" id="exploreStats">
-                    <!-- Se llena por JS: ej. "5 materiales encontrados" -->
-                </div>
-            </section>
+            <section class="report-card">
+                <h2 class="report-title">Reportar material</h2>
+                <p class="report-subtitle">
+                    Busca el material que deseas reportar y cuéntanos qué
+                    problema encontraste.
+                </p>
 
-            <!-- BUSCADOR -->
-            <section class="explore-search">
-                <div class="search-box">
-                    <i data-lucide="search"></i>
+                <!-- Selector de material -->
+                <div class="material-picker">
+                    <label class="label">Buscar material</label>
+                    <div class="search-box search-box-small">
+                        <i data-lucide="search"></i>
+                        <input
+                            type="text"
+                            id="searchMaterial"
+                            placeholder="Escribe el título del PDF que quieres reportar..."
+                        />
+                    </div>
+
+                    <div id="materialResults" class="material-results">
+                        <p class="material-results-empty">
+                            Escribe para buscar entre los materiales subidos.
+                        </p>
+                    </div>
+
+                    <label class="label">Material seleccionado</label>
                     <input
                         type="text"
-                        id="searchInput"
-                        placeholder="Buscar por título, curso, etiqueta..."
+                        id="inputMaterialTitulo"
+                        class="input"
+                        placeholder="Ninguno seleccionado"
+                        readonly
                     />
+                    <input type="hidden" id="inputMaterialIndex" />
                 </div>
-                <div class="filter-box">
-                    <select id="filterSelect">
-                        <option value="todos">Todos los materiales</option>
-                        <option value="recientes">Subidos recientemente</option>
-                        <option value="antiguos">Más antiguos</option>
+
+                <form id="formReporte" class="report-form">
+                    <label class="label">Motivo del reporte *</label>
+                    <select id="inputMotivo" class="input" required>
+                        <option value="">Selecciona un motivo</option>
+                        <option value="contenido_inapropiado">
+                            Contenido inapropiado
+                        </option>
+                        <option value="información_falsa">
+                            Información falsa
+                        </option>
+                        <option value="plagio">
+                            Plagio / derechos de autor
+                        </option>
+                        <option value="spam">Spam</option>
+                        <option value="otro">Otro</option>
                     </select>
-                </div>
-            </section>
 
-            <!-- LISTA DE MATERIALES -->
-            <section class="materials-section">
-                <div id="materialsEmpty" class="materials-empty">
-                    <i data-lucide="inbox"></i>
-                    <p>Aún no hay materiales disponibles para explorar.</p>
-                    <p class="materials-empty-hint">
-                        Sube tu primer PDF desde
-                        <strong>"Subir materiales"</strong>.
-                    </p>
-                </div>
+                    <label class="label">Descripción *</label>
+                    <textarea
+                        id="inputDescripcion"
+                        class="input textarea"
+                        rows="5"
+                        placeholder="Describe el problema con el material seleccionado"
+                        required
+                    ></textarea>
 
-                <div id="materialsGrid" class="materials-grid">
-                    <!-- Las tarjetas de PDF se insertan aquí por JS -->
-                </div>
+                    <button type="submit" class="btn-primary report-submit">
+                        Enviar reporte
+                    </button>
+                </form>
+
+                <p id="msgExito" class="msg-exito" style="display: none">
+                    ✅ Tu reporte ha sido enviado correctamente.
+                </p>
             </section>
         </main>
 
-        <!-- MODAL PARA VER PDF -->
-        <div id="pdfModal" class="pdf-modal">
-            <div class="pdf-modal-content">
-                <div class="pdf-modal-header">
-                    <span class="pdf-modal-title" id="pdfModalTitle"
-                        >Vista del material</span
-                    >
-                    <div style="display: flex; gap: 8px; align-items: center">
-                        <a
-                            id="pdfDownload"
-                            class="pdf-download-btn"
-                            href="#"
-                            download="material.pdf"
-                        >
-                            Descargar
-                        </a>
-                        <button id="closePdfModal" class="pdf-modal-close">
-                            &times;
-                        </button>
-                    </div>
-                </div>
-                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
-            </div>
-        </div>
+        <!-- JS -->
+        <script src="../../js/nav.js"></script>
+        <script src="../../js/dashboard.js"></script>
+        <script src="../../js/reportar-material.js"></script>
 
-        <!-- LUCIDE -->
-        <script src="https://unpkg.com/lucide@latest"></script>
-
-        <!-- PDF.js (solo si quieres miniaturas también aquí; si no, se puede omitir) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
         <script>
-            if (window.pdfjsLib) {
-                pdfjsLib.GlobalWorkerOptions.workerSrc =
-                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            if (window.lucide && lucide.createIcons) {
+                lucide.createIcons();
             }
         </script>
-
-        <!-- JS BASE (sesión / usuario / tema / visor) -->
-        <script src="../../js/dashboard.js"></script>
-
-        <!-- JS NAVEGACIÓN -->
         <script src="../../js/nav.js"></script>
+        <script src="../../js/dashboard.js"></script>
+        <script src="../../js/reportar-material.js"></script>
 
-        <!-- JS DE ESTA PÁGINA -->
-        <script src="../../js/explorar-materiales.js"></script>
-
-        <!-- MENÚ LATERAL / USUARIO -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const menuToggle = document.getElementById("menuToggle");
@@ -259,10 +243,7 @@
                     sidebarBackdrop.classList.remove("visible");
                 }
 
-                menuToggle.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    openSidebar();
-                });
+                menuToggle.addEventListener("click", openSidebar);
                 sidebarClose.addEventListener("click", closeSidebar);
                 sidebarBackdrop.addEventListener("click", closeSidebar);
 

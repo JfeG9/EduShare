@@ -1,0 +1,341 @@
+.report-card {
+    background: var(--bg-panel);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--bg-border);
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.report-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.report-subtitle {
+    color: var(--bg-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--bg-border);
+    background: var(--bg-panel-soft);
+    font-size: 0.95rem;
+}
+
+.textarea {
+    resize: vertical;
+}
+
+.report-submit {
+    margin-top: 10px;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+
+/* Picker de material */
+
+.material-picker {
+    border-radius: 12px;
+    padding: 16px 16px 18px;
+    background: var(--bg-panel-soft);
+    border: 1px solid var(--bg-border);
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-box-small {
+    margin-top: 4px;
+    padding: 6px 10px;
+}
+
+.search-box-small input {
+    font-size: 0.9rem;
+}
+
+/* Resultados */
+
+.material-results {
+    margin-top: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: var(--bg-panel);
+    border: 1px solid var(--bg-border);
+    padding: 6px 6px;
+}
+
+.material-results-empty {
+    font-size: 0.85rem;
+    color: var(--bg-muted);
+    text-align: center;
+    padding: 10px 4px;
+}
+
+.material-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.material-result-item:hover {
+    background: rgba(37, 180, 195, 0.06);
+}
+
+.material-result-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.material-result-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.material-result-meta {
+    font-size: 0.8rem;
+    color: var(--bg-muted);
+}
+
+/* Botón seleccionar */
+
+.btn-select-material {
+    border-radius: 999px;
+    border: 0;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    background: var(--primario);
+    color: #062026;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Mensaje éxito */
+
+.msg-exito {
+    margin-top: 18px;
+    font-weight: 600;
+    color: #0c8f3f;
+}
+
+body.dark-mode .report-card {
+    background: var(--bg-panel);
+    border-color: var(--bg-border);
+    box-shadow: var(--shadow-strong);
+}
+
+body.dark-mode .report-title {
+    color: var(--bg-text);
+}
+
+body.dark-mode .report-subtitle {
+    color: var(--bg-muted);
+}
+
+/* ----- Labels e inputs ----- */
+
+body.dark-mode .label {
+    color: var(--bg-text);
+}
+
+body.dark-mode .input,
+body.dark-mode .textarea {
+    background: var(--bg-panel-soft);
+    border-color: var(--bg-border);
+    color: var(--bg-text);
+}
+
+body.dark-mode .input::placeholder,
+body.dark-mode .textarea::placeholder {
+    color: var(--bg-muted);
+}
+
+/* ----- Material Picker ----- */
+
+body.dark-mode .material-picker {
+    background: var(--bg-panel);
+    border-color: var(--bg-border);
+}
+
+body.dark-mode .search-box-small {
+    background: var(--bg-panel-soft);
+    border: 1px solid var(--bg-border);
+}
+
+body.dark-mode .search-box-small input {
+    color: var(--bg-text);
+}
+
+body.dark-mode .material-results {
+    background: var(--bg-panel);
+    border-color: var(--bg-border);
+}
+
+body.dark-mode .material-results-empty {
+    color: var(--bg-muted);
+}
+
+body.dark-mode .material-result-item:hover {
+    background: rgba(37, 180, 195, 0.18); /* un ligero teal para hover */
+}
+
+body.dark-mode .material-result-title {
+    color: var(--bg-text);
+}
+
+body.dark-mode .material-result-meta {
+    color: var(--bg-muted);
+}
+
+/* ----- Botón seleccionar ----- */
+
+body.dark-mode .btn-select-material {
+    background: var(--primario);
+    color: #062026;
+}
+
+/* ----- Botón enviar reporte ----- */
+
+body.dark-mode .report-submit {
+    background: var(--primario);
+    color: #062026;
+}
+
+body.dark-mode .report-submit:hover {
+    filter: brightness(1.1);
+}
+
+/* ----- Mensaje éxito ----- */
+
+body.dark-mode .msg-exito {
+    color: #7df9b3;
+}
+
+body.dark-mode .search-box-small {
+    background: #10324f; /* azul oscuro suave */
+    border: 1px solid #1b3c58; /* borde visible */
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+body.dark-mode .search-box-small i {
+    color: #e6f4ff; /* icono visible */
+}
+
+body.dark-mode .search-box-small input {
+    background: transparent;
+    color: #e6f4ff; /* texto visible */
+}
+
+body.dark-mode .search-box-small input::placeholder {
+    color: #9fb3c8; /* placeholder visible sin ser invasivo */
+}
+
+/* Foco más elegante */
+body.dark-mode .search-box-small:focus-within {
+    border-color: #25b4c3;
+    box-shadow: 0 0 0 3px rgba(37, 180, 195, 0.25);
+}
+
+body.dark-mode .search-box-small {
+    background: #0e2537; /* un azul profundo suave */
+    border: none; /* 🔥 sin borde */
+    border-radius: 10px;
+    padding: 6px 12px;
+}
+
+body.dark-mode .search-box-small input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+}
+
+body.dark-mode .search-box-small input::placeholder {
+    color: #b8c7d9;
+}
+
+body.dark-mode .search-box-small i {
+    color: #d7e9ff;
+}
+
+/* Efecto al enfocar (muy leve para no parecer un borde feo) */
+body.dark-mode .search-box-small:focus-within {
+    box-shadow: 0 0 0 3px rgba(37, 180, 195, 0.18);
+}
+
+.search-box-small {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%; /* 🔥 Se expande al 100% */
+    padding: 10px 14px; /* Aumenta altura */
+    border-radius: 10px;
+    background: var(--bg-panel-soft);
+}
+
+.search-box-small input {
+    flex: 1; /* 🔥 Se ajusta al espacio restante */
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--bg-text);
+    font-size: 0.95rem;
+    padding: 4px 0; /* Centrado vertical */
+}
+
+.search-box-small input::placeholder {
+    color: var(--bg-muted);
+}
+
+/* Icono */
+.search-box-small i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    color: var(--bg-muted);
+}
+
+/* ---- MODO OSCURO ---- */
+
+body.dark-mode .search-box-small {
+    background: #0f2c42;
+}
+
+body.dark-mode .search-box-small input {
+    color: #ffffff; /* texto blanco */
+}
+
+body.dark-mode .search-box-small input::placeholder {
+    color: #9fb3c8;
+}
+
+body.dark-mode .search-box-small i {
+    color: #d9eaff;
+}

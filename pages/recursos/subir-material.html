@@ -3,17 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduShare - Explorar materiales</title>
+        <title>EduShare - Subir materiales</title>
 
         <link
             rel="shortcut icon"
             type="image/x-icon"
             href="../../favicon.ico"
         />
-        <!-- Estilos base del dashboard -->
+
+        <!-- Estilos base -->
         <link rel="stylesheet" href="../../css/dashboard.css" />
-        <!-- Estilos específicos de explorar -->
-        <link rel="stylesheet" href="../../css/explorar-materiales.css" />
+        <!-- Estilos de esta página -->
+        <link rel="stylesheet" href="../../css/subir-material.css" />
     </head>
 
     <body class="dashboard-body">
@@ -82,47 +83,44 @@
             <ul class="sidebar-list">
                 <li>
                     <button class="sidebar-item" id="navInicio">
-                        <i data-lucide="home"></i>
-                        <span>Inicio</span>
+                        <i data-lucide="home"></i><span>Inicio</span>
                     </button>
                 </li>
                 <li>
-                    <button class="sidebar-item" id="navSubirMaterial">
-                        <i data-lucide="upload-cloud"></i>
-                        <span>Subir materiales</span>
+                    <!-- ACTIVA -->
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navSubirMaterial"
+                    >
+                        <i data-lucide="upload-cloud"></i
+                        ><span>Subir materiales</span>
                     </button>
                 </li>
                 <li>
                     <button class="sidebar-item" id="navMisArchivos">
-                        <i data-lucide="file-text"></i>
-                        <span>Mis archivos</span>
+                        <i data-lucide="file-text"></i><span>Mis archivos</span>
                     </button>
                 </li>
                 <li>
-                    <button
-                        class="sidebar-item sidebar-item-active"
-                        id="navExplorarMaterial"
-                    >
-                        <i data-lucide="search"></i>
-                        <span>Explorar materiales</span>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i
+                        ><span>Explorar materiales</span>
                     </button>
                 </li>
                 <li>
                     <button class="sidebar-item" id="navForo">
-                        <i data-lucide="messages-square"></i>
-                        <span>Foro</span>
+                        <i data-lucide="messages-square"></i><span>Foro</span>
                     </button>
                 </li>
                 <li>
                     <button class="sidebar-item" id="navReportes">
-                        <i data-lucide="flag"></i>
-                        <span>Reportar material</span>
+                        <i data-lucide="flag"></i><span>Reportar material</span>
                     </button>
                 </li>
+    
                 <li>
                     <button class="sidebar-item" id="navConfiguracion">
-                        <i data-lucide="settings"></i>
-                        <span>Configuración</span>
+                        <i data-lucide="settings"></i><span>Configuración</span>
                     </button>
                 </li>
             </ul>
@@ -141,102 +139,129 @@
 
         <!-- CONTENIDO PRINCIPAL -->
         <main class="main-content">
-            <section class="explore-header">
+            <section class="upload-header">
                 <div>
-                    <h2>Explorar materiales</h2>
+                    <h2>Subir materiales</h2>
                     <p>
-                        Busca y visualiza los PDFs que han sido subidos a la
-                        plataforma.
+                        Comparte tus apuntes y recursos en formato PDF con otros
+                        estudiantes.
                     </p>
-                </div>
-                <div class="explore-stats" id="exploreStats">
-                    <!-- Se llena por JS: ej. "5 materiales encontrados" -->
                 </div>
             </section>
 
-            <!-- BUSCADOR -->
-            <section class="explore-search">
-                <div class="search-box">
-                    <i data-lucide="search"></i>
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="Buscar por título, curso, etiqueta..."
-                    />
-                </div>
-                <div class="filter-box">
-                    <select id="filterSelect">
-                        <option value="todos">Todos los materiales</option>
-                        <option value="recientes">Subidos recientemente</option>
-                        <option value="antiguos">Más antiguos</option>
-                    </select>
-                </div>
-            </section>
+            <section class="upload-layout">
+                <!-- PANEL INFORMATIVO -->
+                <article class="upload-info-card">
+                    <div class="upload-info-icon">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>Recomendaciones</h3>
+                    <ul>
+                        <li>
+                            Sube solo archivos en formato <strong>PDF</strong>.
+                        </li>
+                        <li>Usa títulos claros: curso + semana + tema.</li>
+                        <li>
+                            Agrega etiquetas para que sea más fácil encontrar tu
+                            material.
+                        </li>
+                        <li>
+                            Revisa que el contenido esté completo y legible.
+                        </li>
+                    </ul>
+                </article>
 
-            <!-- LISTA DE MATERIALES -->
-            <section class="materials-section">
-                <div id="materialsEmpty" class="materials-empty">
-                    <i data-lucide="inbox"></i>
-                    <p>Aún no hay materiales disponibles para explorar.</p>
-                    <p class="materials-empty-hint">
-                        Sube tu primer PDF desde
-                        <strong>"Subir materiales"</strong>.
-                    </p>
-                </div>
+                <!-- FORMULARIO -->
+                <article class="upload-form-card">
+                    <form id="formSubirMaterial" class="upload-form">
+                        <div class="form-group">
+                            <label for="inputTitulo">Título del material</label>
+                            <input
+                                id="inputTitulo"
+                                type="text"
+                                placeholder="Ej. Álgebra Lineal - Semana 5"
+                                required
+                            />
+                        </div>
 
-                <div id="materialsGrid" class="materials-grid">
-                    <!-- Las tarjetas de PDF se insertan aquí por JS -->
-                </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputCurso">Curso</label>
+                                <input
+                                    id="inputCurso"
+                                    type="text"
+                                    placeholder="Ej. Matemática II"
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputCarrera">Carrera</label>
+                                <input
+                                    id="inputCarrera"
+                                    type="text"
+                                    placeholder="Ej. Ingeniería Civil"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEtiquetas"
+                                >Etiquetas (opcional)</label
+                            >
+                            <input
+                                id="inputEtiquetas"
+                                type="text"
+                                placeholder="Ej. semana 5, práctica, teoría"
+                            />
+                            <span class="field-hint">
+                                Separa las etiquetas con comas (,)
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Archivo PDF</label>
+                            <div class="file-input">
+                                <label for="inputArchivo" class="file-label">
+                                    <i data-lucide="file-up"></i>
+                                    <span
+                                        >Selecciona un archivo PDF desde tu
+                                        dispositivo</span
+                                    >
+                                </label>
+                                <input
+                                    id="inputArchivo"
+                                    type="file"
+                                    accept="application/pdf"
+                                    class="file-input-native"
+                                    required
+                                />
+                                <p id="fileNameHint" class="file-hint">
+                                    Ningún archivo seleccionado.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="upload-btn">
+                            <i data-lucide="upload-cloud"></i>
+                            <span>Subir material</span>
+                        </button>
+                        <p id="estadoSubida" class="estado-subida"></p>
+                    </form>
+                </article>
             </section>
         </main>
 
-        <!-- MODAL PARA VER PDF -->
-        <div id="pdfModal" class="pdf-modal">
-            <div class="pdf-modal-content">
-                <div class="pdf-modal-header">
-                    <span class="pdf-modal-title" id="pdfModalTitle"
-                        >Vista del material</span
-                    >
-                    <div style="display: flex; gap: 8px; align-items: center">
-                        <a
-                            id="pdfDownload"
-                            class="pdf-download-btn"
-                            href="#"
-                            download="material.pdf"
-                        >
-                            Descargar
-                        </a>
-                        <button id="closePdfModal" class="pdf-modal-close">
-                            &times;
-                        </button>
-                    </div>
-                </div>
-                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
-            </div>
-        </div>
-
-        <!-- LUCIDE -->
+        <!-- ICONOS -->
         <script src="https://unpkg.com/lucide@latest"></script>
 
-        <!-- PDF.js (solo si quieres miniaturas también aquí; si no, se puede omitir) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-        <script>
-            if (window.pdfjsLib) {
-                pdfjsLib.GlobalWorkerOptions.workerSrc =
-                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-            }
-        </script>
-
-        <!-- JS BASE (sesión / usuario / tema / visor) -->
+        <!-- BASE (debes tener registrarActividad en dashboard.js) -->
         <script src="../../js/dashboard.js"></script>
-
-        <!-- JS NAVEGACIÓN -->
+        <!-- NAV ENTRE PÁGINAS -->
         <script src="../../js/nav.js"></script>
-
         <!-- JS DE ESTA PÁGINA -->
-        <script src="../../js/explorar-materiales.js"></script>
+        <script src="../../js/subir-material.js"></script>
 
-        <!-- MENÚ LATERAL / USUARIO -->
+        <!-- LÓGICA MENÚ LATERAL / USUARIO (MISMA BASE QUE EXPLORAR) -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const menuToggle = document.getElementById("menuToggle");

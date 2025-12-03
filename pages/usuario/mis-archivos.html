@@ -3,14 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduShare - Inicio</title>
+        <title>EduShare - Mis archivos</title>
 
         <link
             rel="shortcut icon"
             type="image/x-icon"
             href="../../favicon.ico"
         />
+        <!-- Estilos base del dashboard -->
         <link rel="stylesheet" href="../../css/dashboard.css" />
+        <!-- Estilos específicos de mis archivos -->
+        <link rel="stylesheet" href="../../css/mis-archivos.css" />
     </head>
 
     <body class="dashboard-body">
@@ -38,7 +41,7 @@
                     aria-label="Abrir menú de usuario"
                 >
                     <i data-lucide="user"></i>
-                    <span id="usernameTop"></span>
+                    <span id="usernameTop">Usuario</span>
                     <i data-lucide="chevron-down" class="chevron-icon"></i>
                 </button>
 
@@ -63,7 +66,7 @@
             </div>
         </header>
 
-        <!-- MENÚ LATERAL COMPLETO -->
+        <!-- MENÚ LATERAL -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <span>Menú</span>
@@ -78,50 +81,45 @@
 
             <ul class="sidebar-list">
                 <li>
-                    <button
-                        class="sidebar-item sidebar-item-active"
-                        id="navInicio"
-                    >
+                    <button class="sidebar-item" id="navInicio">
                         <i data-lucide="home"></i>
                         <span>Inicio</span>
                     </button>
                 </li>
-
                 <li>
                     <button class="sidebar-item" id="navSubirMaterial">
                         <i data-lucide="upload-cloud"></i>
                         <span>Subir materiales</span>
                     </button>
                 </li>
-
                 <li>
-                    <button class="sidebar-item" id="navMisArchivos">
+                    <!-- ESTA ES LA ACTIVA -->
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navMisArchivos"
+                    >
                         <i data-lucide="file-text"></i>
                         <span>Mis archivos</span>
                     </button>
                 </li>
-
                 <li>
                     <button class="sidebar-item" id="navExplorarMaterial">
                         <i data-lucide="search"></i>
                         <span>Explorar materiales</span>
                     </button>
                 </li>
-
                 <li>
                     <button class="sidebar-item" id="navForo">
                         <i data-lucide="messages-square"></i>
                         <span>Foro</span>
                     </button>
                 </li>
-
                 <li>
                     <button class="sidebar-item" id="navReportes">
                         <i data-lucide="flag"></i>
                         <span>Reportar material</span>
                     </button>
                 </li>
-
                 <li>
                     <button class="sidebar-item" id="navConfiguracion">
                         <i data-lucide="settings"></i>
@@ -144,140 +142,80 @@
 
         <!-- CONTENIDO PRINCIPAL -->
         <main class="main-content">
-            <section class="profile-banner">
-                <div class="banner-inner">
-                    <div class="profile-avatar"></div>
-                    <div>
-                        <h2 id="username" class="username"></h2>
-                        <p class="stats">
-                            0 publicaciones · 0 seguidores · 0 seguidos
-                        </p>
-                    </div>
+            <section class="myfiles-header">
+                <div>
+                    <h2>Mis archivos</h2>
+                    <p>
+                        Consulta los materiales que has guardado desde explorar
+                        y los PDFs que subiste.
+                    </p>
+                </div>
+                <div class="myfiles-stats" id="myfilesStats">
+                    <!-- Se llena por JS -->
                 </div>
             </section>
 
-            <section class="content-area">
-                <p class="welcome-text">
-                    Prepárate para ser parte de la comunidad en esta plataforma
-                    de estudio N°1 del Perú
-                </p>
-
-                <div class="action-buttons">
-                    <button
-                        class="btn-primary action-btn"
-                        id="btnBuscarMaterial"
-                    >
-                        Buscar material
-                    </button>
-                    <button
-                        class="btn-outline action-btn"
-                        id="btnGestionMaterial"
-                    >
-                        Gestión de materiales
-                    </button>
-                    <button class="btn-outline action-btn" id="btnLicencias">
-                        Registro de licencias
-                    </button>
+            <!-- GUARDADOS -->
+            <section class="files-section">
+                <div class="files-section-header">
+                    <h3>Materiales guardados</h3>
+                    <p class="files-section-caption">
+                        Archivos que marcaste como guardados en "Explorar
+                        materiales".
+                    </p>
                 </div>
 
-                <h3 class="faq-title">Preguntas Frecuentes</h3>
+                <div id="savedEmpty" class="materials-empty">
+                    <i data-lucide="inbox"></i>
+                    <p>Aún no has guardado ningún material.</p>
+                    <p class="materials-empty-hint">
+                        Ve a <strong>"Explorar materiales"</strong> y usa el
+                        botón <strong>"Guardar"</strong>.
+                    </p>
+                </div>
 
-                <section class="faq-panel">
-                    <details>
-                        <summary>
-                            ¿Puedo iniciar sesión con cualquier correo?
-                        </summary>
-                        <p>
-                            Sí, puedes usar tanto tu correo personal como
-                            institucional.
-                        </p>
-                    </details>
+                <div id="savedGrid" class="materials-grid"></div>
+            </section>
 
-                    <details>
-                        <summary>
-                            ¿Qué es el registro gratuito mejorado?
-                        </summary>
-                        <p>
-                            Es una actualización de tu cuenta actual con
-                            funciones adicionales.
-                        </p>
-                    </details>
+            <!-- SUBIDOS -->
+            <section class="files-section">
+                <div class="files-section-header">
+                    <h3>Materiales subidos</h3>
+                    <p class="files-section-caption">
+                        Archivos PDF que subiste a EduShare desde "Subir
+                        materiales".
+                    </p>
+                </div>
 
-                    <details>
-                        <summary>¿La plataforma tiene una app oficial?</summary>
-                        <p>Próximamente se lanzarán versiones móviles.</p>
-                    </details>
-                </section>
+                <div id="uploadedEmpty" class="materials-empty">
+                    <i data-lucide="inbox"></i>
+                    <p>No has subido ningún material todavía.</p>
+                    <p class="materials-empty-hint">
+                        Sube tu primer PDF desde
+                        <strong>"Subir materiales"</strong>.
+                    </p>
+                </div>
 
-                <!-- SECCIÓN PDF -->
-                <section class="pdf-section">
-                    <div class="pdf-header">
-                        <h3>Visor de PDF</h3>
-                        <p class="pdf-subtitle">
-                            Sube un archivo y haz clic en la miniatura para
-                            verlo en grande.
-                        </p>
-                    </div>
-
-                    <input
-                        type="file"
-                        id="pdfUploader"
-                        accept="application/pdf"
-                        class="pdf-input"
-                    />
-
-                    <div
-                        id="pdfThumbnailContainer"
-                        class="pdf-thumbnail-container"
-                    >
-                        <canvas id="pdfThumbnailCanvas"></canvas>
-                        <div class="pdf-thumbnail-overlay">
-                            Click para ver PDF
-                        </div>
-                    </div>
-                </section>
+                <div id="uploadedGrid" class="materials-grid"></div>
             </section>
         </main>
 
-        <!-- FOOTER -->
-        <footer class="main-footer">
-            <div class="footer-column">
-                <h4>Contáctanos</h4>
-                <p>Teléfono: 01 211111</p>
-                <p>Whatsapp: +51 999 888 777</p>
-                <p>Whatsapp: +51 999 777 665</p>
-            </div>
-            <div class="footer-column">
-                <h4>Nuestras redes</h4>
-                <p>Instagram · Facebook · Twitter</p>
-            </div>
-            <div class="footer-column">
-                <h4>Empresa</h4>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">FAQ</a>
-                <a href="#">Novedades</a>
-            </div>
-            <div class="footer-column">
-                <h4>Políticas</h4>
-                <a href="#">Condiciones</a>
-                <a href="#">Privacidad</a>
-                <a href="#">Cookies</a>
-            </div>
-        </footer>
-
-        <!-- MODAL PARA VER PDF -->
+        <!-- MODAL PDF (MISMA BASE QUE EXPLORAR) -->
         <div id="pdfModal" class="pdf-modal">
             <div class="pdf-modal-content">
                 <div class="pdf-modal-header">
-                    <span class="pdf-modal-title">Vista completa del PDF</span>
+                    <span class="pdf-modal-title" id="pdfModalTitle"
+                        >Vista del material</span
+                    >
                     <div style="display: flex; gap: 8px; align-items: center">
                         <a
                             id="pdfDownload"
                             class="pdf-download-btn"
                             href="#"
-                            download="documento.pdf"
-                            >Descargar</a
+                            download="material.pdf"
                         >
+                            Descargar
+                        </a>
                         <button id="closePdfModal" class="pdf-modal-close">
                             &times;
                         </button>
@@ -290,20 +228,25 @@
         <!-- LUCIDE -->
         <script src="https://unpkg.com/lucide@latest"></script>
 
-        <!-- PDF.JS -->
+        <!-- PDF.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
         <script>
-            pdfjsLib.GlobalWorkerOptions.workerSrc =
-                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            if (window.pdfjsLib) {
+                pdfjsLib.GlobalWorkerOptions.workerSrc =
+                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            }
         </script>
 
-        <!-- JS DEL DASHBOARD -->
+        <!-- JS BASE -->
         <script src="../../js/dashboard.js"></script>
 
-        <!-- NAVEGACIÓN GLOBAL -->
+        <!-- NAV ENTRE PÁGINAS (TU nav.js) -->
         <script src="../../js/nav.js"></script>
 
-        <!-- MENÚ LATERAL / USUARIO -->
+        <!-- JS DE ESTA PÁGINA -->
+        <script src="../../js/mis-archivos.js"></script>
+
+        <!-- MENÚ LATERAL / USUARIO (MISMA BASE QUE EXPLORAR) -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const menuToggle = document.getElementById("menuToggle");
@@ -316,26 +259,22 @@
                     document.getElementById("userMenuToggle");
                 const userDropdown = document.getElementById("userDropdown");
 
-                // --- FIX: Evitar que el botón hamburguesa active el logo ---
-                menuToggle.addEventListener("click", (e) => {
-                    e.stopPropagation();
+                function openSidebar() {
                     sidebar.classList.add("open");
                     sidebarBackdrop.classList.add("visible");
-                });
+                }
 
                 function closeSidebar() {
                     sidebar.classList.remove("open");
                     sidebarBackdrop.classList.remove("visible");
                 }
 
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openSidebar();
+                });
                 sidebarClose.addEventListener("click", closeSidebar);
                 sidebarBackdrop.addEventListener("click", closeSidebar);
-
-                // --- FIX: El logo solo navega si se hace click en la imagen, no en el contenedor ---
-                const logoImage = document.getElementById("logoImage");
-                logoImage.addEventListener("click", () => {
-                    window.location.href = "../../index.html";
-                });
 
                 userMenuToggle.addEventListener("click", function (e) {
                     e.stopPropagation();
@@ -356,37 +295,5 @@
                 }
             });
         </script>
-        
-        <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const btnBuscar = document.getElementById("btnBuscarMaterial");
-          const btnGestion = document.getElementById("btnGestionMaterial");
-          const btnLicencias = document.getElementById("btnLicencias");
-
-          btnBuscar.addEventListener("click", () => {
-            if (typeof registrarActividad === "function") {
-              registrarActividad({
-                paginaId: "btnBuscarMaterial",
-                paginaNombre: "Buscar material",
-                tipo: "nav",
-                descripcion: "Accediste a Buscar Material desde el Dashboard",
-              });
-            }
-            window.location.href = "../busqueda/busqueda.html";
-          });
-
-          btnGestion.addEventListener("click", () => {
-            if (typeof registrarActividad === "function") {
-              registrarActividad({
-                paginaId: "btnGestionMaterial",
-                paginaNombre: "Gestión de materiales",
-                tipo: "nav",
-                descripcion: "Accediste a Gestión de Materiales desde el Dashboard",
-              });
-            }
-            window.location.href = "../usuario/mis-archivos.html";
-          });
-        });
-      </script>
     </body>
 </html>

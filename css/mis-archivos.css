@@ -1,0 +1,217 @@
+.myfiles-header {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.myfiles-header h2 {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.myfiles-header p {
+  font-size: 0.9rem;
+  color: var(--bg-muted);
+}
+
+.myfiles-stats {
+  font-size: 0.85rem;
+  color: var(--bg-muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--bg-panel);
+  border: 1px solid var(--bg-border);
+}
+
+.files-section {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.files-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.files-section-header h3 {
+  font-size: 1rem;
+}
+
+.files-section-caption {
+  font-size: 0.8rem;
+  color: var(--bg-muted);
+}
+
+/* Reutilizamos estilos de explorar */
+.materials-empty {
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  background: var(--bg-panel);
+  border: 1px dashed var(--bg-border);
+  color: var(--bg-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.materials-empty svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+  stroke: var(--bg-muted);
+}
+
+.materials-empty-hint {
+  font-size: 0.85rem;
+}
+
+.materials-empty strong {
+  color: var(--primario);
+}
+
+.materials-grid {
+  margin-top: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.material-card {
+  background: var(--bg-panel);
+  border-radius: 14px;
+  border: 1px solid var(--bg-border);
+  box-shadow: var(--shadow-soft);
+  padding: 12px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.material-card-header {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.material-icon {
+  width: 40px;
+  height: 50px;
+  border-radius: 8px;
+  background: var(--pdf-thumb-bg, #f1f5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.material-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #dc2626;
+}
+
+.material-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.material-meta {
+  font-size: 0.8rem;
+  color: var(--bg-muted);
+}
+
+.material-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.material-tag {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--bg-panel-soft);
+  color: var(--bg-muted);
+}
+
+.material-actions {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.material-actions-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.material-actions-left {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-pill {
+  border-radius: 999px;
+  border: 0;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-pill svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-view {
+  background: var(--primario);
+  color: #062026;
+  font-weight: 600;
+}
+
+.btn-download {
+  background: transparent;
+  border: 1px solid var(--bg-border);
+  color: var(--bg-text);
+}
+
+.btn-remove {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  font-weight: 500;
+}
+
+.material-date {
+  font-size: 0.75rem;
+  color: var(--bg-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .materials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+}
