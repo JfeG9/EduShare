@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navCalendario: "../utilidades/calendario.html",
     navConfiguracion: "../usuario/configuracion.html",
     navHistorial: "../usuario/historial.html",
-    navLogros: "../usuario/logros.html";
+    navLogros: "../usuario/logros.html",
   };
 
   Object.entries(rutas).forEach(([id, ruta]) => {
