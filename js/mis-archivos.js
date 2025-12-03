@@ -142,16 +142,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnRemove = card.querySelector(".btn-remove");
 
     btnVer.addEventListener("click", () => {
-      if (!dataUrl) return;
-      if (pdfViewer) pdfViewer.src = dataUrl;
-      if (pdfDownload) pdfDownload.href = dataUrl;
-      if (pdfModalTitle) pdfModalTitle.textContent = titulo;
-      pdfModal.style.display = "flex";
-      document.body.classList.add("modal-open");
+      if (!dataUrl) {
+        alert("No hay un archivo PDF disponible para este material.");
+        return;
+      }
+      
+      // Limpiar el viewer antes de cargar nuevo contenido
+      if (pdfViewer) {
+        pdfViewer.src = "";
+        // Pequeño delay para asegurar la limpieza
+        setTimeout(() => {
+          pdfViewer.src = dataUrl;
+        }, 50);
+      }
+      
+      if (pdfDownload) {
+        pdfDownload.href = dataUrl;
+        pdfDownload.download = titulo + ".pdf";
+      }
+      
+      if (pdfModalTitle) {
+        pdfModalTitle.textContent = titulo;
+      }
+      
+      // Mostrar modal
+      if (pdfModal) {
+        pdfModal.style.display = "flex";
+        document.body.classList.add("modal-open");
+      }
     });
 
     btnDescargar.addEventListener("click", () => {
-      if (!dataUrl) return;
+      if (!dataUrl) {
+        alert("No hay un archivo PDF disponible para descargar.");
+        return;
+      }
       const a = document.createElement("a");
       a.href = dataUrl;
       a.download = titulo + ".pdf";
@@ -190,15 +215,29 @@ document.addEventListener("DOMContentLoaded", () => {
     myfilesStats.textContent = `${nGuardados} guardado(s) · ${nSubidos} subido(s)`;
   }
 
-  closePdfModal?.addEventListener("click", () => {
-    pdfModal.style.display = "none";
+  // Cerrar modal
+  function cerrarModal() {
+    if (pdfModal) {
+      pdfModal.style.display = "none";
+    }
+    if (pdfViewer) {
+      pdfViewer.src = "";
+    }
     document.body.classList.remove("modal-open");
-  });
+  }
+
+  closePdfModal?.addEventListener("click", cerrarModal);
 
   pdfModal?.addEventListener("click", (e) => {
     if (e.target === pdfModal) {
-      pdfModal.style.display = "none";
-      document.body.classList.remove("modal-open");
+      cerrarModal();
+    }
+  });
+
+  // Cerrar con tecla ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && pdfModal && pdfModal.style.display === "flex") {
+      cerrarModal();
     }
   });
 
