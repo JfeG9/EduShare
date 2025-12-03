@@ -3,37 +3,134 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduShare</title>
+        <title>EduShare - Logros</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+        
+        <!-- Estilos base del dashboard -->
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        
+        <!-- Estilos específicos de logros -->
         <link rel="stylesheet" href="../../css/logros.css" />
-        <script src="https://unpkg.com/lucide@latest"></script>
     </head>
-    <body>
+
+    <body class="dashboard-body">
+        <!-- BARRA SUPERIOR -->
         <header class="topbar">
-            <div class="logo icons">
-                <i data-lucide="menu"></i>
-                <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+            <div class="logo" id="btnLogo">
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <i data-lucide="menu"></i>
+                </button>
+                <img src="../../assets/img/logo.png" alt="Logo EduShare" id="logoImage" />
             </div>
 
             <div class="user-section">
-                <div class="user-info">
+                <button class="user-info" id="userMenuToggle" aria-label="Abrir menú de usuario">
                     <i data-lucide="user"></i>
-                    <span>Juan</span>
-                </div>
-                <div class="icons">
-                    <i data-lucide="download"></i>
-                    <i data-lucide="calendar-days"></i>
-                    <i data-lucide="bell"></i>
-                    <i data-lucide="settings"></i>
+                    <span id="usernameTop">Usuario</span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <button type="button" class="user-dropdown-item" id="btnVerPerfil">
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
                 </div>
             </div>
         </header>
 
-        <main class="content">
-            <h1 class="titulo">LOGROS Y RECOMPENSAS</h1>
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <ul class="sidebar-list">
+                <li>
+                    <button class="sidebar-item" id="navInicio">
+                        <i data-lucide="home"></i>
+                        <span>Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navSubirMaterial">
+                        <i data-lucide="upload-cloud"></i>
+                        <span>Subir materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navMisArchivos">
+                        <i data-lucide="file-text"></i>
+                        <span>Mis archivos</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i>
+                        <span>Explorar materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navForo">
+                        <i data-lucide="messages-square"></i>
+                        <span>Foro</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navReportes">
+                        <i data-lucide="flag"></i>
+                        <span>Reportar material</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navConfiguracion">
+                        <i data-lucide="settings"></i>
+                        <span>Configuración</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navHistorial">
+                        <i data-lucide="clock"></i>
+                        <span>Historial</span>
+                    </button>
+                </li>
+                <li>
+                    <!-- ESTA ES LA ACTIVA -->
+                    <button class="sidebar-item sidebar-item-active" id="navLogros">
+                        <i data-lucide="trophy"></i>
+                        <span>Logros</span>
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <h1 class="titulo">Logros y Recompensas</h1>
 
             <div class="cards-container">
                 <section class="card">
-                    <h2>LOGROS DEL USUARIO</h2>
+                    <h2>Logros del Usuario</h2>
                     <div class="user-level">
                         <div class="user-icon"></div>
                         <p><strong>Nivel 3 - Explorador académico</strong></p>
@@ -51,7 +148,7 @@
                 </section>
 
                 <section class="card">
-                    <h2>MISIONES SEMANALES</h2>
+                    <h2>Misiones Semanales</h2>
                     <div class="mission">
                         <i data-lucide="upload-cloud"></i>
                         <p>Sube 3 archivos esta semana</p>
@@ -80,7 +177,7 @@
                 </section>
 
                 <section class="card">
-                    <h2>RANKING DE USUARIOS</h2>
+                    <h2>Ranking de Usuarios</h2>
                     <ul class="ranking">
                         <li>
                             <span class="pos">1.</span> Pedro
@@ -108,13 +205,61 @@
             </div>
         </main>
 
-        <footer class="footer">
-            <button id="btnSalir" class="btn"><i data-lucide="log-out"></i>Salir</button>
-        </footer>
+        <!-- LUCIDE (Iconos) -->
+        <script src="https://unpkg.com/lucide@latest"></script>
 
-        <script>
-            lucide.createIcons();
-        </script>
+        <!-- JS BASE del Dashboard -->
+        <script src="../../js/dashboard.js"></script>
+
+        <!-- NAV ENTRE PÁGINAS -->
+        <script src="../../js/nav.js"></script>
+
+        <!-- JS ESPECÍFICO DE LOGROS -->
         <script src="../../js/logros.js"></script>
+
+        <!-- MENÚ LATERAL / USUARIO -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.getElementById("sidebar");
+                const sidebarClose = document.getElementById("sidebarClose");
+                const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+                const userMenuToggle = document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
+
+                function openSidebar() {
+                    sidebar.classList.add("open");
+                    sidebarBackdrop.classList.add("visible");
+                }
+
+                function closeSidebar() {
+                    sidebar.classList.remove("open");
+                    sidebarBackdrop.classList.remove("visible");
+                }
+
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openSidebar();
+                });
+                
+                sidebarClose.addEventListener("click", closeSidebar);
+                sidebarBackdrop.addEventListener("click", closeSidebar);
+
+                userMenuToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!userMenuToggle.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove("open");
+                    }
+                });
+
+                if (window.lucide && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            });
+        </script>
     </body>
 </html>
