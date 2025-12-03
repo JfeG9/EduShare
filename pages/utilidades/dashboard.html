@@ -1,279 +1,367 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduShare - Inicio</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare - Inicio</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-    <link rel="stylesheet" href="../../css/dashboard.css" />
-  </head>
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
+        />
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+    </head>
 
-  <body class="dashboard-body">
-    <!-- BARRA SUPERIOR -->
-    <header class="topbar">
-      <div class="logo" id="btnLogo">
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-          <i data-lucide="menu"></i>
-        </button>
-        <img src="../../assets/img/logo.png" alt="Logo EduShare" id="logoImage"/>
-      </div>
+    <body class="dashboard-body">
+        <!-- BARRA SUPERIOR -->
+        <header class="topbar">
+            <div class="logo" id="btnLogo">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                >
+                    <i data-lucide="menu"></i>
+                </button>
+                <img
+                    src="../../assets/img/logo.png"
+                    alt="Logo EduShare"
+                    id="logoImage"
+                />
+            </div>
 
-      <div class="user-section">
-        <button class="user-info" id="userMenuToggle" aria-label="Abrir menú de usuario">
-          <i data-lucide="user"></i>
-          <span id="usernameTop">LupeCR9</span>
-          <i data-lucide="chevron-down" class="chevron-icon"></i>
-        </button>
+            <div class="user-section">
+                <button
+                    class="user-info"
+                    id="userMenuToggle"
+                    aria-label="Abrir menú de usuario"
+                >
+                    <i data-lucide="user"></i>
+                    <span id="usernameTop"></span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
 
-        <div class="user-dropdown" id="userDropdown">
-          <button type="button" class="user-dropdown-item" id="btnVerPerfil">
-            <i data-lucide="id-card"></i>
-            <span>Ver perfil</span>
-          </button>
-          <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
-            <i data-lucide="log-out"></i>
-            <span>Cerrar sesión</span>
-          </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnVerPerfil"
+                    >
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnCerrarSesion"
+                    >
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MENÚ LATERAL COMPLETO -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Cerrar menú"
+                >
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <ul class="sidebar-list">
+                <li>
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navInicio"
+                    >
+                        <i data-lucide="home"></i>
+                        <span>Inicio</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navSubirMaterial">
+                        <i data-lucide="upload-cloud"></i>
+                        <span>Subir materiales</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navMisArchivos">
+                        <i data-lucide="file-text"></i>
+                        <span>Mis archivos</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i>
+                        <span>Explorar materiales</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navForo">
+                        <i data-lucide="messages-square"></i>
+                        <span>Foro</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navHistorial">
+                        <i data-lucide="history"></i>
+                        <span>Historial de actividad</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navReportes">
+                        <i data-lucide="flag"></i>
+                        <span>Reportar material</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button class="sidebar-item" id="navConfiguracion">
+                        <i data-lucide="settings"></i>
+                        <span>Configuración</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <section class="profile-banner">
+                <div class="banner-inner">
+                    <div class="profile-avatar"></div>
+                    <div>
+                        <h2 id="username" class="username"></h2>
+                        <p class="stats">
+                            0 publicaciones · 0 seguidores · 0 seguidos
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-area">
+                <p class="welcome-text">
+                    Prepárate para ser parte de la comunidad en esta plataforma
+                    de estudio N°1 del Perú
+                </p>
+
+                <div class="action-buttons">
+                    <button
+                        class="btn-primary action-btn"
+                        id="btnBuscarMaterial"
+                    >
+                        Buscar material
+                    </button>
+                    <button
+                        class="btn-outline action-btn"
+                        id="btnGestionMaterial"
+                    >
+                        Gestión de materiales
+                    </button>
+                    <button class="btn-outline action-btn" id="btnLicencias">
+                        Registro de licencias
+                    </button>
+                </div>
+
+                <h3 class="faq-title">Preguntas Frecuentes</h3>
+
+                <section class="faq-panel">
+                    <details>
+                        <summary>
+                            ¿Puedo iniciar sesión con cualquier correo?
+                        </summary>
+                        <p>
+                            Sí, puedes usar tanto tu correo personal como
+                            institucional.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>
+                            ¿Qué es el registro gratuito mejorado?
+                        </summary>
+                        <p>
+                            Es una actualización de tu cuenta actual con
+                            funciones adicionales.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>¿La plataforma tiene una app oficial?</summary>
+                        <p>Próximamente se lanzarán versiones móviles.</p>
+                    </details>
+                </section>
+
+                <!-- SECCIÓN PDF -->
+                <section class="pdf-section">
+                    <div class="pdf-header">
+                        <h3>Visor de PDF</h3>
+                        <p class="pdf-subtitle">
+                            Sube un archivo y haz clic en la miniatura para
+                            verlo en grande.
+                        </p>
+                    </div>
+
+                    <input
+                        type="file"
+                        id="pdfUploader"
+                        accept="application/pdf"
+                        class="pdf-input"
+                    />
+
+                    <div
+                        id="pdfThumbnailContainer"
+                        class="pdf-thumbnail-container"
+                    >
+                        <canvas id="pdfThumbnailCanvas"></canvas>
+                        <div class="pdf-thumbnail-overlay">
+                            Click para ver PDF
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-column">
+                <h4>Contáctanos</h4>
+                <p>Teléfono: 01 211111</p>
+                <p>Whatsapp: +51 999 888 777</p>
+                <p>Whatsapp: +51 999 777 665</p>
+            </div>
+            <div class="footer-column">
+                <h4>Nuestras redes</h4>
+                <p>Instagram · Facebook · Twitter</p>
+            </div>
+            <div class="footer-column">
+                <h4>Empresa</h4>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">FAQ</a>
+                <a href="#">Novedades</a>
+            </div>
+            <div class="footer-column">
+                <h4>Políticas</h4>
+                <a href="#">Condiciones</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Cookies</a>
+            </div>
+        </footer>
+
+        <!-- MODAL PARA VER PDF -->
+        <div id="pdfModal" class="pdf-modal">
+            <div class="pdf-modal-content">
+                <div class="pdf-modal-header">
+                    <span class="pdf-modal-title">Vista completa del PDF</span>
+                    <div style="display: flex; gap: 8px; align-items: center">
+                        <a
+                            id="pdfDownload"
+                            class="pdf-download-btn"
+                            href="#"
+                            download="documento.pdf"
+                            >Descargar</a
+                        >
+                        <button id="closePdfModal" class="pdf-modal-close">
+                            &times;
+                        </button>
+                    </div>
+                </div>
+                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+            </div>
         </div>
-      </div>
-    </header>
 
-    <!-- MENÚ LATERAL COMPLETO -->
-    <nav class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <span>Menú</span>
-        <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
+        <!-- LUCIDE -->
+        <script src="https://unpkg.com/lucide@latest"></script>
 
-      <ul class="sidebar-list">
-        <li>
-          <button class="sidebar-item sidebar-item-active" id="navInicio">
-            <i data-lucide="home"></i>
-            <span>Inicio</span>
-          </button>
-        </li>
+        <!-- PDF.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+        <script>
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        </script>
 
-        <li>
-          <button class="sidebar-item" id="navSubirMaterial">
-            <i data-lucide="upload-cloud"></i>
-            <span>Subir materiales</span>
-          </button>
-        </li>
+        <!-- JS DEL DASHBOARD -->
+        <script src="../../js/dashboard.js"></script>
 
-        <li>
-          <button class="sidebar-item" id="navMisArchivos">
-            <i data-lucide="file-text"></i>
-            <span>Mis archivos</span>
-          </button>
-        </li>
+        <!-- NAVEGACIÓN GLOBAL -->
+        <script src="../../js/nav.js"></script>
 
-        <li>
-          <button class="sidebar-item" id="navExplorarMaterial">
-            <i data-lucide="search"></i>
-            <span>Explorar materiales</span>
-          </button>
-        </li>
+        <!-- MENÚ LATERAL / USUARIO -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.getElementById("sidebar");
+                const sidebarClose = document.getElementById("sidebarClose");
+                const sidebarBackdrop =
+                    document.getElementById("sidebarBackdrop");
 
-        <li>
-          <button class="sidebar-item" id="navForo">
-            <i data-lucide="messages-square"></i>
-            <span>Foro</span>
-          </button>
-        </li>
+                const userMenuToggle =
+                    document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
 
-        <li>
-          <button class="sidebar-item" id="navHistorial">
-            <i data-lucide="history"></i>
-            <span>Historial de actividad</span>
-          </button>
-        </li>
+                // --- FIX: Evitar que el botón hamburguesa active el logo ---
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    sidebar.classList.add("open");
+                    sidebarBackdrop.classList.add("visible");
+                });
 
-        <li>
-          <button class="sidebar-item" id="navReportes">
-            <i data-lucide="flag"></i>
-            <span>Reportar material</span>
-          </button>
-        </li>
+                function closeSidebar() {
+                    sidebar.classList.remove("open");
+                    sidebarBackdrop.classList.remove("visible");
+                }
 
-        <li>
-          <button class="sidebar-item" id="navConfiguracion">
-            <i data-lucide="settings"></i>
-            <span>Configuración</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
+                sidebarClose.addEventListener("click", closeSidebar);
+                sidebarBackdrop.addEventListener("click", closeSidebar);
 
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+                // --- FIX: El logo solo navega si se hace click en la imagen, no en el contenedor ---
+                const logoImage = document.getElementById("logoImage");
+                logoImage.addEventListener("click", () => {
+                    window.location.href = "../../index.html";
+                });
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
-      <section class="profile-banner">
-        <div class="banner-inner">
-          <div class="profile-avatar"></div>
-          <div>
-            <h2 id="username" class="username">Nombre de usuario</h2>
-            <p class="stats">0 publicaciones · 0 seguidores · 0 seguidos</p>
-          </div>
-        </div>
-      </section>
+                userMenuToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle("open");
+                });
 
-      <section class="content-area">
-        <p class="welcome-text">
-          Prepárate para ser parte de la comunidad en esta plataforma de estudio N°1 del Perú
-        </p>
+                document.addEventListener("click", function (e) {
+                    if (
+                        !userMenuToggle.contains(e.target) &&
+                        !userDropdown.contains(e.target)
+                    ) {
+                        userDropdown.classList.remove("open");
+                    }
+                });
 
-        <div class="action-buttons">
-          <button class="btn-primary action-btn" id="btnBuscarMaterial">Buscar material</button>
-          <button class="btn-outline action-btn" id="btnGestionMaterial">Gestión de materiales</button>
-          <button class="btn-outline action-btn" id="btnLicencias">Registro de licencias</button>
-        </div>
-
-        <h3 class="faq-title">Preguntas Frecuentes</h3>
-
-        <section class="faq-panel">
-          <details>
-            <summary>¿Puedo iniciar sesión con cualquier correo?</summary>
-            <p>Sí, puedes usar tanto tu correo personal como institucional.</p>
-          </details>
-
-          <details>
-            <summary>¿Qué es el registro gratuito mejorado?</summary>
-            <p>Es una actualización de tu cuenta actual con funciones adicionales.</p>
-          </details>
-
-          <details>
-            <summary>¿La plataforma tiene una app oficial?</summary>
-            <p>Próximamente se lanzarán versiones móviles.</p>
-          </details>
-        </section>
-
-        <!-- SECCIÓN PDF -->
-        <section class="pdf-section">
-          <div class="pdf-header">
-            <h3>Visor de PDF</h3>
-            <p class="pdf-subtitle">Sube un archivo y haz clic en la miniatura para verlo en grande.</p>
-          </div>
-
-          <input type="file" id="pdfUploader" accept="application/pdf" class="pdf-input" />
-
-          <div id="pdfThumbnailContainer" class="pdf-thumbnail-container">
-            <canvas id="pdfThumbnailCanvas"></canvas>
-            <div class="pdf-thumbnail-overlay">Click para ver PDF</div>
-          </div>
-        </section>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="main-footer">
-      <div class="footer-column">
-        <h4>Contáctanos</h4>
-        <p>Teléfono: 01 211111</p>
-        <p>Whatsapp: +51 999 888 777</p>
-        <p>Whatsapp: +51 999 777 665</p>
-      </div>
-      <div class="footer-column">
-        <h4>Nuestras redes</h4>
-        <p>Instagram · Facebook · Twitter</p>
-      </div>
-      <div class="footer-column">
-        <h4>Empresa</h4>
-        <a href="#">Sobre Nosotros</a>
-        <a href="#">FAQ</a>
-        <a href="#">Novedades</a>
-      </div>
-      <div class="footer-column">
-        <h4>Políticas</h4>
-        <a href="#">Condiciones</a>
-        <a href="#">Privacidad</a>
-        <a href="#">Cookies</a>
-      </div>
-    </footer>
-
-    <!-- MODAL PARA VER PDF -->
-    <div id="pdfModal" class="pdf-modal">
-      <div class="pdf-modal-content">
-        <div class="pdf-modal-header">
-          <span class="pdf-modal-title">Vista completa del PDF</span>
-          <div style="display: flex; gap: 8px; align-items: center;">
-            <a id="pdfDownload" class="pdf-download-btn" href="#" download="documento.pdf">Descargar</a>
-            <button id="closePdfModal" class="pdf-modal-close">&times;</button>
-          </div>
-        </div>
-        <iframe id="pdfViewer" class="pdf-viewer"></iframe>
-      </div>
-    </div>
-
-    <!-- LUCIDE -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- PDF.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script>
-      pdfjsLib.GlobalWorkerOptions.workerSrc =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-    </script>
-
-    <!-- JS DEL DASHBOARD -->
-    <script src="../../js/dashboard.js"></script>
-
-    <!-- NAVEGACIÓN GLOBAL -->
-    <script src="../../js/nav.js"></script>
-
-    <!-- MENÚ LATERAL / USUARIO -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const menuToggle = document.getElementById("menuToggle");
-        const sidebar = document.getElementById("sidebar");
-        const sidebarClose = document.getElementById("sidebarClose");
-        const sidebarBackdrop = document.getElementById("sidebarBackdrop");
-
-        const userMenuToggle = document.getElementById("userMenuToggle");
-        const userDropdown = document.getElementById("userDropdown");
-
-        // --- FIX: Evitar que el botón hamburguesa active el logo ---
-        menuToggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-          sidebar.classList.add("open");
-          sidebarBackdrop.classList.add("visible");
-        });
-
-        function closeSidebar() {
-          sidebar.classList.remove("open");
-          sidebarBackdrop.classList.remove("visible");
-        }
-
-        sidebarClose.addEventListener("click", closeSidebar);
-        sidebarBackdrop.addEventListener("click", closeSidebar);
-
-        // --- FIX: El logo solo navega si se hace click en la imagen, no en el contenedor ---
-        const logoImage = document.getElementById("logoImage");
-        logoImage.addEventListener("click", () => {
-          window.location.href = "../../index.html";
-        });
-
-        userMenuToggle.addEventListener("click", function (e) {
-          e.stopPropagation();
-          userDropdown.classList.toggle("open");
-        });
-
-        document.addEventListener("click", function (e) {
-          if (
-            !userMenuToggle.contains(e.target) &&
-            !userDropdown.contains(e.target)
-          ) {
-            userDropdown.classList.remove("open");
-          }
-        });
-
-        if (window.lucide && lucide.createIcons) {
-          lucide.createIcons();
-        }
-      });
-    </script>
-  </body>
+                if (window.lucide && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            });
+        </script>
+    </body>
 </html>

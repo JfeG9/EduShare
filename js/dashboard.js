@@ -6,7 +6,6 @@ if (!localStorage.getItem("usuarioActual")) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
     // =======================================
     // 2. Cargar datos del usuario
     // =======================================
@@ -41,18 +40,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // =======================================
     // 4. Tema claro/oscuro
     // =======================================
-    const themeBtn = document.getElementById("btnTheme");
+    const themeToggle = document.getElementById("themeToggle");
 
-    if (themeBtn) {
-        const savedTheme = localStorage.getItem("theme");
+    // Aplicar tema guardado al cargar, exista o no el toggle
+    const savedTheme = localStorage.getItem("theme");
+    const isDarkSaved = savedTheme === "dark";
+    if (isDarkSaved) {
+        document.body.classList.add("dark-mode");
+    }
 
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark-mode");
-        }
+    // Si el toggle existe en esta página, sincronizarlo
+    if (themeToggle) {
+        themeToggle.checked = isDarkSaved;
 
-        themeBtn.addEventListener("click", () => {
-            const isDark = document.body.classList.toggle("dark-mode");
-            localStorage.setItem("theme", isDark ? "dark" : "light");
+        themeToggle.addEventListener("change", () => {
+            const useDark = themeToggle.checked;
+            document.body.classList.toggle("dark-mode", useDark);
+            localStorage.setItem("theme", useDark ? "dark" : "light");
         });
     }
 
@@ -119,13 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 fechaSubida: new Date().toISOString(),
                 etiquetas: [],
                 curso: "",
-                carrera: ""
+                carrera: "",
             };
 
             materiales.push(nuevoMaterial);
-            localStorage.setItem("materialesSubidos", JSON.stringify(materiales));
+            localStorage.setItem(
+                "materialesSubidos",
+                JSON.stringify(materiales)
+            );
 
-            console.log("Material agregado a materialesSubidos:", nuevoMaterial);
+            console.log(
+                "Material agregado a materialesSubidos:",
+                nuevoMaterial
+            );
 
             // ======================================
             // 3. Actualizar miniatura
