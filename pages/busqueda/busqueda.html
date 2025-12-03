@@ -1,251 +1,301 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduShare - Explorar materiales</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare - Explorar materiales</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-    <!-- Estilos base del dashboard -->
-    <link rel="stylesheet" href="../../css/dashboard.css" />
-    <!-- Estilos específicos de explorar -->
-    <link rel="stylesheet" href="../../css/explorar-materiales.css" />
-  </head>
-
-  <body class="dashboard-body">
-    <!-- BARRA SUPERIOR -->
-    <header class="topbar">
-      <div class="logo" id="btnLogo">
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-          <i data-lucide="menu"></i>
-        </button>
-        <img
-          src="../../assets/img/logo.png"
-          alt="Logo EduShare"
-          id="logoImage"
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
         />
-      </div>
+        <!-- Estilos base del dashboard -->
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        <!-- Estilos específicos de explorar -->
+        <link rel="stylesheet" href="../../css/explorar-materiales.css" />
+    </head>
 
-      <div class="user-section">
-        <button
-          class="user-info"
-          id="userMenuToggle"
-          aria-label="Abrir menú de usuario"
-        >
-          <i data-lucide="user"></i>
-          <span id="usernameTop">Usuario</span>
-          <i data-lucide="chevron-down" class="chevron-icon"></i>
-        </button>
+    <body class="dashboard-body">
+        <!-- BARRA SUPERIOR -->
+        <header class="topbar">
+            <div class="logo" id="btnLogo">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                >
+                    <i data-lucide="menu"></i>
+                </button>
+                <img
+                    src="../../assets/img/logo.png"
+                    alt="Logo EduShare"
+                    id="logoImage"
+                />
+            </div>
 
-        <div class="user-dropdown" id="userDropdown">
-          <button type="button" class="user-dropdown-item" id="btnVerPerfil">
-            <i data-lucide="id-card"></i>
-            <span>Ver perfil</span>
-          </button>
-          <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
-            <i data-lucide="log-out"></i>
-            <span>Cerrar sesión</span>
-          </button>
+            <div class="user-section">
+                <button
+                    class="user-info"
+                    id="userMenuToggle"
+                    aria-label="Abrir menú de usuario"
+                >
+                    <i data-lucide="user"></i>
+                    <span id="usernameTop">Usuario</span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnVerPerfil"
+                    >
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnCerrarSesion"
+                    >
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Cerrar menú"
+                >
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <ul class="sidebar-list">
+                <li>
+                    <button class="sidebar-item" id="navInicio">
+                        <i data-lucide="home"></i>
+                        <span>Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navSubirMaterial">
+                        <i data-lucide="upload-cloud"></i>
+                        <span>Subir materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navMisArchivos">
+                        <i data-lucide="file-text"></i>
+                        <span>Mis archivos</span>
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navExplorarMaterial"
+                    >
+                        <i data-lucide="search"></i>
+                        <span>Explorar materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navForo">
+                        <i data-lucide="messages-square"></i>
+                        <span>Foro</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navHistorial">
+                        <i data-lucide="history"></i>
+                        <span>Historial de actividad</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navReportes">
+                        <i data-lucide="flag"></i>
+                        <span>Reportar material</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navLogros">
+                        <i data-lucide="trophy"></i>
+                        <span>Logros</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navConfiguracion">
+                        <i data-lucide="settings"></i>
+                        <span>Configuración</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <section class="explore-header">
+                <div>
+                    <h2>Explorar materiales</h2>
+                    <p>
+                        Busca y visualiza los PDFs que han sido subidos a la
+                        plataforma.
+                    </p>
+                </div>
+                <div class="explore-stats" id="exploreStats">
+                    <!-- Se llena por JS: ej. "5 materiales encontrados" -->
+                </div>
+            </section>
+
+            <!-- BUSCADOR -->
+            <section class="explore-search">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar por título, curso, etiqueta..."
+                    />
+                </div>
+                <div class="filter-box">
+                    <select id="filterSelect">
+                        <option value="todos">Todos los materiales</option>
+                        <option value="recientes">Subidos recientemente</option>
+                        <option value="antiguos">Más antiguos</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- LISTA DE MATERIALES -->
+            <section class="materials-section">
+                <div id="materialsEmpty" class="materials-empty">
+                    <i data-lucide="inbox"></i>
+                    <p>Aún no hay materiales disponibles para explorar.</p>
+                    <p class="materials-empty-hint">
+                        Sube tu primer PDF desde
+                        <strong>"Subir materiales"</strong>.
+                    </p>
+                </div>
+
+                <div id="materialsGrid" class="materials-grid">
+                    <!-- Las tarjetas de PDF se insertan aquí por JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- MODAL PARA VER PDF -->
+        <div id="pdfModal" class="pdf-modal">
+            <div class="pdf-modal-content">
+                <div class="pdf-modal-header">
+                    <span class="pdf-modal-title" id="pdfModalTitle"
+                        >Vista del material</span
+                    >
+                    <div style="display: flex; gap: 8px; align-items: center">
+                        <a
+                            id="pdfDownload"
+                            class="pdf-download-btn"
+                            href="#"
+                            download="material.pdf"
+                        >
+                            Descargar
+                        </a>
+                        <button id="closePdfModal" class="pdf-modal-close">
+                            &times;
+                        </button>
+                    </div>
+                </div>
+                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+            </div>
         </div>
-      </div>
-    </header>
 
-    <!-- MENÚ LATERAL -->
-    <nav class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <span>Menú</span>
-        <button
-          class="sidebar-close"
-          id="sidebarClose"
-          aria-label="Cerrar menú"
-        >
-          <i data-lucide="x"></i>
-        </button>
-      </div>
+        <!-- LUCIDE -->
+        <script src="https://unpkg.com/lucide@latest"></script>
 
-      <ul class="sidebar-list">
-        <li>
-          <button class="sidebar-item" id="navInicio">
-            <i data-lucide="home"></i>
-            <span>Inicio</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navSubirMaterial">
-            <i data-lucide="upload-cloud"></i>
-            <span>Subir materiales</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navMisArchivos">
-            <i data-lucide="file-text"></i>
-            <span>Mis archivos</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item sidebar-item-active" id="navExplorarMaterial">
-            <i data-lucide="search"></i>
-            <span>Explorar materiales</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navForo">
-            <i data-lucide="messages-square"></i>
-            <span>Foro</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navReportes">
-            <i data-lucide="flag"></i>
-            <span>Reportar material</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navConfiguracion">
-            <i data-lucide="settings"></i>
-            <span>Configuración</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
+        <!-- PDF.js (solo si quieres miniaturas también aquí; si no, se puede omitir) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+        <script>
+            if (window.pdfjsLib) {
+                pdfjsLib.GlobalWorkerOptions.workerSrc =
+                    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            }
+        </script>
 
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+        <!-- JS BASE (sesión / usuario / tema / visor) -->
+        <script src="../../js/dashboard.js"></script>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
-      <section class="explore-header">
-        <div>
-          <h2>Explorar materiales</h2>
-          <p>Busca y visualiza los PDFs que han sido subidos a la plataforma.</p>
-        </div>
-        <div class="explore-stats" id="exploreStats">
-          <!-- Se llena por JS: ej. "5 materiales encontrados" -->
-        </div>
-      </section>
+        <!-- JS NAVEGACIÓN -->
+        <script src="../../js/nav.js"></script>
 
-      <!-- BUSCADOR -->
-      <section class="explore-search">
-        <div class="search-box">
-          <i data-lucide="search"></i>
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Buscar por título, curso, etiqueta..."
-          />
-        </div>
-        <div class="filter-box">
-          <select id="filterSelect">
-            <option value="todos">Todos los materiales</option>
-            <option value="recientes">Subidos recientemente</option>
-            <option value="antiguos">Más antiguos</option>
-          </select>
-        </div>
-      </section>
+        <!-- JS DE ESTA PÁGINA -->
+        <script src="../../js/explorar-materiales.js"></script>
 
-      <!-- LISTA DE MATERIALES -->
-      <section class="materials-section">
-        <div id="materialsEmpty" class="materials-empty">
-          <i data-lucide="inbox"></i>
-          <p>Aún no hay materiales disponibles para explorar.</p>
-          <p class="materials-empty-hint">
-            Sube tu primer PDF desde <strong>"Subir materiales"</strong>.
-          </p>
-        </div>
+        <!-- MENÚ LATERAL / USUARIO -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.getElementById("sidebar");
+                const sidebarClose = document.getElementById("sidebarClose");
+                const sidebarBackdrop =
+                    document.getElementById("sidebarBackdrop");
 
-        <div id="materialsGrid" class="materials-grid">
-          <!-- Las tarjetas de PDF se insertan aquí por JS -->
-        </div>
-      </section>
-    </main>
+                const userMenuToggle =
+                    document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
 
-    <!-- MODAL PARA VER PDF -->
-    <div id="pdfModal" class="pdf-modal">
-      <div class="pdf-modal-content">
-        <div class="pdf-modal-header">
-          <span class="pdf-modal-title" id="pdfModalTitle">Vista del material</span>
-          <div style="display: flex; gap: 8px; align-items: center;">
-            <a
-              id="pdfDownload"
-              class="pdf-download-btn"
-              href="#"
-              download="material.pdf"
-            >
-              Descargar
-            </a>
-            <button id="closePdfModal" class="pdf-modal-close">&times;</button>
-          </div>
-        </div>
-        <iframe id="pdfViewer" class="pdf-viewer"></iframe>
-      </div>
-    </div>
+                function openSidebar() {
+                    sidebar.classList.add("open");
+                    sidebarBackdrop.classList.add("visible");
+                }
 
-    <!-- LUCIDE -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+                function closeSidebar() {
+                    sidebar.classList.remove("open");
+                    sidebarBackdrop.classList.remove("visible");
+                }
 
-    <!-- PDF.js (solo si quieres miniaturas también aquí; si no, se puede omitir) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script>
-      if (window.pdfjsLib) {
-        pdfjsLib.GlobalWorkerOptions.workerSrc =
-          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-      }
-    </script>
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openSidebar();
+                });
+                sidebarClose.addEventListener("click", closeSidebar);
+                sidebarBackdrop.addEventListener("click", closeSidebar);
 
-    <!-- JS BASE (sesión / usuario / tema / visor) -->
-    <script src="../../js/dashboard.js"></script>
+                userMenuToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle("open");
+                });
 
-    <!-- JS NAVEGACIÓN -->
-    <script src="../../js/nav.js"></script>
+                document.addEventListener("click", function (e) {
+                    if (
+                        !userMenuToggle.contains(e.target) &&
+                        !userDropdown.contains(e.target)
+                    ) {
+                        userDropdown.classList.remove("open");
+                    }
+                });
 
-    <!-- JS DE ESTA PÁGINA -->
-    <script src="../../js/explorar-materiales.js"></script>
-
-    <!-- MENÚ LATERAL / USUARIO -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const menuToggle = document.getElementById("menuToggle");
-        const sidebar = document.getElementById("sidebar");
-        const sidebarClose = document.getElementById("sidebarClose");
-        const sidebarBackdrop = document.getElementById("sidebarBackdrop");
-
-        const userMenuToggle = document.getElementById("userMenuToggle");
-        const userDropdown = document.getElementById("userDropdown");
-
-        function openSidebar() {
-          sidebar.classList.add("open");
-          sidebarBackdrop.classList.add("visible");
-        }
-
-        function closeSidebar() {
-          sidebar.classList.remove("open");
-          sidebarBackdrop.classList.remove("visible");
-        }
-
-        menuToggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-          openSidebar();
-        });
-        sidebarClose.addEventListener("click", closeSidebar);
-        sidebarBackdrop.addEventListener("click", closeSidebar);
-
-        userMenuToggle.addEventListener("click", function (e) {
-          e.stopPropagation();
-          userDropdown.classList.toggle("open");
-        });
-
-        document.addEventListener("click", function (e) {
-          if (
-            !userMenuToggle.contains(e.target) &&
-            !userDropdown.contains(e.target)
-          ) {
-            userDropdown.classList.remove("open");
-          }
-        });
-
-        if (window.lucide && lucide.createIcons) {
-          lucide.createIcons();
-        }
-      });
-    </script>
-  </body>
+                if (window.lucide && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            });
+        </script>
+    </body>
 </html>
