@@ -10,79 +10,65 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    transition: background-color 0.3s ease;
 }
 
-.topbar {
-    background: #2c669a;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
-    height: 70px;
+/* MODO OSCURO - HISTORIAL */
+body.dark-mode {
+    background-color: #081b2b;
+    color: #e5e7eb;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+body.dark-mode .historial-container {
+    background: #0b1620;
+    border-color: #17212b;
 }
 
-.logo img {
-    height: 50px;
+body.dark-mode .historial-container h1 {
+    color: #f9fafb;
 }
 
-.user-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+body.dark-mode .filtro-section {
+    color: #e5e7eb;
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #ffffff22;
-    padding: 6px 12px;
-    border-radius: 20px;
+body.dark-mode .filtro-section svg {
+    stroke: #22d3ee;
 }
 
-.user-info svg {
-    width: 20px;
-    height: 20px;
-    stroke: #fff;
+body.dark-mode .filtros select {
+    background: #081b2b;
+    border-color: #17212b;
+    color: #e5e7eb;
 }
 
-.user-info span {
-    color: #fff;
-    font-weight: 500;
+body.dark-mode .actividad {
+    border-bottom-color: #17212b;
 }
 
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+body.dark-mode .actividad strong {
+    color: #f9fafb;
 }
 
-.icons svg {
-    width: 24px;
-    height: 24px;
-    stroke: #77e6c8;
-    stroke-width: 2;
-    cursor: pointer;
-    transition: stroke 0.2s;
+body.dark-mode .actividad p {
+    color: #9ca3af;
 }
 
-.icons svg:hover {
-    stroke: #fff;
+body.dark-mode .actividad span {
+    color: #9ca3af;
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
-    background: #f8fafb;
+body.dark-mode .btn {
+    background: #22d3ee;
+    color: #021016;
+    border-color: #17212b;
 }
 
+body.dark-mode .btn:hover {
+    background: #0ea5e9;
+}
+
+/* Estilos base de historial.css */
 .historial-container {
     background: #fff;
     border-radius: 10px;
@@ -129,6 +115,7 @@ body {
     background: #f8f8f8;
     font-size: 14px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .tabla-actividades {
@@ -144,6 +131,7 @@ body {
     align-items: center;
     border-bottom: 1px solid #ddd;
     padding-bottom: 8px;
+    transition: all 0.3s ease;
 }
 
 .actividad strong {
@@ -161,52 +149,6 @@ body {
     color: #333;
 }
 
-.boton-salir {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .content {
-        padding: 15px;
-    }
-
-    .filtro-section {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        font-size: 14px;
-        margin-bottom: 12px;
-    }
-
-    .filtros {
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .filtros select {
-        width: 100%;
-        font-size: 13px;
-        padding: 6px 10px;
-    }
-
-    .boton-salir {
-        margin-top: 20px;
-    }
-}
-
-.footer {
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    height: 70px;
-    border-top: 1px solid #000;
-}
-
 .btn {
     display: flex;
     align-items: center;
@@ -218,7 +160,7 @@ body {
     cursor: pointer;
     background: #77bbe6;
     color: #000;
-    transition: background 0.2s;
+    transition: background 0.3s ease;
 }
 
 .btn:hover {
