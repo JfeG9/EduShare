@@ -8,12 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadedEmpty = document.getElementById("uploadedEmpty");
   const myfilesStats = document.getElementById("myfilesStats");
 
-  const pdfModal = document.getElementById("pdfModal");
-  const pdfViewer = document.getElementById("pdfViewer");
-  const pdfDownload = document.getElementById("pdfDownload");
-  const pdfModalTitle = document.getElementById("pdfModalTitle");
-  const closePdfModal = document.getElementById("closePdfModal");
-
   let favoritos = [];
   let subidos = [];
 
@@ -141,35 +135,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnDescargar = card.querySelector(".btn-download");
     const btnRemove = card.querySelector(".btn-remove");
 
+    // ABRIR PDF EN NUEVA PESTAÑA
     btnVer.addEventListener("click", () => {
       if (!dataUrl) {
         alert("No hay un archivo PDF disponible para este material.");
         return;
       }
-      
-      // Limpiar el viewer antes de cargar nuevo contenido
-      if (pdfViewer) {
-        pdfViewer.src = "";
-        // Pequeño delay para asegurar la limpieza
-        setTimeout(() => {
-          pdfViewer.src = dataUrl;
-        }, 50);
-      }
-      
-      if (pdfDownload) {
-        pdfDownload.href = dataUrl;
-        pdfDownload.download = titulo + ".pdf";
-      }
-      
-      if (pdfModalTitle) {
-        pdfModalTitle.textContent = titulo;
-      }
-      
-      // Mostrar modal en pantalla completa
-      if (pdfModal) {
-        pdfModal.style.display = "flex";
-        document.body.classList.add("modal-open");
-      }
+      window.open(dataUrl, '_blank');
     });
 
     btnDescargar.addEventListener("click", () => {
@@ -214,32 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!myfilesStats) return;
     myfilesStats.textContent = `${nGuardados} guardado(s) · ${nSubidos} subido(s)`;
   }
-
-  // Cerrar modal
-  function cerrarModal() {
-    if (pdfModal) {
-      pdfModal.style.display = "none";
-    }
-    if (pdfViewer) {
-      pdfViewer.src = "";
-    }
-    document.body.classList.remove("modal-open");
-  }
-
-  closePdfModal?.addEventListener("click", cerrarModal);
-
-  pdfModal?.addEventListener("click", (e) => {
-    if (e.target === pdfModal) {
-      cerrarModal();
-    }
-  });
-
-  // Cerrar con tecla ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && pdfModal && pdfModal.style.display === "flex") {
-      cerrarModal();
-    }
-  });
 
   function refrescarIconos() {
     if (window.lucide && lucide.createIcons) {
