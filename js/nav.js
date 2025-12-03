@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navExplorarMaterial: "../busqueda/busqueda.html",
     navForo: "../utilidades/hilo.html",
     navHistorial: "../usuario/historial-actividad.html",
-    navReportes: "../utilidades/reportar-material.html",
+    navReportes: "../recursos/reportar-material.html",
     navLogros: "../usuario/logros.html",
     navCalendario: "../utilidades/calendario.html",
     navConfiguracion: "../usuario/configuracion.html",
