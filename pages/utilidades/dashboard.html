@@ -356,5 +356,37 @@
                 }
             });
         </script>
+        
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const btnBuscar = document.getElementById("btnBuscarMaterial");
+          const btnGestion = document.getElementById("btnGestionMaterial");
+          const btnLicencias = document.getElementById("btnLicencias");
+
+          btnBuscar.addEventListener("click", () => {
+            if (typeof registrarActividad === "function") {
+              registrarActividad({
+                paginaId: "btnBuscarMaterial",
+                paginaNombre: "Buscar material",
+                tipo: "nav",
+                descripcion: "Accediste a Buscar Material desde el Dashboard",
+              });
+            }
+            window.location.href = "../busqueda/busqueda.html";
+          });
+
+          btnGestion.addEventListener("click", () => {
+            if (typeof registrarActividad === "function") {
+              registrarActividad({
+                paginaId: "btnGestionMaterial",
+                paginaNombre: "Gestión de materiales",
+                tipo: "nav",
+                descripcion: "Accediste a Gestión de Materiales desde el Dashboard",
+              });
+            }
+            window.location.href = "../usuario/mis-archivos.html";
+          });
+        });
+      </script>
     </body>
 </html>
