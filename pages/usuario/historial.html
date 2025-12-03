@@ -3,38 +3,135 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduShare</title>
+        <title>EduShare - Historial</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+        
+        <!-- Estilos base del dashboard -->
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        
+        <!-- Estilos específicos de historial -->
         <link rel="stylesheet" href="../../css/historial.css" />
-        <script src="https://unpkg.com/lucide@latest"></script>
     </head>
-    <body>
+
+    <body class="dashboard-body">
+        <!-- BARRA SUPERIOR -->
         <header class="topbar">
-            <div class="logo icons">
-                <i data-lucide="menu"></i>
-                <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+            <div class="logo" id="btnLogo">
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <i data-lucide="menu"></i>
+                </button>
+                <img src="../../assets/img/logo.png" alt="Logo EduShare" id="logoImage" />
             </div>
 
             <div class="user-section">
-                <div class="user-info">
+                <button class="user-info" id="userMenuToggle" aria-label="Abrir menú de usuario">
                     <i data-lucide="user"></i>
-                    <span>Juan</span>
-                </div>
-                <div class="icons">
-                    <i data-lucide="download"></i>
-                    <i data-lucide="calendar-days"></i>
-                    <i data-lucide="bell"></i>
-                    <i data-lucide="settings"></i>
+                    <span id="usernameTop">Usuario</span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <button type="button" class="user-dropdown-item" id="btnVerPerfil">
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
                 </div>
             </div>
         </header>
 
-        <main class="content">
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <ul class="sidebar-list">
+                <li>
+                    <button class="sidebar-item" id="navInicio">
+                        <i data-lucide="home"></i>
+                        <span>Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navSubirMaterial">
+                        <i data-lucide="upload-cloud"></i>
+                        <span>Subir materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navMisArchivos">
+                        <i data-lucide="file-text"></i>
+                        <span>Mis archivos</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i>
+                        <span>Explorar materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navForo">
+                        <i data-lucide="messages-square"></i>
+                        <span>Foro</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navReportes">
+                        <i data-lucide="flag"></i>
+                        <span>Reportar material</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navConfiguracion">
+                        <i data-lucide="settings"></i>
+                        <span>Configuración</span>
+                    </button>
+                </li>
+                <li>
+                    <!-- ESTA ES LA ACTIVA -->
+                    <button class="sidebar-item sidebar-item-active" id="navHistorial">
+                        <i data-lucide="clock"></i>
+                        <span>Historial</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navLogros">
+                        <i data-lucide="trophy"></i>
+                        <span>Logros</span>
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
             <section class="historial-container">
-                <h1>HISTORIAL DE MATERIALES</h1>
+                <h1>Historial de Materiales</h1>
 
                 <div class="filtro-section">
                     <i data-lucide="filter"></i>
-                    <span>FILTRAR DOCUMENTOS</span>
+                    <span>Filtrar documentos</span>
                 </div>
 
                 <div class="filtros">
@@ -52,10 +149,7 @@
                 <div class="tabla-actividades">
                     <div class="actividad">
                         <div>
-                            <strong
-                                >Visualización previa del material del
-                                curso</strong
-                            >
+                            <strong>Visualización previa del material del curso</strong>
                             <p>Introducción de algoritmos</p>
                         </div>
                         <span>03/11/2025 12:31pm</span>
@@ -63,10 +157,7 @@
 
                     <div class="actividad">
                         <div>
-                            <strong
-                                >Buscó material del curso Introducción de
-                                algoritmos</strong
-                            >
+                            <strong>Buscó material del curso Introducción de algoritmos</strong>
                             <p>Buscar materiales</p>
                         </div>
                         <span>03/11/2025 12:30pm</span>
@@ -74,10 +165,7 @@
 
                     <div class="actividad">
                         <div>
-                            <strong
-                                >Visualización del material libro de Historia
-                                del Perú</strong
-                            >
+                            <strong>Visualización del material libro de Historia del Perú</strong>
                             <p>Visualización del material</p>
                         </div>
                         <span>03/11/2025 11:45am</span>
@@ -85,10 +173,7 @@
 
                     <div class="actividad">
                         <div>
-                            <strong
-                                >Entró a gestionar sus materiales
-                                favoritos</strong
-                            >
+                            <strong>Entró a gestionar sus materiales favoritos</strong>
                             <p>Gestión de materiales favoritos</p>
                         </div>
                         <span>03/11/2025 11:01am</span>
@@ -96,10 +181,7 @@
 
                     <div class="actividad">
                         <div>
-                            <strong
-                                >Agendó una fecha para su carpeta de
-                                materiales</strong
-                            >
+                            <strong>Agendó una fecha para su carpeta de materiales</strong>
                             <p>Calendario</p>
                         </div>
                         <span>03/11/2025 11:00am</span>
@@ -107,10 +189,7 @@
 
                     <div class="actividad">
                         <div>
-                            <strong
-                                >Visualización previa del material del
-                                curso</strong
-                            >
+                            <strong>Visualización previa del material del curso</strong>
                             <p>Visualización previa</p>
                         </div>
                         <span>03/11/2025 10:40am</span>
@@ -135,12 +214,61 @@
             </section>
         </main>
 
-        <footer class="footer">
-            <button class="btn">Salir</button>
-        </footer>
+        <!-- LUCIDE (Iconos) -->
+        <script src="https://unpkg.com/lucide@latest"></script>
 
+        <!-- JS BASE del Dashboard -->
+        <script src="../../js/dashboard.js"></script>
+
+        <!-- NAV ENTRE PÁGINAS -->
+        <script src="../../js/nav.js"></script>
+
+        <!-- JS ESPECÍFICO DE HISTORIAL (si existe) -->
+        <script src="../../js/historial.js"></script>
+
+        <!-- MENÚ LATERAL / USUARIO -->
         <script>
-            lucide.createIcons();
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.getElementById("sidebar");
+                const sidebarClose = document.getElementById("sidebarClose");
+                const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+                const userMenuToggle = document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
+
+                function openSidebar() {
+                    sidebar.classList.add("open");
+                    sidebarBackdrop.classList.add("visible");
+                }
+
+                function closeSidebar() {
+                    sidebar.classList.remove("open");
+                    sidebarBackdrop.classList.remove("visible");
+                }
+
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openSidebar();
+                });
+                
+                sidebarClose.addEventListener("click", closeSidebar);
+                sidebarBackdrop.addEventListener("click", closeSidebar);
+
+                userMenuToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!userMenuToggle.contains(e.target) && !userDropdown.contains(e.target)) {
+                        userDropdown.classList.remove("open");
+                    }
+                });
+
+                if (window.lucide && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            });
         </script>
     </body>
 </html>
