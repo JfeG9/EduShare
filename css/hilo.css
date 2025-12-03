@@ -33,13 +33,7 @@
     max-width: 780px;
 }
 
-/* Fila de búsqueda + botón "Nuevo hilo" */
-.forum-header-row {
-    margin-top: 10px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
+
 
 /* ==========================
    BUSCADOR
@@ -71,15 +65,6 @@
     outline: none;
 }
 
-.forum-create-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border-radius: 999px;
-    padding-inline: 16px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-}
 
 /* ==========================
    TARJETAS GENERALES
