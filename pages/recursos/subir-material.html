@@ -1,284 +1,330 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduShare - Subir materiales</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare - Subir materiales</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-
-    <!-- Estilos base -->
-    <link rel="stylesheet" href="../../css/dashboard.css" />
-    <!-- Estilos de esta página -->
-    <link rel="stylesheet" href="../../css/subir-material.css" />
-  </head>
-
-  <body class="dashboard-body">
-    <!-- BARRA SUPERIOR -->
-    <header class="topbar">
-      <div class="logo" id="btnLogo">
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-          <i data-lucide="menu"></i>
-        </button>
-        <img
-          src="../../assets/img/logo.png"
-          alt="Logo EduShare"
-          id="logoImage"
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="../../favicon.ico"
         />
-      </div>
 
-      <div class="user-section">
-        <button
-          class="user-info"
-          id="userMenuToggle"
-          aria-label="Abrir menú de usuario"
-        >
-          <i data-lucide="user"></i>
-          <span id="usernameTop">Usuario</span>
-          <i data-lucide="chevron-down" class="chevron-icon"></i>
-        </button>
+        <!-- Estilos base -->
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        <!-- Estilos de esta página -->
+        <link rel="stylesheet" href="../../css/subir-material.css" />
+    </head>
 
-        <div class="user-dropdown" id="userDropdown">
-          <button type="button" class="user-dropdown-item" id="btnVerPerfil">
-            <i data-lucide="id-card"></i>
-            <span>Ver perfil</span>
-          </button>
-          <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
-            <i data-lucide="log-out"></i>
-            <span>Cerrar sesión</span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- MENÚ LATERAL -->
-    <nav class="sidebar" id="sidebar">
-      <div class="sidebar-header">
-        <span>Menú</span>
-        <button
-          class="sidebar-close"
-          id="sidebarClose"
-          aria-label="Cerrar menú"
-        >
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-
-      <ul class="sidebar-list">
-        <li>
-          <button class="sidebar-item" id="navInicio">
-            <i data-lucide="home"></i><span>Inicio</span>
-          </button>
-        </li>
-        <li>
-          <!-- ACTIVA -->
-          <button
-            class="sidebar-item sidebar-item-active"
-            id="navSubirMaterial"
-          >
-            <i data-lucide="upload-cloud"></i><span>Subir materiales</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navMisArchivos">
-            <i data-lucide="file-text"></i><span>Mis archivos</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navExplorarMaterial">
-            <i data-lucide="search"></i><span>Explorar materiales</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navForo">
-            <i data-lucide="messages-square"></i><span>Foro</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navHistorial">
-            <i data-lucide="history"></i><span>Historial de actividad</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navReportes">
-            <i data-lucide="flag"></i><span>Reportar material</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navLogros">
-            <i data-lucide="trophy"></i><span>Logros</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navCalendario">
-            <i data-lucide="calendar-days"></i><span>Calendario</span>
-          </button>
-        </li>
-        <li>
-          <button class="sidebar-item" id="navConfiguracion">
-            <i data-lucide="settings"></i><span>Configuración</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
-      <section class="upload-header">
-        <div>
-          <h2>Subir materiales</h2>
-          <p>Comparte tus apuntes y recursos en formato PDF con otros estudiantes.</p>
-        </div>
-      </section>
-
-      <section class="upload-layout">
-        <!-- PANEL INFORMATIVO -->
-        <article class="upload-info-card">
-          <div class="upload-info-icon">
-            <i data-lucide="sparkles"></i>
-          </div>
-          <h3>Recomendaciones</h3>
-          <ul>
-            <li>Sube solo archivos en formato <strong>PDF</strong>.</li>
-            <li>Usa títulos claros: curso + semana + tema.</li>
-            <li>Agrega etiquetas para que sea más fácil encontrar tu material.</li>
-            <li>Revisa que el contenido esté completo y legible.</li>
-          </ul>
-        </article>
-
-        <!-- FORMULARIO -->
-        <article class="upload-form-card">
-          <form id="formSubirMaterial" class="upload-form">
-            <div class="form-group">
-              <label for="inputTitulo">Título del material</label>
-              <input
-                id="inputTitulo"
-                type="text"
-                placeholder="Ej. Álgebra Lineal - Semana 5"
-                required
-              />
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="inputCurso">Curso</label>
-                <input
-                  id="inputCurso"
-                  type="text"
-                  placeholder="Ej. Matemática II"
+    <body class="dashboard-body">
+        <!-- BARRA SUPERIOR -->
+        <header class="topbar">
+            <div class="logo" id="btnLogo">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                >
+                    <i data-lucide="menu"></i>
+                </button>
+                <img
+                    src="../../assets/img/logo.png"
+                    alt="Logo EduShare"
+                    id="logoImage"
                 />
-              </div>
-
-              <div class="form-group">
-                <label for="inputCarrera">Carrera</label>
-                <input
-                  id="inputCarrera"
-                  type="text"
-                  placeholder="Ej. Ingeniería Civil"
-                />
-              </div>
             </div>
 
-            <div class="form-group">
-              <label for="inputEtiquetas">Etiquetas (opcional)</label>
-              <input
-                id="inputEtiquetas"
-                type="text"
-                placeholder="Ej. semana 5, práctica, teoría"
-              />
-              <span class="field-hint">
-                Separa las etiquetas con comas (,)
-              </span>
+            <div class="user-section">
+                <button
+                    class="user-info"
+                    id="userMenuToggle"
+                    aria-label="Abrir menú de usuario"
+                >
+                    <i data-lucide="user"></i>
+                    <span id="usernameTop">Usuario</span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
+
+                <div class="user-dropdown" id="userDropdown">
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnVerPerfil"
+                    >
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnCerrarSesion"
+                    >
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Cerrar menú"
+                >
+                    <i data-lucide="x"></i>
+                </button>
             </div>
 
-            <div class="form-group">
-              <label>Archivo PDF</label>
-              <div class="file-input">
-                <label for="inputArchivo" class="file-label">
-                  <i data-lucide="file-up"></i>
-                  <span>Selecciona un archivo PDF desde tu dispositivo</span>
-                </label>
-                <input
-                  id="inputArchivo"
-                  type="file"
-                  accept="application/pdf"
-                  class="file-input-native"
-                  required
-                />
-                <p id="fileNameHint" class="file-hint">
-                  Ningún archivo seleccionado.
-                </p>
-              </div>
+            <ul class="sidebar-list">
+                <li>
+                    <button class="sidebar-item" id="navInicio">
+                        <i data-lucide="home"></i><span>Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <!-- ACTIVA -->
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navSubirMaterial"
+                    >
+                        <i data-lucide="upload-cloud"></i
+                        ><span>Subir materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navMisArchivos">
+                        <i data-lucide="file-text"></i><span>Mis archivos</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i
+                        ><span>Explorar materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navForo">
+                        <i data-lucide="messages-square"></i><span>Foro</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navHistorial">
+                        <i data-lucide="history"></i
+                        ><span>Historial de actividad</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navReportes">
+                        <i data-lucide="flag"></i><span>Reportar material</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navLogros">
+                        <i data-lucide="trophy"></i><span>Logros</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navCalendario">
+                        <i data-lucide="calendar-days"></i
+                        ><span>Calendario</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navConfiguracion">
+                        <i data-lucide="settings"></i><span>Configuración</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
+        </nav>
 
-            <button type="submit" class="upload-btn">
-              <i data-lucide="upload-cloud"></i>
-              <span>Subir material</span>
-            </button>
-            <p id="estadoSubida" class="estado-subida"></p>
-          </form>
-        </article>
-      </section>
-    </main>
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-    <!-- ICONOS -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            <section class="upload-header">
+                <div>
+                    <h2>Subir materiales</h2>
+                    <p>
+                        Comparte tus apuntes y recursos en formato PDF con otros
+                        estudiantes.
+                    </p>
+                </div>
+            </section>
 
-    <!-- BASE (debes tener registrarActividad en dashboard.js) -->
-    <script src="../../js/dashboard.js"></script>
-    <!-- NAV ENTRE PÁGINAS -->
-    <script src="../../js/nav.js"></script>
-    <!-- JS DE ESTA PÁGINA -->
-    <script src="../../js/subir-material.js"></script>
+            <section class="upload-layout">
+                <!-- PANEL INFORMATIVO -->
+                <article class="upload-info-card">
+                    <div class="upload-info-icon">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>Recomendaciones</h3>
+                    <ul>
+                        <li>
+                            Sube solo archivos en formato <strong>PDF</strong>.
+                        </li>
+                        <li>Usa títulos claros: curso + semana + tema.</li>
+                        <li>
+                            Agrega etiquetas para que sea más fácil encontrar tu
+                            material.
+                        </li>
+                        <li>
+                            Revisa que el contenido esté completo y legible.
+                        </li>
+                    </ul>
+                </article>
 
-    <!-- LÓGICA MENÚ LATERAL / USUARIO (MISMA BASE QUE EXPLORAR) -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const menuToggle = document.getElementById("menuToggle");
-        const sidebar = document.getElementById("sidebar");
-        const sidebarClose = document.getElementById("sidebarClose");
-        const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+                <!-- FORMULARIO -->
+                <article class="upload-form-card">
+                    <form id="formSubirMaterial" class="upload-form">
+                        <div class="form-group">
+                            <label for="inputTitulo">Título del material</label>
+                            <input
+                                id="inputTitulo"
+                                type="text"
+                                placeholder="Ej. Álgebra Lineal - Semana 5"
+                                required
+                            />
+                        </div>
 
-        const userMenuToggle = document.getElementById("userMenuToggle");
-        const userDropdown = document.getElementById("userDropdown");
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inputCurso">Curso</label>
+                                <input
+                                    id="inputCurso"
+                                    type="text"
+                                    placeholder="Ej. Matemática II"
+                                />
+                            </div>
 
-        function openSidebar() {
-          sidebar.classList.add("open");
-          sidebarBackdrop.classList.add("visible");
-        }
+                            <div class="form-group">
+                                <label for="inputCarrera">Carrera</label>
+                                <input
+                                    id="inputCarrera"
+                                    type="text"
+                                    placeholder="Ej. Ingeniería Civil"
+                                />
+                            </div>
+                        </div>
 
-        function closeSidebar() {
-          sidebar.classList.remove("open");
-          sidebarBackdrop.classList.remove("visible");
-        }
+                        <div class="form-group">
+                            <label for="inputEtiquetas"
+                                >Etiquetas (opcional)</label
+                            >
+                            <input
+                                id="inputEtiquetas"
+                                type="text"
+                                placeholder="Ej. semana 5, práctica, teoría"
+                            />
+                            <span class="field-hint">
+                                Separa las etiquetas con comas (,)
+                            </span>
+                        </div>
 
-        menuToggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-          openSidebar();
-        });
-        sidebarClose.addEventListener("click", closeSidebar);
-        sidebarBackdrop.addEventListener("click", closeSidebar);
+                        <div class="form-group">
+                            <label>Archivo PDF</label>
+                            <div class="file-input">
+                                <label for="inputArchivo" class="file-label">
+                                    <i data-lucide="file-up"></i>
+                                    <span
+                                        >Selecciona un archivo PDF desde tu
+                                        dispositivo</span
+                                    >
+                                </label>
+                                <input
+                                    id="inputArchivo"
+                                    type="file"
+                                    accept="application/pdf"
+                                    class="file-input-native"
+                                    required
+                                />
+                                <p id="fileNameHint" class="file-hint">
+                                    Ningún archivo seleccionado.
+                                </p>
+                            </div>
+                        </div>
 
-        userMenuToggle.addEventListener("click", function (e) {
-          e.stopPropagation();
-          userDropdown.classList.toggle("open");
-        });
+                        <button type="submit" class="upload-btn">
+                            <i data-lucide="upload-cloud"></i>
+                            <span>Subir material</span>
+                        </button>
+                        <p id="estadoSubida" class="estado-subida"></p>
+                    </form>
+                </article>
+            </section>
+        </main>
 
-        document.addEventListener("click", function (e) {
-          if (
-            !userMenuToggle.contains(e.target) &&
-            !userDropdown.contains(e.target)
-          ) {
-            userDropdown.classList.remove("open");
-          }
-        });
+        <!-- ICONOS -->
+        <script src="https://unpkg.com/lucide@latest"></script>
 
-        if (window.lucide && lucide.createIcons) {
-          lucide.createIcons();
-        }
-      });
-    </script>
-  </body>
+        <!-- BASE (debes tener registrarActividad en dashboard.js) -->
+        <script src="../../js/dashboard.js"></script>
+        <!-- NAV ENTRE PÁGINAS -->
+        <script src="../../js/nav.js"></script>
+        <!-- JS DE ESTA PÁGINA -->
+        <script src="../../js/subir-material.js"></script>
+
+        <!-- LÓGICA MENÚ LATERAL / USUARIO (MISMA BASE QUE EXPLORAR) -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.getElementById("sidebar");
+                const sidebarClose = document.getElementById("sidebarClose");
+                const sidebarBackdrop =
+                    document.getElementById("sidebarBackdrop");
+
+                const userMenuToggle =
+                    document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
+
+                function openSidebar() {
+                    sidebar.classList.add("open");
+                    sidebarBackdrop.classList.add("visible");
+                }
+
+                function closeSidebar() {
+                    sidebar.classList.remove("open");
+                    sidebarBackdrop.classList.remove("visible");
+                }
+
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openSidebar();
+                });
+                sidebarClose.addEventListener("click", closeSidebar);
+                sidebarBackdrop.addEventListener("click", closeSidebar);
+
+                userMenuToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (
+                        !userMenuToggle.contains(e.target) &&
+                        !userDropdown.contains(e.target)
+                    ) {
+                        userDropdown.classList.remove("open");
+                    }
+                });
+
+                if (window.lucide && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            });
+        </script>
+    </body>
 </html>
