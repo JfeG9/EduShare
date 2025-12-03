@@ -99,13 +99,40 @@ document.addEventListener("DOMContentLoaded", () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             const base64PDF = e.target.result;
+
+            // ======================================
+            // 1. GUARDAR PDF PARA EL VISOR (igual que antes)
+            // ======================================
             localStorage.setItem("pdfGuardado", base64PDF);
+            if (pdfViewer) pdfViewer.src = base64PDF;
+            if (pdfDownload) pdfDownload.href = base64PDF;
 
-            pdfViewer.src = base64PDF;
-            pdfDownload.href = base64PDF;
+            // ======================================
+            // 2. GUARDAR PDF EN LISTA GLOBAL "materialesSubidos"
+            // ======================================
+            const materiales =
+                JSON.parse(localStorage.getItem("materialesSubidos")) || [];
 
+            const nuevoMaterial = {
+                titulo: file.name.replace(".pdf", ""),
+                dataUrl: base64PDF,
+                fechaSubida: new Date().toISOString(),
+                etiquetas: [],
+                curso: "",
+                carrera: ""
+            };
+
+            materiales.push(nuevoMaterial);
+            localStorage.setItem("materialesSubidos", JSON.stringify(materiales));
+
+            console.log("Material agregado a materialesSubidos:", nuevoMaterial);
+
+            // ======================================
+            // 3. Actualizar miniatura
+            // ======================================
             renderThumbnail(base64PDF);
         };
+
         reader.readAsDataURL(file);
     });
 
