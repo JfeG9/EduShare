@@ -147,8 +147,29 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       
-      // Abrir PDF en nueva pestaña
-      window.open(dataUrl, '_blank');
+      // Limpiar el viewer antes de cargar nuevo contenido
+      if (pdfViewer) {
+        pdfViewer.src = "";
+        // Pequeño delay para asegurar la limpieza
+        setTimeout(() => {
+          pdfViewer.src = dataUrl;
+        }, 50);
+      }
+      
+      if (pdfDownload) {
+        pdfDownload.href = dataUrl;
+        pdfDownload.download = titulo + ".pdf";
+      }
+      
+      if (pdfModalTitle) {
+        pdfModalTitle.textContent = titulo;
+      }
+      
+      // Mostrar modal en pantalla completa
+      if (pdfModal) {
+        pdfModal.style.display = "flex";
+        document.body.classList.add("modal-open");
+      }
     });
 
     btnDescargar.addEventListener("click", () => {
