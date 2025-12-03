@@ -1,88 +1,54 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+body.dark-mode .titulo {
+    color: #f9fafb;
 }
 
-body {
-    background-color: #dfdadafa;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+body.dark-mode .card {
+    background: #0b1620;
+    border: 1px solid #17212b;
 }
 
-.topbar {
-    background: #2c669a;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
-    height: 70px;
+body.dark-mode .card h2 {
+    color: #f9fafb;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+body.dark-mode .card p {
+    color: #e5e7eb;
 }
 
-.logo img {
-    height: 50px;
+body.dark-mode .progress-bar {
+    background: #17212b;
 }
 
-.user-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+body.dark-mode .progress {
+    background: linear-gradient(90deg, #0ea5e9, #22d3ee);
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #ffffff22;
-    padding: 6px 12px;
-    border-radius: 20px;
+body.dark-mode .achievement-icons svg {
+    stroke: #22d3ee;
 }
 
-.user-info svg {
-    width: 20px;
-    height: 20px;
-    stroke: #fff;
+body.dark-mode .mission {
+    color: #e5e7eb;
 }
 
-.user-info span {
-    color: #fff;
-    font-weight: 500;
+body.dark-mode .mission svg {
+    stroke: #22d3ee;
 }
 
-.icons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+body.dark-mode .ranking li {
+    background: #081b2b;
+    border-bottom: 1px solid #17212b;
 }
 
-.icons svg {
-    width: 24px;
-    height: 24px;
-    stroke: #77e6c8;
-    stroke-width: 2;
-    cursor: pointer;
-    transition: stroke 0.2s;
+body.dark-mode .pos {
+    color: #22d3ee;
 }
 
-.icons svg:hover {
-    stroke: #fff;
+body.dark-mode .score {
+    color: #0ea5e9;
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
-    background: #f8fafb;
-}
-
+/* Estilos base de logros.css */
 .titulo {
     text-align: center;
     font-size: 36px;
@@ -108,6 +74,7 @@ body {
     align-items: center;
     gap: 20px;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .progress-bar {
@@ -122,11 +89,14 @@ body {
     background: #77bbe6;
     height: 12px;
     border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .user-icon {
     width: 110px;
     height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #77bbe6, #2c669a);
 }
 
 .achievement-icons {
@@ -139,6 +109,7 @@ body {
     stroke: #2c669a;
     width: 36px;
     height: 36px;
+    transition: stroke 0.3s ease;
 }
 
 .mission {
@@ -151,6 +122,12 @@ body {
 .mission svg {
     width: 30px;
     height: 30px;
+    stroke: #2c669a;
+}
+
+.ranking {
+    list-style: none;
+    width: 100%;
 }
 
 .ranking li {
@@ -159,6 +136,7 @@ body {
     align-items: center;
     padding: 10px 15px;
     border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .pos {
@@ -173,30 +151,14 @@ body {
     font-size: 18px;
 }
 
-.footer {
-    background: #fff;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 30px;
-    height: 70px;
-    border-top: 1px solid #000;
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
-    border: 1px solid #000;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-    background: #77bbe6;
-    color: #000;
-    transition: background 0.2s;
-}
-
-.btn:hover {
-    background: #9bd3f0;
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
 }
