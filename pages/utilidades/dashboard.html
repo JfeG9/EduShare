@@ -1,328 +1,293 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduShare - Inicio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduShare - Inicio</title>
 
-        <link
-            rel="shortcut icon"
-            type="image/x-icon"
-            href="../../favicon.ico"
-        />
-        <link rel="stylesheet" href="../../css/dashboard.css" />
-    </head>
-    <body class="dashboard-body">
-        <!-- Barra superior -->
-        <header class="top-bar">
-            <div class="logo-box">
-                <i data-lucide="menu" class="top-icon"></i>
-                <img
-                    src="../../assets/img/logo.png"
-                    alt="EduShare"
-                    class="logo"
-                    id="logo"
-                />
-            </div>
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+  </head>
 
-            <div class="top-icons">
-                <i data-lucide="download" class="top-icon"></i>
-                <i id="btnTheme" data-lucide="sun" class="top-icon"></i>
-                <i data-lucide="calendar-days" class="top-icon"></i>
-                <i data-lucide="bell" class="top-icon"></i>
-                <i id="btnSettings" data-lucide="settings" class="top-icon"></i>
-            </div>
-        </header>
+  <body class="dashboard-body">
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+      <div class="logo" id="btnLogo">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+          <i data-lucide="menu"></i>
+        </button>
+        <img src="../../assets/img/logo.png" alt="Logo EduShare" id="logoImage"/>
+      </div>
 
-        <!-- Menú lateral derecho -->
-        <aside class="right-menu">
-            <div class="side-card">
-                <span>Cerrar sesión</span>
-                <button id="btnCerrarSesion" class="btn-secondary">
-                    Salir
-                </button>
-            </div>
-        </aside>
+      <div class="user-section">
+        <button class="user-info" id="userMenuToggle" aria-label="Abrir menú de usuario">
+          <i data-lucide="user"></i>
+          <span id="usernameTop">LupeCR9</span>
+          <i data-lucide="chevron-down" class="chevron-icon"></i>
+        </button>
 
-        <!-- Contenido principal -->
-        <main class="main-content">
-            <section class="profile-banner">
-                <div class="banner-inner">
-                    <div class="profile-avatar"></div>
-                    <div>
-                        <h2 id="username" class="username">
-                            Nombre de usuario
-                        </h2>
-                        <p class="stats">
-                            0 publicaciones · 0 seguidores · 0 seguidos
-                        </p>
-                    </div>
-                </div>
-            </section>
+        <div class="user-dropdown" id="userDropdown">
+          <button type="button" class="user-dropdown-item" id="btnVerPerfil">
+            <i data-lucide="id-card"></i>
+            <span>Ver perfil</span>
+          </button>
+          <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
+            <i data-lucide="log-out"></i>
+            <span>Cerrar sesión</span>
+          </button>
+        </div>
+      </div>
+    </header>
 
-            <section class="content-area">
-                <p class="welcome-text">
-                    Prepárate para ser parte de la comunidad en esta plataforma
-                    de estudio N°1 del Perú
-                </p>
+    <!-- MENÚ LATERAL COMPLETO -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span>Menú</span>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
 
-                <div class="action-buttons">
-                    <a href="../busqueda/busqueda.html">
-                        <button class="btn-primary action-btn">
-                            Buscar material
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button class="btn-outline action-btn">
-                            Gestión de materiales
-                        </button>
-                    </a>
-                    <a href="#">
-                        <button class="btn-outline action-btn">
-                            Registro de licencias
-                        </button>
-                    </a>
-                </div>
+      <ul class="sidebar-list">
+        <li>
+          <button class="sidebar-item sidebar-item-active" id="navInicio">
+            <i data-lucide="home"></i>
+            <span>Inicio</span>
+          </button>
+        </li>
 
-                <h3 class="faq-title">Preguntas Frecuentes</h3>
+        <li>
+          <button class="sidebar-item" id="navSubirMaterial">
+            <i data-lucide="upload-cloud"></i>
+            <span>Subir materiales</span>
+          </button>
+        </li>
 
-                <section class="faq-panel">
-                    <details>
-                        <summary>
-                            ¿Puedo iniciar sesión con cualquier correo?
-                        </summary>
-                        <p>
-                            Sí, puedes usar tanto tu correo personal como
-                            institucional. Ambos te brindan acceso gratuito a la
-                            plataforma.
-                        </p>
-                    </details>
+        <li>
+          <button class="sidebar-item" id="navMisArchivos">
+            <i data-lucide="file-text"></i>
+            <span>Mis archivos</span>
+          </button>
+        </li>
 
-                    <details>
-                        <summary>
-                            ¿Qué es el registro gratuito mejorado?
-                        </summary>
-                        <p>
-                            Es una actualización de tu cuenta actual con
-                            funciones adicionales.
-                        </p>
-                    </details>
+        <li>
+          <button class="sidebar-item" id="navExplorarMaterial">
+            <i data-lucide="search"></i>
+            <span>Explorar materiales</span>
+          </button>
+        </li>
 
-                    <details>
-                        <summary>¿La plataforma tiene una app oficial?</summary>
-                        <p>
-                            Próximamente se lanzarán versiones móviles con
-                            herramientas premium.
-                        </p>
-                    </details>
-                </section>
+        <li>
+          <button class="sidebar-item" id="navForo">
+            <i data-lucide="messages-square"></i>
+            <span>Foro</span>
+          </button>
+        </li>
 
-                <!-- ==========================
-                     SECCIÓN PARA SUBIR Y VER PDF (MINIATURA + MODAL)
-                =========================== -->
-                <section class="pdf-section">
-                    <div class="pdf-header">
-                        <h3>Visor de PDF</h3>
-                        <p class="pdf-subtitle">
-                            Sube un archivo y haz clic en la miniatura para
-                            verlo en grande.
-                        </p>
-                    </div>
+        <li>
+          <button class="sidebar-item" id="navHistorial">
+            <i data-lucide="history"></i>
+            <span>Historial de actividad</span>
+          </button>
+        </li>
 
-                    <input
-                        type="file"
-                        id="pdfUploader"
-                        accept="application/pdf"
-                        class="pdf-input"
-                    />
+        <li>
+          <button class="sidebar-item" id="navReportes">
+            <i data-lucide="flag"></i>
+            <span>Reportar material</span>
+          </button>
+        </li>
 
-                    <!-- Contenedor de miniatura -->
-                    <div
-                        id="pdfThumbnailContainer"
-                        class="pdf-thumbnail-container"
-                    >
-                        <canvas id="pdfThumbnailCanvas"></canvas>
-                        <div class="pdf-thumbnail-overlay">
-                            Click para ver PDF
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </main>
+        <li>
+          <button class="sidebar-item" id="navLogros">
+            <i data-lucide="trophy"></i>
+            <span>Logros</span>
+          </button>
+        </li>
 
-        <!-- Pie de página -->
-        <footer class="main-footer">
-            <div class="footer-column">
-                <h4>Contáctanos</h4>
-                <p>Teléfono: 01 211111</p>
-                <p>Whatsapp: +51 999 888 777</p>
-                <p>Whatsapp: +51 999 777 665</p>
-            </div>
-            <div class="footer-column">
-                <h4>Nuestras redes sociales</h4>
-                <p>Instagram · Facebook · Twitter</p>
-            </div>
-            <div class="footer-column">
-                <h4>Empresa</h4>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">FAQ</a>
-                <a href="#">Novedades</a>
-            </div>
-            <div class="footer-column">
-                <h4>Políticas</h4>
-                <a href="#">Condiciones</a>
-                <a href="#">Privacidad</a>
-                <a href="#">Configuración de Cookies</a>
-            </div>
-        </footer>
+        <li>
+          <button class="sidebar-item" id="navCalendario">
+            <i data-lucide="calendar-days"></i>
+            <span>Calendario</span>
+          </button>
+        </li>
 
-        <!-- MODAL PARA VER EL PDF COMPLETO -->
-        <div id="pdfModal" class="pdf-modal">
-            <div class="pdf-modal-content">
-                <div class="pdf-modal-header">
-                    <span class="pdf-modal-title">Vista completa del PDF</span>
-                    <button id="closePdfModal" class="pdf-modal-close">
-                        &times;
-                    </button>
-                </div>
-                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
-            </div>
+        <li>
+          <button class="sidebar-item" id="navConfiguracion">
+            <i data-lucide="settings"></i>
+            <span>Configuración</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+      <section class="profile-banner">
+        <div class="banner-inner">
+          <div class="profile-avatar"></div>
+          <div>
+            <h2 id="username" class="username">Nombre de usuario</h2>
+            <p class="stats">0 publicaciones · 0 seguidores · 0 seguidos</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-area">
+        <p class="welcome-text">
+          Prepárate para ser parte de la comunidad en esta plataforma de estudio N°1 del Perú
+        </p>
+
+        <div class="action-buttons">
+          <button class="btn-primary action-btn" id="btnBuscarMaterial">Buscar material</button>
+          <button class="btn-outline action-btn" id="btnGestionMaterial">Gestión de materiales</button>
+          <button class="btn-outline action-btn" id="btnLicencias">Registro de licencias</button>
         </div>
 
-        <!-- Iconos Lucide -->
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script>
-            lucide.createIcons();
-        </script>
+        <h3 class="faq-title">Preguntas Frecuentes</h3>
 
-        <!-- PDF.js desde CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-        <script>
-            pdfjsLib.GlobalWorkerOptions.workerSrc =
-                "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-        </script>
+        <section class="faq-panel">
+          <details>
+            <summary>¿Puedo iniciar sesión con cualquier correo?</summary>
+            <p>Sí, puedes usar tanto tu correo personal como institucional.</p>
+          </details>
 
-        <!-- Tu JS general del dashboard -->
-        <script src="../../js/dashboard.js"></script>
+          <details>
+            <summary>¿Qué es el registro gratuito mejorado?</summary>
+            <p>Es una actualización de tu cuenta actual con funciones adicionales.</p>
+          </details>
 
-        <!-- ==========================
-             JS DEL VISOR DE PDF (miniatura + modal)
-        =========================== -->
-        <script>
-            const pdfUploader = document.getElementById("pdfUploader");
-            const pdfViewer = document.getElementById("pdfViewer");
-            const pdfThumbnailCanvas =
-                document.getElementById("pdfThumbnailCanvas");
-            const pdfThumbnailContainer = document.getElementById(
-                "pdfThumbnailContainer"
-            );
-            const pdfModal = document.getElementById("pdfModal");
-            const closePdfModalBtn = document.getElementById("closePdfModal");
+          <details>
+            <summary>¿La plataforma tiene una app oficial?</summary>
+            <p>Próximamente se lanzarán versiones móviles.</p>
+          </details>
+        </section>
 
-            let currentPDFDataUrl = null;
+        <!-- SECCIÓN PDF -->
+        <section class="pdf-section">
+          <div class="pdf-header">
+            <h3>Visor de PDF</h3>
+            <p class="pdf-subtitle">Sube un archivo y haz clic en la miniatura para verlo en grande.</p>
+          </div>
 
-            // Renderizar miniatura con PDF.js
-            async function renderPdfThumbnail(pdfDataUrl) {
-                currentPDFDataUrl = pdfDataUrl;
-                pdfViewer.src = pdfDataUrl;
+          <input type="file" id="pdfUploader" accept="application/pdf" class="pdf-input" />
 
-                try {
-                    const loadingTask = pdfjsLib.getDocument(pdfDataUrl);
-                    const pdf = await loadingTask.promise;
-                    const page = await pdf.getPage(1);
+          <div id="pdfThumbnailContainer" class="pdf-thumbnail-container">
+            <canvas id="pdfThumbnailCanvas"></canvas>
+            <div class="pdf-thumbnail-overlay">Click para ver PDF</div>
+          </div>
+        </section>
+      </section>
+    </main>
 
-                    const canvas = pdfThumbnailCanvas;
-                    const context = canvas.getContext("2d");
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="footer-column">
+        <h4>Contáctanos</h4>
+        <p>Teléfono: 01 211111</p>
+        <p>Whatsapp: +51 999 888 777</p>
+        <p>Whatsapp: +51 999 777 665</p>
+      </div>
+      <div class="footer-column">
+        <h4>Nuestras redes</h4>
+        <p>Instagram · Facebook · Twitter</p>
+      </div>
+      <div class="footer-column">
+        <h4>Empresa</h4>
+        <a href="#">Sobre Nosotros</a>
+        <a href="#">FAQ</a>
+        <a href="#">Novedades</a>
+      </div>
+      <div class="footer-column">
+        <h4>Políticas</h4>
+        <a href="#">Condiciones</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </footer>
 
-                    const viewport = page.getViewport({ scale: 1 });
+    <!-- MODAL PARA VER PDF -->
+    <div id="pdfModal" class="pdf-modal">
+      <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+          <span class="pdf-modal-title">Vista completa del PDF</span>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <a id="pdfDownload" class="pdf-download-btn" href="#" download="documento.pdf">Descargar</a>
+            <button id="closePdfModal" class="pdf-modal-close">&times;</button>
+          </div>
+        </div>
+        <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+      </div>
+    </div>
 
-                    const maxWidth = 210;
-                    const maxHeight = 300;
+    <!-- LUCIDE -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-                    const widthRatio = maxWidth / viewport.width;
-                    const heightRatio = maxHeight / viewport.height;
-                    const scale = Math.min(widthRatio, heightRatio);
+    <!-- PDF.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    </script>
 
-                    const scaledViewport = page.getViewport({ scale });
+    <!-- JS DEL DASHBOARD -->
+    <script src="../../js/dashboard.js"></script>
 
-                    canvas.width = scaledViewport.width;
-                    canvas.height = scaledViewport.height;
+    <!-- NAVEGACIÓN GLOBAL -->
+    <script src="../../js/nav.js"></script>
 
-                    const renderContext = {
-                        canvasContext: context,
-                        viewport: scaledViewport,
-                    };
+    <!-- MENÚ LATERAL / USUARIO -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+        const sidebarClose = document.getElementById("sidebarClose");
+        const sidebarBackdrop = document.getElementById("sidebarBackdrop");
 
-                    await page.render(renderContext).promise;
-                } catch (err) {
-                    console.error("Error al generar miniatura del PDF:", err);
-                }
-            }
+        const userMenuToggle = document.getElementById("userMenuToggle");
+        const userDropdown = document.getElementById("userDropdown");
 
-            // Cargar Informe_DD1.pdf por defecto si no hay nada guardado
-            async function initPdfFromDefault() {
-                try {
-                    const res = await fetch("../../assets/pdf/Informe_DD1.pdf");
-                    const blob = await res.blob();
+        // --- FIX: Evitar que el botón hamburguesa active el logo ---
+        menuToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          sidebar.classList.add("open");
+          sidebarBackdrop.classList.add("visible");
+        });
 
-                    const reader = new FileReader();
-                    reader.onload = async function (e) {
-                        const base64PDF = e.target.result;
-                        localStorage.setItem("pdfGuardado", base64PDF);
-                        await renderPdfThumbnail(base64PDF);
-                    };
-                    reader.readAsDataURL(blob);
-                } catch (err) {
-                    console.error("No se pudo cargar Informe_DD1.pdf:", err);
-                }
-            }
+        function closeSidebar() {
+          sidebar.classList.remove("open");
+          sidebarBackdrop.classList.remove("visible");
+        }
 
-            // Mostrar PDF guardado (si existe) o cargar el de defecto
-            (async function () {
-                const savedPDF = localStorage.getItem("pdfGuardado");
-                if (!savedPDF) {
-                    await initPdfFromDefault();
-                } else {
-                    await renderPdfThumbnail(savedPDF);
-                }
-            })();
+        sidebarClose.addEventListener("click", closeSidebar);
+        sidebarBackdrop.addEventListener("click", closeSidebar);
 
-            // Subir y reemplazar PDF manualmente
-            pdfUploader.addEventListener("change", () => {
-                const file = pdfUploader.files[0];
-                if (!file) return;
+        // --- FIX: El logo solo navega si se hace click en la imagen, no en el contenedor ---
+        const logoImage = document.getElementById("logoImage");
+        logoImage.addEventListener("click", () => {
+          window.location.href = "../../index.html";
+        });
 
-                const reader = new FileReader();
+        userMenuToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          userDropdown.classList.toggle("open");
+        });
 
-                reader.onload = async (e) => {
-                    const base64PDF = e.target.result;
-                    localStorage.setItem("pdfGuardado", base64PDF);
-                    await renderPdfThumbnail(base64PDF);
-                };
+        document.addEventListener("click", function (e) {
+          if (
+            !userMenuToggle.contains(e.target) &&
+            !userDropdown.contains(e.target)
+          ) {
+            userDropdown.classList.remove("open");
+          }
+        });
 
-                reader.readAsDataURL(file);
-            });
-
-            // Abrir modal al hacer clic en la miniatura
-            pdfThumbnailContainer.addEventListener("click", () => {
-                if (!currentPDFDataUrl) return;
-                pdfModal.style.display = "flex";
-                document.body.classList.add("modal-open");
-            });
-
-            // Cerrar modal
-            closePdfModalBtn.addEventListener("click", () => {
-                pdfModal.style.display = "none";
-                document.body.classList.remove("modal-open");
-            });
-
-            // Cerrar modal al hacer clic fuera del contenido
-            pdfModal.addEventListener("click", (e) => {
-                if (e.target === pdfModal) {
-                    pdfModal.style.display = "none";
-                    document.body.classList.remove("modal-open");
-                }
-            });
-        </script>
-    </body>
+        if (window.lucide && lucide.createIcons) {
+          lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

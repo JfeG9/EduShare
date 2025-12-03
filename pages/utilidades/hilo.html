@@ -1,114 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduShare Foro</title>
-    <link rel="stylesheet" href="../../css/hilo.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduShare — Hilo del foro</title>
 
+  <!-- Estilos base del dashboard (topbar, sidebar, fondo) -->
+  <link rel="stylesheet" href="../../css/dashboard.css" />
+  <!-- Estilos específicos del foro/hilo -->
+  <link rel="stylesheet" href="../../css/hilo.css" />
 </head>
-<body>
-    <header class="topbar">
-        <div class="logo icons">
-            <i data-lucide="menu"></i>
-            <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+<body class="dashboard-body">
+  <!-- BARRA SUPERIOR -->
+  <header class="topbar">
+    <div class="logo">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <i data-lucide="menu"></i>
+      </button>
+      <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+    </div>
+
+    <div class="user-section">
+      <button
+        class="user-info"
+        id="userMenuToggle"
+        aria-label="Abrir menú de usuario"
+      >
+        <i data-lucide="user"></i>
+        <span id="usernameTop">Usuario</span>
+        <i data-lucide="chevron-down" class="chevron-icon"></i>
+      </button>
+
+      <div class="user-dropdown" id="userDropdown">
+        <button type="button" class="user-dropdown-item" id="btnVerPerfil">
+          <i data-lucide="id-card"></i>
+          <span>Ver perfil</span>
+        </button>
+        <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
+          <i data-lucide="log-out"></i>
+          <span>Cerrar sesión</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ LATERAL -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span>Menú</span>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <ul class="sidebar-list">
+      <li>
+        <button class="sidebar-item" id="navInicio" type="button">
+          <i data-lucide="home"></i>
+          <span>Inicio</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navSubirMaterial" type="button">
+          <i data-lucide="upload-cloud"></i>
+          <span>Subir materiales</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navMisArchivos" type="button">
+          <i data-lucide="file-text"></i>
+          <span>Mis archivos</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navExplorarMaterial" type="button">
+          <i data-lucide="search"></i>
+          <span>Explorar materiales</span>
+        </button>
+      </li>
+      <li>
+        <!-- Página actual -->
+        <button class="sidebar-item sidebar-item-active" id="navForo" type="button">
+          <i data-lucide="messages-square"></i>
+          <span>Foro</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navHistorial" type="button">
+          <i data-lucide="history"></i>
+          <span>Historial de actividad</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navReportes" type="button">
+          <i data-lucide="flag"></i>
+          <span>Reportar material</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navLogros" type="button">
+          <i data-lucide="trophy"></i>
+          <span>Logros</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navCalendario" type="button">
+          <i data-lucide="calendar-days"></i>
+          <span>Calendario</span>
+        </button>
+      </li>
+      <li>
+        <button class="sidebar-item" id="navConfiguracion" type="button">
+          <i data-lucide="settings"></i>
+          <span>Configuración</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- CONTENIDO DEL HILO -->
+  <!-- OJO: usamos main-content para que herede el mismo ancho/centrado que el dashboard -->
+  <main class="main-content forum-page">
+    <!-- Encabezado del hilo -->
+    <section class="forum-top">
+      <h1 class="forum-title">Hilo de consultas</h1>
+      <p class="forum-subtitle">
+        Deja tus dudas o consejos. Este espacio se llenará con los mensajes de los estudiantes cuando inicien sesión.
+      </p>
+
+      <div class="forum-header-row">
+        <div class="forum-search">
+          <i data-lucide="search"></i>
+          <input
+            type="text"
+            id="buscarMensajes"
+            placeholder="Buscar dentro de este hilo..."
+          />
         </div>
 
-        <div class="user-section">
-            <div class="user-info">
-                <i data-lucide="user"></i>
-                <span>LupeCR9</span>
-            </div>
-            <div class="icons">
-                <i data-lucide="download"></i>
-                <i data-lucide="calendar-days"></i>
-                <i data-lucide="bell"></i>
-                <i data-lucide="settings"></i>
-            </div>
+        <button class="btn-primary forum-create-btn" id="btnCrearHilo" type="button">
+          <i data-lucide="plus-circle"></i>
+          <span>Nuevo hilo</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Estado vacío -->
+    <section class="forum-card forum-empty-state" id="emptyState">
+      <div class="forum-empty-icon">
+        <i data-lucide="message-circle"></i>
+      </div>
+      <p class="forum-empty-title">Todavía no hay mensajes en este hilo</p>
+      <p class="forum-empty-text">
+        Cuando un estudiante publique su primera consulta o respuesta, aparecerá aquí.
+      </p>
+    </section>
+
+    <!-- Lista de mensajes (se llena con JS) -->
+    <section class="forum-thread-list" id="listaMensajes">
+      <!-- JS inyectará <article class="thread-card"> aquí -->
+    </section>
+
+    <!-- Caja para escribir -->
+    <section class="forum-card forum-reply" id="replySection">
+      <h2 class="forum-reply-title">Escribe un nuevo mensaje</h2>
+      <p class="forum-reply-subtitle">
+        Tu comentario se publicará con tu cuenta activa. Mantén un tono respetuoso y claro.
+      </p>
+
+      <form id="replyForm">
+        <textarea
+          id="replyText"
+          class="forum-textarea"
+          placeholder="Escribe tu duda, aporte o respuesta aquí..."
+          required
+        ></textarea>
+
+        <div class="forum-reply-actions">
+          <button
+            type="button"
+            class="forum-reply-btn-secondary"
+            id="btnCancelarRespuesta"
+          >
+            Limpiar
+          </button>
+          <button
+            type="submit"
+            class="btn-primary forum-reply-btn-primary"
+            id="btnEnviarRespuesta"
+          >
+            <i data-lucide="send"></i>
+            <span>Publicar mensaje</span>
+          </button>
         </div>
-    </header>
-    <main class="content">
-        <section class="forum-page">
-           
-            <div class="forum-top-row">
-                <div class="search-wrapper">
-                    <i data-lucide="search"></i>
-                    <input type="text" placeholder="Buscar" />
-                </div>
+      </form>
+    </section>
+  </main>
 
-                <button class="btn primary forum-new-thread">
-                    Crear Hilo
-                </button>
-            </div>
-
-           
-            <ul class="thread-list">
-              
-                <li class="thread-card">
-                    <header class="thread-header">
-                        <div class="thread-user">
-                            <i data-lucide="user"></i>
-                            <span class="thread-username">DavidFC</span>
-                        </div>
-                        <span class="thread-time">Hace 18 minutos</span>
-                    </header>
-
-                    <div class="thread-message-box">
-                        <p>
-                            ¡Hola gente! 😩 El profe dijo que el parcial viene fuerte en
-                            integrales por partes y sustitución. ¿Alguien tiene un resumen
-                            claro o un PDF con ejemplos resueltos? Subí el mío pero está
-                            medio desastroso jaja. ¡Gracias de antemano!🙏
-                        </p>
-                    </div>
-                </li>
-
-                
-                <li class="thread-card">
-                    <header class="thread-header">
-                        <div class="thread-user">
-                            <i data-lucide="user"></i>
-                            <span class="thread-username">RosioG</span>
-                        </div>
-                        <span class="thread-time">Ahora mismo</span>
-                    </header>
-
-                    <div class="thread-message-box">
-                        <p>
-                            Alguien que me explique el ejercicio 12 del libro de Serway?
-                            El de la cuerda con dos frecuencias. No entiendo cómo sumar
-                            las ondas ni por qué sale un nodo en x=0.8m
-                        </p>
-                    </div>
-                </li>
-                
-                <li class="thread-card">
-                    <header class="thread-header">
-                        <div class="thread-user">
-                            <i data-lucide="user"></i>
-                            <span class="thread-username">Rodrigo7</span>
-                        </div>
-                        <span class="thread-time">Hace 1 hora</span>
-                    </header>
-
-                    <div class="thread-message-box">
-                        <p>
-                            "Chicos, ayuda 😭 Estoy haciendo un programa con estructuras
-                            para registrar estudiantes y me sale error en esta línea:"
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <button class="btn ghost">Salir</button>
-        <button class="btn primary">Subir archivo</button>
-    </footer>
-    <script>
-        lucide.createIcons();
-    </script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../../js/nav.js"></script>
+  <script src="../../js/hilo.js"></script>
 </body>
 </html>
