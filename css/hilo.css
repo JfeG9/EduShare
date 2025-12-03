@@ -33,13 +33,7 @@
     max-width: 780px;
 }
 
-/* Fila de búsqueda + botón "Nuevo hilo" */
-.forum-header-row {
-    margin-top: 10px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
+
 
 /* ==========================
    BUSCADOR
