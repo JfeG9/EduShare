@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pdfModalTitle.textContent = titulo;
       }
       
-      // Mostrar modal
+      // Mostrar modal en pantalla completa
       if (pdfModal) {
         pdfModal.style.display = "flex";
         document.body.classList.add("modal-open");
