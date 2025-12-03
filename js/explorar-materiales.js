@@ -1,6 +1,6 @@
 // Clave donde se guardan los materiales en localStorage
-// AJUSTA ESTO al nombre que uses en subir-archivo.js
 const STORAGE_KEY = "materialesSubidos";
+const FAVORITES_KEY = "materialesGuardados";
 
 document.addEventListener("DOMContentLoaded", () => {
   const materialsGrid = document.getElementById("materialsGrid");
@@ -18,22 +18,66 @@ document.addEventListener("DOMContentLoaded", () => {
   let materiales = [];
   let materialesFiltrados = [];
 
+  // -------------------------------------------------------------
+  // FAVORITOS (GUARDADOS)
+  // -------------------------------------------------------------
+  function obtenerGuardados() {
+    try {
+      return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+    } catch {
+      return [];
+    }
+  }
+
+  function guardarFavoritos(lista) {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(lista));
+  }
+
+  function estaGuardado(material) {
+    const guardados = obtenerGuardados();
+    return guardados.some((g) => g.dataUrl === material.dataUrl);
+  }
+
+  function toggleGuardado(material) {
+    let guardados = obtenerGuardados();
+
+    if (estaGuardado(material)) {
+      // Quitar de guardados
+      guardados = guardados.filter((g) => g.dataUrl !== material.dataUrl);
+    } else {
+      // Agregar a guardados
+      guardados.push({
+        titulo: material.titulo || material.nombre || "Material sin título",
+        dataUrl: material.dataUrl,
+        fechaGuardado: new Date().toISOString(),
+        curso: material.curso || "",
+        carrera: material.carrera || "",
+        etiquetas: material.etiquetas || [],
+      });
+    }
+
+    guardarFavoritos(guardados);
+  }
+
+  // -------------------------------------------------------------
+  // CARGAR MATERIALES
+  // -------------------------------------------------------------
   function cargarMateriales() {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
-      if (!data) {
-        materiales = [];
-      } else {
-        materiales = JSON.parse(data) || [];
-      }
+      materiales = data ? JSON.parse(data) : [];
     } catch (e) {
       console.error("Error leyendo materiales de localStorage", e);
       materiales = [];
     }
+
     materialesFiltrados = [...materiales];
     renderMateriales();
   }
 
+  // -------------------------------------------------------------
+  // RENDERIZAR TARJETAS
+  // -------------------------------------------------------------
   function renderMateriales() {
     materialsGrid.innerHTML = "";
 
@@ -51,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("article");
       card.className = "material-card";
 
-      // Datos con fallback por si algo viene vacío
       const titulo = mat.titulo || mat.nombre || "Material sin título";
       const curso = mat.curso || mat.asignatura || "";
       const carrera = mat.carrera || "";
@@ -59,13 +102,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const fecha = mat.fechaSubida || mat.fecha || "";
       const dataUrl = mat.dataUrl || mat.url || "";
 
+      const isSaved = estaGuardado(mat);
+
+      // --- HTML de la tarjeta (aquí ubicamos Guardar ARRIBA) ---
       card.innerHTML = `
         <div class="material-card-header">
           <div class="material-icon">
             <i data-lucide="file-text"></i>
           </div>
           <div>
-            <h3 class="material-title" title="${titulo}">${titulo}</h3>
+            <h3 class="material-title">${titulo}</h3>
             <div class="material-meta">
               ${curso ? `<span>${curso}</span>` : ""}
               ${curso && carrera ? " · " : ""}
@@ -73,38 +119,40 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="material-tags">
               ${
-                etiquetas && etiquetas.length
+                etiquetas.length
                   ? etiquetas
-                      .map(
-                        (tag) =>
-                          `<span class="material-tag">${tag}</span>`
-                      )
+                      .map((tag) => `<span class="material-tag">${tag}</span>`)
                       .join("")
                   : ""
               }
             </div>
           </div>
         </div>
+
         <div class="material-actions">
-          <div class="material-actions-left">
-            <button class="btn-pill btn-view" type="button">
-              <i data-lucide="eye"></i>
-              <span>Ver</span>
-            </button>
-            <button class="btn-pill btn-download" type="button">
-              <i data-lucide="download"></i>
-              <span>Descargar</span>
-            </button>
+          <!-- Botón GUARDAR (arriba) -->
+          <button class="btn-pill btn-save" type="button">
+            <i data-lucide="star"></i>
+            <span>${isSaved ? "Guardado ✓" : "Guardar"}</span>
+          </button>
+
+          <!-- Fila inferior: Ver / Descargar + fecha -->
+          <div class="material-actions-bottom">
+            <div class="material-actions-left">
+              <button class="btn-pill btn-view" type="button">
+                <i data-lucide="eye"></i><span>Ver</span>
+              </button>
+              <button class="btn-pill btn-download" type="button">
+                <i data-lucide="download"></i><span>Descargar</span>
+              </button>
+            </div>
+            <span class="material-date">${fecha ? fecha : ""}</span>
           </div>
-          <span class="material-date">
-            ${fecha ? fecha : ""}
-          </span>
         </div>
       `;
 
+      // Botón Ver
       const btnVer = card.querySelector(".btn-view");
-      const btnDescargar = card.querySelector(".btn-download");
-
       btnVer.addEventListener("click", () => {
         if (!dataUrl) return;
         if (pdfViewer) pdfViewer.src = dataUrl;
@@ -114,14 +162,25 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("modal-open");
       });
 
+      // Botón Descargar
+      const btnDescargar = card.querySelector(".btn-download");
       btnDescargar.addEventListener("click", () => {
         if (!dataUrl) return;
         const a = document.createElement("a");
         a.href = dataUrl;
-        a.download = titulo || "material.pdf";
+        a.download = titulo + ".pdf";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+      });
+
+      // Botón Guardar
+      const btnSave = card.querySelector(".btn-save");
+      btnSave.addEventListener("click", () => {
+        toggleGuardado(mat);
+        btnSave.querySelector("span").textContent = estaGuardado(mat)
+          ? "Guardado ✓"
+          : "Guardar";
       });
 
       materialsGrid.appendChild(card);
@@ -133,6 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // -------------------------------------------------------------
+  // FILTROS Y BUSQUEDA
+  // -------------------------------------------------------------
   function aplicarFiltros() {
     const texto = searchInput.value.toLowerCase().trim();
     const filtro = filterSelect.value;
@@ -143,35 +205,36 @@ document.addEventListener("DOMContentLoaded", () => {
       const carrera = (mat.carrera || "").toLowerCase();
       const etiquetas = (mat.etiquetas || []).join(" ").toLowerCase();
 
-      const coincideTexto =
+      return (
         !texto ||
         titulo.includes(texto) ||
         curso.includes(texto) ||
         carrera.includes(texto) ||
-        etiquetas.includes(texto);
-
-      return coincideTexto;
+        etiquetas.includes(texto)
+      );
     });
 
-    // Ordenar según filtro
     if (filtro === "recientes") {
       materialesFiltrados.sort((a, b) => {
-        const fa = new Date(a.fechaSubida || a.fecha || 0).getTime();
-        const fb = new Date(b.fechaSubida || b.fecha || 0).getTime();
-        return fb - fa;
+        return (
+          new Date(b.fechaSubida || b.fecha || 0) -
+          new Date(a.fechaSubida || a.fecha || 0)
+        );
       });
-    } else if (filtro === "antiguos") {
+    }
+
+    if (filtro === "antiguos") {
       materialesFiltrados.sort((a, b) => {
-        const fa = new Date(a.fechaSubida || a.fecha || 0).getTime();
-        const fb = new Date(b.fechaSubida || b.fecha || 0).getTime();
-        return fa - fb;
+        return (
+          new Date(a.fechaSubida || a.fecha || 0) -
+          new Date(b.fechaSubida || b.fecha || 0)
+        );
       });
     }
 
     renderMateriales();
   }
 
-  // Eventos
   searchInput.addEventListener("input", aplicarFiltros);
   filterSelect.addEventListener("change", aplicarFiltros);
 
@@ -188,6 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Cargar y pintar
+  // Inicializar
   cargarMateriales();
 });
