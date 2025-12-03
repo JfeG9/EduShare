@@ -1,205 +1,276 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduShare - Reportar Material</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare - Reportar Material</title>
 
-  <link rel="stylesheet" href="../../css/dashboard.css" />
-  <link rel="stylesheet" href="../../css/reportar-material.css" />
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        <link rel="stylesheet" href="../../css/reportar-material.css" />
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
 
-<body class="dashboard-body">
+    <body class="dashboard-body">
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="logo" id="btnLogo">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                >
+                    <i data-lucide="menu"></i>
+                </button>
+                <img
+                    id="logoImage"
+                    src="../../assets/img/logo.png"
+                    alt="Logo EduShare"
+                />
+            </div>
 
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <div class="logo" id="btnLogo">
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <i data-lucide="menu"></i>
-      </button>
-      <img id="logoImage" src="../../assets/img/logo.png" alt="Logo EduShare" />
-    </div>
+            <div class="user-section">
+                <button
+                    class="user-info"
+                    id="userMenuToggle"
+                    aria-label="Abrir menú de usuario"
+                >
+                    <i data-lucide="user"></i>
+                    <span id="usernameTop">Usuario</span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
 
-    <div class="user-section">
-      <button
-        class="user-info"
-        id="userMenuToggle"
-        aria-label="Abrir menú de usuario"
-      >
-        <i data-lucide="user"></i>
-        <span id="usernameTop">Usuario</span>
-        <i data-lucide="chevron-down" class="chevron-icon"></i>
-      </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnVerPerfil"
+                    >
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnCerrarSesion"
+                    >
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
 
-      <div class="user-dropdown" id="userDropdown">
-        <button type="button" class="user-dropdown-item" id="btnVerPerfil">
-          <i data-lucide="id-card"></i>
-          <span>Ver perfil</span>
-        </button>
-        <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
-          <i data-lucide="log-out"></i>
-          <span>Cerrar sesión</span>
-        </button>
-      </div>
-    </div>
-  </header>
+        <!-- SIDEBAR -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Cerrar menú"
+                >
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
 
-  <!-- SIDEBAR -->
-  <nav class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <span>Menú</span>
-      <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
-        <i data-lucide="x"></i>
-      </button>
-    </div>
+            <ul class="sidebar-list">
+                <li>
+                    <button class="sidebar-item" id="navInicio">
+                        <i data-lucide="home"></i><span>Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navSubirMaterial">
+                        <i data-lucide="upload-cloud"></i
+                        ><span>Subir materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navMisArchivos">
+                        <i data-lucide="file-text"></i><span>Mis archivos</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navExplorarMaterial">
+                        <i data-lucide="search"></i
+                        ><span>Explorar materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navForo">
+                        <i data-lucide="messages-square"></i><span>Foro</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navHistorial">
+                        <i data-lucide="history"></i
+                        ><span>Historial de actividad</span>
+                    </button>
+                </li>
 
-    <ul class="sidebar-list">
-      <li><button class="sidebar-item" id="navInicio"><i data-lucide="home"></i><span>Inicio</span></button></li>
-      <li><button class="sidebar-item" id="navSubirMaterial"><i data-lucide="upload-cloud"></i><span>Subir materiales</span></button></li>
-      <li><button class="sidebar-item" id="navMisArchivos"><i data-lucide="file-text"></i><span>Mis archivos</span></button></li>
-      <li><button class="sidebar-item" id="navExplorarMaterial"><i data-lucide="search"></i><span>Explorar materiales</span></button></li>
-      <li><button class="sidebar-item" id="navForo"><i data-lucide="messages-square"></i><span>Foro</span></button></li>
-      <li><button class="sidebar-item" id="navHistorial"><i data-lucide="history"></i><span>Historial de actividad</span></button></li>
+                <li>
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navReportes"
+                    >
+                        <i data-lucide="flag"></i>
+                        <span>Reportar material</span>
+                    </button>
+                </li>
 
-      <li>
-        <button class="sidebar-item sidebar-item-active" id="navReportes">
-          <i data-lucide="flag"></i>
-          <span>Reportar material</span>
-        </button>
-      </li>
+                <li>
+                    <button class="sidebar-item" id="navConfiguracion">
+                        <i data-lucide="settings"></i><span>Configuración</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
 
-      <li><button class="sidebar-item" id="navConfiguracion"><i data-lucide="settings"></i><span>Configuración</span></button></li>
-    </ul>
-  </nav>
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+        <!-- CONTENIDO -->
+        <main class="main-content">
+            <section class="report-card">
+                <h2 class="report-title">Reportar material</h2>
+                <p class="report-subtitle">
+                    Busca el material que deseas reportar y cuéntanos qué
+                    problema encontraste.
+                </p>
 
-  <!-- CONTENIDO -->
-  <main class="main-content">
-    <section class="report-card">
-      <h2 class="report-title">Reportar material</h2>
-      <p class="report-subtitle">
-        Busca el material que deseas reportar y cuéntanos qué problema encontraste.
-      </p>
+                <!-- Selector de material -->
+                <div class="material-picker">
+                    <label class="label">Buscar material</label>
+                    <div class="search-box search-box-small">
+                        <i data-lucide="search"></i>
+                        <input
+                            type="text"
+                            id="searchMaterial"
+                            placeholder="Escribe el título del PDF que quieres reportar..."
+                        />
+                    </div>
 
-      <!-- Selector de material -->
-      <div class="material-picker">
-        <label class="label">Buscar material</label>
-        <div class="search-box search-box-small">
-          <i data-lucide="search"></i>
-          <input
-            type="text"
-            id="searchMaterial"
-            placeholder="Escribe el título del PDF que quieres reportar..."
-          />
-        </div>
+                    <div id="materialResults" class="material-results">
+                        <p class="material-results-empty">
+                            Escribe para buscar entre los materiales subidos.
+                        </p>
+                    </div>
 
-        <div id="materialResults" class="material-results">
-          <p class="material-results-empty">
-            Escribe para buscar entre los materiales subidos.
-          </p>
-        </div>
+                    <label class="label">Material seleccionado</label>
+                    <input
+                        type="text"
+                        id="inputMaterialTitulo"
+                        class="input"
+                        placeholder="Ninguno seleccionado"
+                        readonly
+                    />
+                    <input type="hidden" id="inputMaterialIndex" />
+                </div>
 
-        <label class="label">Material seleccionado</label>
-        <input
-          type="text"
-          id="inputMaterialTitulo"
-          class="input"
-          placeholder="Ninguno seleccionado"
-          readonly
-        />
-        <input type="hidden" id="inputMaterialIndex" />
-      </div>
+                <form id="formReporte" class="report-form">
+                    <label class="label">Motivo del reporte *</label>
+                    <select id="inputMotivo" class="input" required>
+                        <option value="">Selecciona un motivo</option>
+                        <option value="contenido_inapropiado">
+                            Contenido inapropiado
+                        </option>
+                        <option value="información_falsa">
+                            Información falsa
+                        </option>
+                        <option value="plagio">
+                            Plagio / derechos de autor
+                        </option>
+                        <option value="spam">Spam</option>
+                        <option value="otro">Otro</option>
+                    </select>
 
-      <form id="formReporte" class="report-form">
-        <label class="label">Motivo del reporte *</label>
-        <select id="inputMotivo" class="input" required>
-          <option value="">Selecciona un motivo</option>
-          <option value="contenido_inapropiado">Contenido inapropiado</option>
-          <option value="información_falsa">Información falsa</option>
-          <option value="plagio">Plagio / derechos de autor</option>
-          <option value="spam">Spam</option>
-          <option value="otro">Otro</option>
-        </select>
+                    <label class="label">Descripción *</label>
+                    <textarea
+                        id="inputDescripcion"
+                        class="input textarea"
+                        rows="5"
+                        placeholder="Describe el problema con el material seleccionado"
+                        required
+                    ></textarea>
 
-        <label class="label">Descripción *</label>
-        <textarea
-          id="inputDescripcion"
-          class="input textarea"
-          rows="5"
-          placeholder="Describe el problema con el material seleccionado"
-          required
-        ></textarea>
+                    <button type="submit" class="btn-primary report-submit">
+                        Enviar reporte
+                    </button>
+                </form>
 
-        <button type="submit" class="btn-primary report-submit">
-          Enviar reporte
-        </button>
-      </form>
+                <p id="msgExito" class="msg-exito" style="display: none">
+                    ✅ Tu reporte ha sido enviado correctamente.
+                </p>
+            </section>
+        </main>
 
-      <p id="msgExito" class="msg-exito" style="display: none;">
-        ✅ Tu reporte ha sido enviado correctamente.
-      </p>
-    </section>
-  </main>
+        <!-- JS -->
+        <script src="../../js/nav.js"></script>
+        <script src="../../js/dashboard.js"></script>
+        <script src="../../js/reportar-material.js"></script>
 
-  <!-- JS -->
-  <script src="../../js/nav.js"></script>
-  <script src="../../js/dashboard.js"></script>
-  <script src="../../js/reportar-material.js"></script>
+        <script>
+            if (window.lucide && lucide.createIcons) {
+                lucide.createIcons();
+            }
+        </script>
+        <script src="../../js/nav.js"></script>
+        <script src="../../js/dashboard.js"></script>
+        <script src="../../js/reportar-material.js"></script>
 
-  <script>
-    if (window.lucide && lucide.createIcons) {
-      lucide.createIcons();
-    }
-  </script>
-   <script src="../../js/nav.js"></script>
-  <script src="../../js/dashboard.js"></script>
-  <script src="../../js/reportar-material.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.getElementById("sidebar");
+                const sidebarClose = document.getElementById("sidebarClose");
+                const sidebarBackdrop =
+                    document.getElementById("sidebarBackdrop");
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const menuToggle = document.getElementById("menuToggle");
-      const sidebar = document.getElementById("sidebar");
-      const sidebarClose = document.getElementById("sidebarClose");
-      const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+                const userMenuToggle =
+                    document.getElementById("userMenuToggle");
+                const userDropdown = document.getElementById("userDropdown");
 
-      const userMenuToggle = document.getElementById("userMenuToggle");
-      const userDropdown = document.getElementById("userDropdown");
+                function openSidebar() {
+                    sidebar.classList.add("open");
+                    sidebarBackdrop.classList.add("visible");
+                }
 
-      function openSidebar() {
-        sidebar.classList.add("open");
-        sidebarBackdrop.classList.add("visible");
-      }
+                function closeSidebar() {
+                    sidebar.classList.remove("open");
+                    sidebarBackdrop.classList.remove("visible");
+                }
 
-      function closeSidebar() {
-        sidebar.classList.remove("open");
-        sidebarBackdrop.classList.remove("visible");
-      }
+                menuToggle.addEventListener("click", openSidebar);
+                sidebarClose.addEventListener("click", closeSidebar);
+                sidebarBackdrop.addEventListener("click", closeSidebar);
 
-      menuToggle.addEventListener("click", openSidebar);
-      sidebarClose.addEventListener("click", closeSidebar);
-      sidebarBackdrop.addEventListener("click", closeSidebar);
+                userMenuToggle.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle("open");
+                });
 
-      userMenuToggle.addEventListener("click", function (e) {
-        e.stopPropagation();
-        userDropdown.classList.toggle("open");
-      });
+                document.addEventListener("click", function (e) {
+                    if (
+                        !userMenuToggle.contains(e.target) &&
+                        !userDropdown.contains(e.target)
+                    ) {
+                        userDropdown.classList.remove("open");
+                    }
+                });
 
-      document.addEventListener("click", function (e) {
-        if (
-          !userMenuToggle.contains(e.target) &&
-          !userDropdown.contains(e.target)
-        ) {
-          userDropdown.classList.remove("open");
-        }
-      });
-
-      if (window.lucide && lucide.createIcons) {
-        lucide.createIcons();
-      }
-    });
-  </script>
-</body>
+                if (window.lucide && lucide.createIcons) {
+                    lucide.createIcons();
+                }
+            });
+        </script>
+    </body>
 </html>

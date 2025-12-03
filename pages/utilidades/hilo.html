@@ -1,196 +1,254 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduShare — Hilo del foro</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduShare — Hilo del foro</title>
 
-  <!-- Estilos base del dashboard (topbar, sidebar, fondo) -->
-  <link rel="stylesheet" href="../../css/dashboard.css" />
-  <!-- Estilos específicos del foro/hilo -->
-  <link rel="stylesheet" href="../../css/hilo.css" />
-</head>
-<body class="dashboard-body">
-  <!-- BARRA SUPERIOR -->
-  <header class="topbar">
-    <div class="logo">
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <i data-lucide="menu"></i>
-      </button>
-      <img src="../../assets/img/logo.png" alt="Logo EduShare" />
-    </div>
+        <!-- Estilos base del dashboard (topbar, sidebar, fondo) -->
+        <link rel="stylesheet" href="../../css/dashboard.css" />
+        <!-- Estilos específicos del foro/hilo -->
+        <link rel="stylesheet" href="../../css/hilo.css" />
+    </head>
+    <body class="dashboard-body">
+        <!-- BARRA SUPERIOR -->
+        <header class="topbar">
+            <div class="logo">
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                >
+                    <i data-lucide="menu"></i>
+                </button>
+                <img src="../../assets/img/logo.png" alt="Logo EduShare" />
+            </div>
 
-    <div class="user-section">
-      <button
-        class="user-info"
-        id="userMenuToggle"
-        aria-label="Abrir menú de usuario"
-      >
-        <i data-lucide="user"></i>
-        <span id="usernameTop">Usuario</span>
-        <i data-lucide="chevron-down" class="chevron-icon"></i>
-      </button>
+            <div class="user-section">
+                <button
+                    class="user-info"
+                    id="userMenuToggle"
+                    aria-label="Abrir menú de usuario"
+                >
+                    <i data-lucide="user"></i>
+                    <span id="usernameTop">Usuario</span>
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                </button>
 
-      <div class="user-dropdown" id="userDropdown">
-        <button type="button" class="user-dropdown-item" id="btnVerPerfil">
-          <i data-lucide="id-card"></i>
-          <span>Ver perfil</span>
-        </button>
-        <button type="button" class="user-dropdown-item" id="btnCerrarSesion">
-          <i data-lucide="log-out"></i>
-          <span>Cerrar sesión</span>
-        </button>
-      </div>
-    </div>
-  </header>
+                <div class="user-dropdown" id="userDropdown">
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnVerPerfil"
+                    >
+                        <i data-lucide="id-card"></i>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="user-dropdown-item"
+                        id="btnCerrarSesion"
+                    >
+                        <i data-lucide="log-out"></i>
+                        <span>Cerrar sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
 
-  <!-- MENÚ LATERAL -->
-  <nav class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <span>Menú</span>
-      <button class="sidebar-close" id="sidebarClose" aria-label="Cerrar menú">
-        <i data-lucide="x"></i>
-      </button>
-    </div>
+        <!-- MENÚ LATERAL -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span>Menú</span>
+                <button
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Cerrar menú"
+                >
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
 
-    <ul class="sidebar-list">
-      <li>
-        <button class="sidebar-item" id="navInicio" type="button">
-          <i data-lucide="home"></i>
-          <span>Inicio</span>
-        </button>
-      </li>
-      <li>
-        <button class="sidebar-item" id="navSubirMaterial" type="button">
-          <i data-lucide="upload-cloud"></i>
-          <span>Subir materiales</span>
-        </button>
-      </li>
-      <li>
-        <button class="sidebar-item" id="navMisArchivos" type="button">
-          <i data-lucide="file-text"></i>
-          <span>Mis archivos</span>
-        </button>
-      </li>
-      <li>
-        <button class="sidebar-item" id="navExplorarMaterial" type="button">
-          <i data-lucide="search"></i>
-          <span>Explorar materiales</span>
-        </button>
-      </li>
-      <li>
-        <!-- Página actual -->
-        <button class="sidebar-item sidebar-item-active" id="navForo" type="button">
-          <i data-lucide="messages-square"></i>
-          <span>Foro</span>
-        </button>
-      </li>
-      <li>
-        <button class="sidebar-item" id="navHistorial" type="button">
-          <i data-lucide="history"></i>
-          <span>Historial de actividad</span>
-        </button>
-      </li>
-      <li>
-        <button class="sidebar-item" id="navReportes" type="button">
-          <i data-lucide="flag"></i>
-          <span>Reportar material</span>
-        </button>
-      </li>
+            <ul class="sidebar-list">
+                <li>
+                    <button class="sidebar-item" id="navInicio" type="button">
+                        <i data-lucide="home"></i>
+                        <span>Inicio</span>
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class="sidebar-item"
+                        id="navSubirMaterial"
+                        type="button"
+                    >
+                        <i data-lucide="upload-cloud"></i>
+                        <span>Subir materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class="sidebar-item"
+                        id="navMisArchivos"
+                        type="button"
+                    >
+                        <i data-lucide="file-text"></i>
+                        <span>Mis archivos</span>
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class="sidebar-item"
+                        id="navExplorarMaterial"
+                        type="button"
+                    >
+                        <i data-lucide="search"></i>
+                        <span>Explorar materiales</span>
+                    </button>
+                </li>
+                <li>
+                    <!-- Página actual -->
+                    <button
+                        class="sidebar-item sidebar-item-active"
+                        id="navForo"
+                        type="button"
+                    >
+                        <i data-lucide="messages-square"></i>
+                        <span>Foro</span>
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class="sidebar-item"
+                        id="navHistorial"
+                        type="button"
+                    >
+                        <i data-lucide="history"></i>
+                        <span>Historial de actividad</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-item" id="navReportes" type="button">
+                        <i data-lucide="flag"></i>
+                        <span>Reportar material</span>
+                    </button>
+                </li>
 
-      <li>
-        <button class="sidebar-item" id="navConfiguracion" type="button">
-          <i data-lucide="settings"></i>
-          <span>Configuración</span>
-        </button>
-      </li>
-    </ul>
-  </nav>
+                <li>
+                    <button
+                        class="sidebar-item"
+                        id="navConfiguracion"
+                        type="button"
+                    >
+                        <i data-lucide="settings"></i>
+                        <span>Configuración</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="theme-toggle-row">
+                    <span>Modo oscuro</span>
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
 
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-  <!-- CONTENIDO DEL HILO -->
-  <!-- OJO: usamos main-content para que herede el mismo ancho/centrado que el dashboard -->
-  <main class="main-content forum-page">
-    <!-- Encabezado del hilo -->
-    <section class="forum-top">
-      <h1 class="forum-title">Hilo de consultas</h1>
-      <p class="forum-subtitle">
-        Deja tus dudas o consejos. Este espacio se llenará con los mensajes de los estudiantes cuando inicien sesión.
-      </p>
+        <!-- CONTENIDO DEL HILO -->
+        <!-- OJO: usamos main-content para que herede el mismo ancho/centrado que el dashboard -->
+        <main class="main-content forum-page">
+            <!-- Encabezado del hilo -->
+            <section class="forum-top">
+                <h1 class="forum-title">Hilo de consultas</h1>
+                <p class="forum-subtitle">
+                    Deja tus dudas o consejos. Este espacio se llenará con los
+                    mensajes de los estudiantes cuando inicien sesión.
+                </p>
 
-      <div class="forum-header-row">
-        <div class="forum-search">
-          <i data-lucide="search"></i>
-          <input
-            type="text"
-            id="buscarMensajes"
-            placeholder="Buscar dentro de este hilo..."
-          />
-        </div>
+                <div class="forum-header-row">
+                    <div class="forum-search">
+                        <i data-lucide="search"></i>
+                        <input
+                            type="text"
+                            id="buscarMensajes"
+                            placeholder="Buscar dentro de este hilo..."
+                        />
+                    </div>
 
-        <button class="btn-primary forum-create-btn" id="btnCrearHilo" type="button">
-          <i data-lucide="plus-circle"></i>
-          <span>Nuevo hilo</span>
-        </button>
-      </div>
-    </section>
+                    <button
+                        class="btn-primary forum-create-btn"
+                        id="btnCrearHilo"
+                        type="button"
+                    >
+                        <i data-lucide="plus-circle"></i>
+                        <span>Nuevo hilo</span>
+                    </button>
+                </div>
+            </section>
 
-    <!-- Estado vacío -->
-    <section class="forum-card forum-empty-state" id="emptyState">
-      <div class="forum-empty-icon">
-        <i data-lucide="message-circle"></i>
-      </div>
-      <p class="forum-empty-title">Todavía no hay mensajes en este hilo</p>
-      <p class="forum-empty-text">
-        Cuando un estudiante publique su primera consulta o respuesta, aparecerá aquí.
-      </p>
-    </section>
+            <!-- Estado vacío -->
+            <section class="forum-card forum-empty-state" id="emptyState">
+                <div class="forum-empty-icon">
+                    <i data-lucide="message-circle"></i>
+                </div>
+                <p class="forum-empty-title">
+                    Todavía no hay mensajes en este hilo
+                </p>
+                <p class="forum-empty-text">
+                    Cuando un estudiante publique su primera consulta o
+                    respuesta, aparecerá aquí.
+                </p>
+            </section>
 
-    <!-- Lista de mensajes (se llena con JS) -->
-    <section class="forum-thread-list" id="listaMensajes">
-      <!-- JS inyectará <article class="thread-card"> aquí -->
-    </section>
+            <!-- Lista de mensajes (se llena con JS) -->
+            <section class="forum-thread-list" id="listaMensajes">
+                <!-- JS inyectará <article class="thread-card"> aquí -->
+            </section>
 
-    <!-- Caja para escribir -->
-    <section class="forum-card forum-reply" id="replySection">
-      <h2 class="forum-reply-title">Escribe un nuevo mensaje</h2>
-      <p class="forum-reply-subtitle">
-        Tu comentario se publicará con tu cuenta activa. Mantén un tono respetuoso y claro.
-      </p>
+            <!-- Caja para escribir -->
+            <section class="forum-card forum-reply" id="replySection">
+                <h2 class="forum-reply-title">Escribe un nuevo mensaje</h2>
+                <p class="forum-reply-subtitle">
+                    Tu comentario se publicará con tu cuenta activa. Mantén un
+                    tono respetuoso y claro.
+                </p>
 
-      <form id="replyForm">
-        <textarea
-          id="replyText"
-          class="forum-textarea"
-          placeholder="Escribe tu duda, aporte o respuesta aquí..."
-          required
-        ></textarea>
+                <form id="replyForm">
+                    <textarea
+                        id="replyText"
+                        class="forum-textarea"
+                        placeholder="Escribe tu duda, aporte o respuesta aquí..."
+                        required
+                    ></textarea>
 
-        <div class="forum-reply-actions">
-          <button
-            type="button"
-            class="forum-reply-btn-secondary"
-            id="btnCancelarRespuesta"
-          >
-            Limpiar
-          </button>
-          <button
-            type="submit"
-            class="btn-primary forum-reply-btn-primary"
-            id="btnEnviarRespuesta"
-          >
-            <i data-lucide="send"></i>
-            <span>Publicar mensaje</span>
-          </button>
-        </div>
-      </form>
-    </section>
-  </main>
+                    <div class="forum-reply-actions">
+                        <button
+                            type="button"
+                            class="forum-reply-btn-secondary"
+                            id="btnCancelarRespuesta"
+                        >
+                            Limpiar
+                        </button>
+                        <button
+                            type="submit"
+                            class="btn-primary forum-reply-btn-primary"
+                            id="btnEnviarRespuesta"
+                        >
+                            <i data-lucide="send"></i>
+                            <span>Publicar mensaje</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="../../js/nav.js"></script>
-  <script src="../../js/hilo.js"></script>
-</body>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="../../js/nav.js"></script>
+        <script src="../../js/hilo.js"></script>
+    </body>
 </html>
