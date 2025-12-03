@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const rutas = {
     navInicio: "../utilidades/dashboard.html",
-    navSubirMaterial: "../recursos/subir-archivo.html",
+    navSubirMaterial: "../recursos/subir-material.html",
     navMisArchivos: "../usuario/mis-archivos.html",
     navExplorarMaterial: "../busqueda/busqueda.html",
     navForo: "../utilidades/hilo.html",
